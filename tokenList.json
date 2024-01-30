@@ -1,0 +1,27 @@
+{
+    "name": "Soroswap",
+    "logoURI": "",
+    "keywords": [
+      "soroswap",
+      "defi"
+    ],
+    "timestamp": "2023-01-30T20:37:00.000+00:00",
+    "tokens": [
+      {
+        "chainId": "testnet",
+        "address": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+        "name": "Stellar Lumens",
+        "symbol": "ZRX",
+        "decimals": 7,
+        "logoURI": ""
+      },
+      {
+        "chainId": "testnet",
+        "address": "CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA",
+        "name": "centre.ioUSDCoin",
+        "symbol": "USDC",
+        "decimals": 7,
+        "logoURI": ""
+      }
+    ]
+}
