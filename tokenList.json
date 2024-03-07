@@ -9,6 +9,13 @@
     "network": "mainnet",
     "tokens": [
       {
+        "address": "CAS3J7GYLGXMF6TDJBBYYSE3HQ6BBSMLNUQ34T6TZMYMW2EVH34XOWMA",
+        "name": "Stellar Lumens",
+        "logoURI": "https://assets.coingecko.com/coins/images/100/standard/Stellar_symbol_black_RGB.png",
+        "symbol": "XLM",
+        "decimals": 7
+      },
+      {
         "address": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
         "name": "USD Coin",
         "symbol": "USDC",
