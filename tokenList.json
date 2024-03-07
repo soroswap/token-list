@@ -6,22 +6,77 @@
       "defi"
     ],
     "timestamp": "2023-01-30T20:37:00.000+00:00",
+    "network": "mainnet",
     "tokens": [
       {
-        "chainId": "testnet",
-        "address": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
-        "name": "Stellar Lumens",
-        "symbol": "ZRX",
-        "decimals": 7,
-        "logoURI": ""
-      },
-      {
-        "chainId": "testnet",
-        "address": "CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA",
-        "name": "centre.ioUSDCoin",
+        "address": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+        "name": "USD Coin",
         "symbol": "USDC",
         "decimals": 7,
-        "logoURI": ""
+        "logoURI": "https://ipfs.io/ipfs/bafkreibpzncuhbk5ozhdw7xkcdoyf3xhwhcwcf6sj7axjzimxw6vm6pvyy"
+      },
+      {
+        "address": "CBF4E5GSTVSITE5Q2ENOTEUQJPBZAU3SBDVLQMSQ7GLBRTSYGUAT722K",
+        "name": "Brazilian Real",
+        "symbol": "BRL",
+        "decimals": 7,
+        "logoURI": "https://ipfs.io/ipfs/bafkreiae7oor6xk7w27o5r7qdh4vw7yfu4c723swftguffgw6s7k4sofhu"
+      },
+      {
+        "address": "CAIRIR3ITE2KNBWHRIAOBBZ2AHIKU5BVTKFTW5IYCOAENR4L5T2THGN6",
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "decimals": 7,
+        "logoURI": "https://ipfs.io/ipfs/bafkreihbyszxadmibtyidcdi7ume4fosyb3yjcqwcazfkfjez722wdiw6u"
+      },
+      {
+        "address": "CCD6H4LBTHAPY3NGEE6TLLRUSPJGX4K5XI2J6E4MUNDB5TNXEKC23H5B",
+        "name": "Peso Digital",
+        "symbol": "ARS",
+        "decimals": 7,
+        "logoURI": "https://ipfs.io/ipfs/bafkreidhcfxkltthg3cechrwh6acxw44xgrmndwmnk5b6ikprhe4yrfsmi"
+      },
+      {
+        "address": "CBVDRT5474OBUEXF5MJB3UGQ5CG7CKGCAH5M4RV5NBCDJUBZ5OXHJLOU",
+        "name": "EURo Coin",
+        "symbol": "EURC",
+        "decimals": 7,
+        "logoURI": "https://ipfs.io/ipfs/bafkreib6tcswtof2e2bmcoks5miqmegkqrftml33ghedsczbhh72ugloza"
+      },
+      {
+        "address": "CBPMFYWP4FFV7PQUYHXJZBXS75EHR6FXYSYEZWH2UM7AUYSKI2Z3PTCG",
+        "name": "Ripple",
+        "symbol": "XRP",
+        "decimals": 7,
+        "logoURI": "https://ipfs.io/ipfs/bafkreiheegvgfzbks6tacnlw24ub2frnr7j32rkzamieifhi2avljcly6m"
+      },
+      {
+        "address": "CBDRPADR3KIBJNUBNRTTO4P7NO5RVPMYKRJB5YCZUZ6B66RKYK324UJY",
+        "name": "Chilean PESO",
+        "symbol": "CLPX",
+        "decimals": 7,
+        "logoURI": "https://ipfs.io/ipfs/bafkreihpqcfkijx4tuy6swjo6zggdvffq3hgmzhxeavzl7435fpl5ufvpu"
+      },
+      {
+        "address": "CDZNTXPXR2I7VFDBYBADK2DE2SSGQ3DTXT5MJDCTYUMNVFK3CWG5NVC7",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "decimals": 7,
+        "logoURI": "https://ipfs.io/ipfs/bafkreidiycqxm3ffga2xrdzkaty4bqdpq5d2mm7ylckya4vsa3tstyp66a"
+      },
+      {
+        "address": "CATJTQ2RWJ5VETWM7R3D43EZ55RUCOJTWV6FO4ACOKYLIRU52K3OBF6S",
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "decimals": 7,
+        "logoURI": "https://ipfs.io/ipfs/bafkreifpiarlwyddhwy2mz5ffylun3xp4y4examclmjrkwutwr7yrtod5u"
+      },
+      {
+        "address": "CDCKFBZYF2AQCSM3JOF2ZM27O3Y6AJAI4OTCQKAFNZ3FHBYUTFOKICIY",
+        "name": "XTAR",
+        "symbol": "XTAR",
+        "decimals": 7,
+        "logoURI": "https://ipfs.io/ipfs/bafkreidytzpcgxnlx6ean6zabs2mz373zf5q2l25j27i7okufmuqlzdxqm"
       }
     ]
 }
