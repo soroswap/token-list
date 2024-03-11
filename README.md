@@ -13,10 +13,10 @@ To add a token to the list, follow these steps:
 5. Add the token details to the JSON array in the following format:
 ```
     {
-    "chainId": "testnet",
-    "address": "CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA",
+    "issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+    "contract": "CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA",
     "name": "centre.ioUSDCoin",
-    "symbol": "USDC",
+    "code": "USDC",
     "decimals": 7,
     "logoURI": ""
     }
