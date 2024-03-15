@@ -1,0 +1,10 @@
+{
+  "code": "XRP",
+  "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
+  "contract": "CBSEMU4NLPURIO37O5KNATEIHGY2BTF27PBJH46H5ESRB7MREGWNMYKJ",
+  "name": "Ripple",
+  "org": "Interstellar, Inc.",
+  "domain": "interstellar.exchange",
+  "icon": "https://ipfs.io/ipfs/bafkreig5ehodvqgbx75eftbafcfz3npwasnxy72smwvsv67iqcqnhqvwuq",
+  "decimals": 7
+}

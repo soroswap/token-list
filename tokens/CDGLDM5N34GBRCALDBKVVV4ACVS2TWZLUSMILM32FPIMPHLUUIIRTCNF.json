@@ -1,0 +1,10 @@
+{
+  "code": "FRED",
+  "issuer": "GCA73U2PZFWAXJSNVMEVPNPPJCZGETWPWZC6E4DJAIWP3ZW3BAGYZLV6",
+  "contract": "CDGLDM5N34GBRCALDBKVVV4ACVS2TWZLUSMILM32FPIMPHLUUIIRTCNF",
+  "name": "FRED Energy",
+  "org": "FRED ENERGY Ltd",
+  "domain": "fredenergy.org",
+  "icon": "https://ipfs.io/ipfs/bafkreigk3er23l4mf6yznwf3agqrj2npmbl2yxig5qkrdtwd4od6k2azti",
+  "decimals": 7
+}

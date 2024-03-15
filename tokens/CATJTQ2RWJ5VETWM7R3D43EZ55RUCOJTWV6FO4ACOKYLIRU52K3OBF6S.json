@@ -1,0 +1,10 @@
+{
+  "code": "BTC",
+  "issuer": "GAUTUYY2THLF7SGITDFMXJVYH3LHDSMGEAKSBU267M2K7A3W543CKUEF",
+  "contract": "CATJTQ2RWJ5VETWM7R3D43EZ55RUCOJTWV6FO4ACOKYLIRU52K3OBF6S",
+  "name": "Bitcoin",
+  "org": "unknown",
+  "domain": "dead.apay.io",
+  "icon": "https://ipfs.io/ipfs/bafkreifpiarlwyddhwy2mz5ffylun3xp4y4examclmjrkwutwr7yrtod5u",
+  "decimals": 7
+}

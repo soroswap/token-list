@@ -1,0 +1,10 @@
+{
+  "code": "BTC",
+  "issuer": "GBVOL67TMUQBGL4TZYNMY3ZQ5WGQYFPFD5VJRWXR72VA33VFNL225PL5",
+  "contract": "CAIRIR3ITE2KNBWHRIAOBBZ2AHIKU5BVTKFTW5IYCOAENR4L5T2THGN6",
+  "name": "Bitcoin",
+  "org": "unknown",
+  "domain": "stellarport.io",
+  "icon": "https://ipfs.io/ipfs/bafkreihbyszxadmibtyidcdi7ume4fosyb3yjcqwcazfkfjez722wdiw6u",
+  "decimals": 7
+}

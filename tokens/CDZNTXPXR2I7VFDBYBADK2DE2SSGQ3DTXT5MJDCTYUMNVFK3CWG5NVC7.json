@@ -1,0 +1,10 @@
+{
+  "code": "ETH",
+  "issuer": "GBVOL67TMUQBGL4TZYNMY3ZQ5WGQYFPFD5VJRWXR72VA33VFNL225PL5",
+  "contract": "CDZNTXPXR2I7VFDBYBADK2DE2SSGQ3DTXT5MJDCTYUMNVFK3CWG5NVC7",
+  "name": "Ethereum",
+  "org": "unknown",
+  "domain": "stellarport.io",
+  "icon": "https://ipfs.io/ipfs/bafkreidiycqxm3ffga2xrdzkaty4bqdpq5d2mm7ylckya4vsa3tstyp66a",
+  "decimals": 7
+}

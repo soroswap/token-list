@@ -1,0 +1,10 @@
+{
+  "code": "EURC",
+  "issuer": "GAQRF3UGHBT6JYQZ7YSUYCIYWAF4T2SAA5237Q5LIQYJOHHFAWDXZ7NM",
+  "contract": "CBVDRT5474OBUEXF5MJB3UGQ5CG7CKGCAH5M4RV5NBCDJUBZ5OXHJLOU",
+  "name": "EURo Coin",
+  "org": "MYKOBO",
+  "domain": "mykobo.co",
+  "icon": "https://ipfs.io/ipfs/bafkreib6tcswtof2e2bmcoks5miqmegkqrftml33ghedsczbhh72ugloza",
+  "decimals": 7
+}

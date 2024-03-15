@@ -1,0 +1,10 @@
+{
+  "code": "LSP",
+  "issuer": "GAB7STHVD5BDH3EEYXPI3OM7PCS4V443PYB5FNT6CFGJVPDLMKDM24WK",
+  "contract": "CBXE6V454EUYWVQCI4TCSOG4CSNPQ2BLYOTKAKXYFHO3KNVX4CXYCY2T",
+  "name": "Lumenswap asset",
+  "org": "Lumenswap LLC dba Lumenswap",
+  "domain": "lumenswap.io",
+  "icon": "https://ipfs.io/ipfs/bafkreiazthj4bttq75cxhgaekfxnv7ub6b2hq6qr5qkea4bhy4gie4qegy",
+  "decimals": 7
+}

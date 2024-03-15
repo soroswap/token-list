@@ -1,0 +1,10 @@
+{
+  "code": "PYBC",
+  "issuer": "GBVB43NLVIP2USHXSKI7QQCZKZU2Z6U6A5PAHMIW7LLNVMQJTOX2BZI5",
+  "contract": "CDJXADCJHQJDAQQMUJU4TTRXS4ZAEFIA5F5RG4HP7M42CKQIZCXTCDR2",
+  "name": "PaybandCoin",
+  "org": "Maned Owl Events, LLC",
+  "domain": "luxpayband.io",
+  "icon": "https://ipfs.io/ipfs/bafkreidiczvmtyufd32rbdtgljdtahte3dwzc2xgrvf62z4va46iunj5gm",
+  "decimals": 7
+}
