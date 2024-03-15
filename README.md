@@ -30,8 +30,8 @@ Ensure your token's details are correctly formatted according to the structure a
 2. **Clone Your Fork**: Clone the forked repository to your local machine.
 
    ```bash
-   git clone https://github.com/<your-username>/soroswap-token-list.git
-   cd soroswap-token-list
+   git clone https://github.com/<your-username>/token-list.git
+   cd token-list
    ```
 
 3. **Add Your Token**: Create a new JSON file within the `tokens` directory. Name it `<CONTRACT_ADDRESS>.json`, replacing `<CONTRACT_ADDRESS>` with your token's actual contract address.
