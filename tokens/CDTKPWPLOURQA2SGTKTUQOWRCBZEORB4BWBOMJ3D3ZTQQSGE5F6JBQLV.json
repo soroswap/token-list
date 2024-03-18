@@ -1,0 +1,10 @@
+{
+  "code": "EURC",
+  "issuer": "GDHU6WRG4IEQXM5NZ4BMPKOXHW76MZM4Y2IEMFDVXBSDP6SJY4ITNPP2",
+  "contract": "CDTKPWPLOURQA2SGTKTUQOWRCBZEORB4BWBOMJ3D3ZTQQSGE5F6JBQLV",
+  "name": "EUR Coin",
+  "org": "Circle Internet Financial, LLC",
+  "domain": "circle.com",
+  "icon": "https://ipfs.io/ipfs/bafkreidizqlammdzrrurfq3o5owta77fiyonn6ri72h6rltqimn2xs2by4",
+  "decimals": 7
+}

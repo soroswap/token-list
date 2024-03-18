@@ -1,0 +1,10 @@
+{
+  "code": "StellarNFT",
+  "issuer": "GALZZQF5JXHPHGI5A2ZW2EPL76DU4DWSYYGTPLOAMMEQEEECFSSRIOZJ",
+  "contract": "CAWSVMCGBT4YEDH4PK64TZ3IRTXDHZJ6PDSSUARFLKRG2H3MUBLTVQ6C",
+  "name": "Stellar NFT",
+  "org": "StellarNFT.io",
+  "domain": "stellarnft.io",
+  "icon": "https://ipfs.io/ipfs/bafkreigttnjyjt7nga4ynwwirlcy7ppk7jrhc7tq6yq5aa25kj6ime74pe",
+  "decimals": 7
+}

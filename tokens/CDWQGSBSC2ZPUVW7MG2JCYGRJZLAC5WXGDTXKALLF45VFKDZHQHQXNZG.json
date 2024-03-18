@@ -1,0 +1,10 @@
+{
+  "code": "ETH",
+  "issuer": "GBDEVU63Y6NTHJQQZIKVTC23NWLQVP3WJ2RI2OTSJTNYOIGICST6DUXR",
+  "contract": "CDWQGSBSC2ZPUVW7MG2JCYGRJZLAC5WXGDTXKALLF45VFKDZHQHQXNZG",
+  "name": "Ethereum",
+  "org": "unknown",
+  "domain": "dead.apay.io",
+  "icon": "https://ipfs.io/ipfs/bafkreiclubqmxwdftpqayx4scezugyuyebgi7evdcicyyclaotoawo4xxa",
+  "decimals": 7
+}

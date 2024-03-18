@@ -1,0 +1,10 @@
+{
+  "code": "XRP",
+  "issuer": "GBVOL67TMUQBGL4TZYNMY3ZQ5WGQYFPFD5VJRWXR72VA33VFNL225PL5",
+  "contract": "CBPMFYWP4FFV7PQUYHXJZBXS75EHR6FXYSYEZWH2UM7AUYSKI2Z3PTCG",
+  "name": "Ripple",
+  "org": "unknown",
+  "domain": "stellarport.io",
+  "icon": "https://ipfs.io/ipfs/bafkreiheegvgfzbks6tacnlw24ub2frnr7j32rkzamieifhi2avljcly6m",
+  "decimals": 7
+}

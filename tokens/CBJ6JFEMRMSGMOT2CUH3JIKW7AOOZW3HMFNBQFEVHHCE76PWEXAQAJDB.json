@@ -1,0 +1,10 @@
+{
+  "code": "BTC",
+  "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
+  "contract": "CBJ6JFEMRMSGMOT2CUH3JIKW7AOOZW3HMFNBQFEVHHCE76PWEXAQAJDB",
+  "name": "Bitcoin",
+  "org": "Interstellar, Inc.",
+  "domain": "interstellar.exchange",
+  "icon": "https://ipfs.io/ipfs/bafkreifwufagmqgea3pr2jcfu773pm2evktzi2445jmyfbgmatcz7qttu4",
+  "decimals": 7
+}

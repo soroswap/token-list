@@ -1,0 +1,10 @@
+{
+  "code": "NGNT",
+  "issuer": "GAWODAROMJ33V5YDFY3NPYTHVYQG7MJXVJ2ND3AOGIHYRWINES6ACCPD",
+  "contract": "CDCSVQEMYBNK7URICI77CENLP23OIM4AAXUIJ32Z6V3ZT3QXCP2HJXD7",
+  "name": "Naira Token",
+  "org": "Cowrie Integrated Systems dba Cowrie Exchange",
+  "domain": "cowrie.exchange",
+  "icon": "https://ipfs.io/ipfs/bafkreicctofbpuujxn6s7jh5kc4nzdygacumvp36qhnhtgowesfmkyweoy",
+  "decimals": 7
+}

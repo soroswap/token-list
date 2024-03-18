@@ -1,0 +1,35 @@
+name: Update Token List
+
+on:
+  push:
+    branches:
+      - main 
+      - feat/workflow
+permissions:
+  contents: write
+  pull-requests: write 
+  issues: read
+  packages: none
+  
+jobs:
+  update-token-list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Run script to generate tokenList.json
+        run: node ./scripts/fromTokenDirToTokenList.js
+
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update tokenList.json"
+          commit_options: '-a'  # Include changes to all tracked files
+          branch: ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

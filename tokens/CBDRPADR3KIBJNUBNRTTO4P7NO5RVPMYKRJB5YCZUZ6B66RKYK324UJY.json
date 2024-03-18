@@ -1,0 +1,10 @@
+{
+  "code": "CLPX",
+  "issuer": "GDYSPBVZHPQTYMGSYNOHRZQNLB3ZWFVQ2F7EP7YBOLRGD42XIC3QUX5G",
+  "contract": "CBDRPADR3KIBJNUBNRTTO4P7NO5RVPMYKRJB5YCZUZ6B66RKYK324UJY",
+  "name": "Chilean PESO",
+  "org": "CLPX S.A.",
+  "domain": "clpx.finance",
+  "icon": "https://ipfs.io/ipfs/bafkreihpqcfkijx4tuy6swjo6zggdvffq3hgmzhxeavzl7435fpl5ufvpu",
+  "decimals": 7
+}

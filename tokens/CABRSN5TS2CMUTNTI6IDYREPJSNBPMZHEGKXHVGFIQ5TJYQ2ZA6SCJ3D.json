@@ -1,0 +1,10 @@
+{
+  "code": "UAF",
+  "issuer": "GDT5EUZMXIABSKZAQA4HNTWYOJI2D64DATP6KNVTV4WDZJ3K7FZDRC5E",
+  "contract": "CABRSN5TS2CMUTNTI6IDYREPJSNBPMZHEGKXHVGFIQ5TJYQ2ZA6SCJ3D",
+  "name": "Ukrainian Army Forces support token",
+  "org": "Cassator Corp.",
+  "domain": "uaf.sl8.online",
+  "icon": "https://ipfs.io/ipfs/bafkreigzj2f2ejxsvfnnp77po2my4jng725ozv3qpm3f7qyei3vdb274fi",
+  "decimals": 7
+}
