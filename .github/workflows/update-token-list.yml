@@ -5,7 +5,12 @@ on:
     branches:
       - main 
       - feat/workflow
-
+permissions:
+  contents: write
+  pull-requests: write 
+  issues: read
+  packages: none
+  
 jobs:
   update-token-list:
     runs-on: ubuntu-latest
