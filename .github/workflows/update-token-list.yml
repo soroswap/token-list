@@ -1,10 +1,12 @@
 name: Update Token List
 
 on:
+  pull_request:
+    branches:
+      - main 
   push:
     branches:
       - main 
-      - feat/workflow
 permissions:
   contents: write
   pull-requests: write 
@@ -22,8 +24,11 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Run script to generate tokenList.json
-        run: node ./scripts/fromTokenDirToTokenList.js
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run merge script
+        run: yarn merge
 
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v4
