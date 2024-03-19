@@ -1,0 +1,15 @@
+{
+  "name": "soroswap-token-list",
+  "version": "1.0.0",
+  "description": "Soroswap Token List",
+  "main": "scripts/index.js",
+  "repository": "https://github.com/soroswap/token-list.git",
+  "author": "coderipper <hello@joaquinsoza.dev>",
+  "license": "MIT",
+  "scripts": {
+    "merge": "node scripts/createTokenList"
+  },
+  "dependencies": {
+    "stellar-sdk": "^11.2.2"
+  }
+}
