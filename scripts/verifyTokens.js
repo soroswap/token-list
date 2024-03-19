@@ -15,16 +15,6 @@ function readJsonFile(filePath) {
   }
 }
 
-function writeJsonFile(filePath, data) {
-  try {
-    const jsonData = JSON.stringify(data, null, 2);
-    fs.writeFileSync(filePath, jsonData, 'utf8');
-    console.log(`Successfully written data to ${filePath}`);
-  } catch (err) {
-    console.error(`Error writing file: ${err}`);
-  }
-}
-
 async function getIssuerDomain(issuer) {
   try {
     const accountResponse = await horizonServer.accounts().accountId(issuer).call();
@@ -63,7 +53,7 @@ async function checkIconUrl(url) {
 }
 
 
-async function mergeAndVerifyTokens(directoryPath, tokenListPath) {
+async function verifyNewTokens(directoryPath, tokenListPath) {
   const existingTokenList = readJsonFile(tokenListPath);
   const existingTokens = existingTokenList ? existingTokenList.tokens.map(token => token.contract) : [];
 
@@ -109,34 +99,8 @@ async function mergeAndVerifyTokens(directoryPath, tokenListPath) {
       return tokenData;
     }
   }));
-
-  // Filter out undefined elements (tokens that were already verified)
   const verifiedNewTokens = newTokens.filter(token => token !== undefined);
-
-  if (verifiedNewTokens.length > 0) {
-    // Extract the XLM token
-    const xlmTokenIndex = existingTokenList.tokens.findIndex(token => token.code === "XLM" && token.contract === "CAS3J7GYLGXMF6TDJBBYYSE3HQ6BBSMLNUQ34T6TZMYMW2EVH34XOWMA");
-    let xlmToken = null;
-    if (xlmTokenIndex !== -1) {
-      xlmToken = existingTokenList.tokens.splice(xlmTokenIndex, 1)[0];
-    }
-  
-    const combinedTokens = [...existingTokenList.tokens, ...verifiedNewTokens];
-  
-    const sortedTokens = combinedTokens.sort((a, b) => a.contract.localeCompare(b.contract));
-  
-    if (xlmToken) {
-      sortedTokens.unshift(xlmToken);
-    }
-  
-    const updatedTokenList = {
-      ...existingTokenList,
-      tokens: sortedTokens
-    };
-  
-    writeJsonFile(tokenListPath, updatedTokenList);
-  }
+  console.log('verifiedNewTokens:', verifiedNewTokens);
 }
 
-// Update the paths as needed
-mergeAndVerifyTokens('../tokens', './tokenList.json');
+verifyNewTokens('../tokens', './tokenList.json');

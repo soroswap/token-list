@@ -1,0 +1,22 @@
+name: Verify new Tokens
+
+on:
+  pull_request:
+    branches:
+      - main   
+jobs:
+  update-token-list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run verify tokens script
+        run: yarn verify
