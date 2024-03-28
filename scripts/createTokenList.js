@@ -81,13 +81,14 @@ async function mergeAndVerifyAssets(directoryPath, assetListPath) {
     return;
   }
 
-  const existingAssetsMap = existingAssetsList.assets.reduce((map, asset) => {
-    map[asset.contract] = asset;
-    return map;
-  }, {});
+  // Create a set of existing contract addresses for easy lookup
+  const existingContractsSet = new Set(existingAssetsList.assets.map(asset => asset.contract));
 
   const assetsDir = path.join(__dirname, directoryPath);
   const assetFiles = fs.readdirSync(assetsDir).filter(file => path.extname(file) === '.json');
+
+  // Set to track contracts that are still present in the directory
+  const contractsInDirectory = new Set();
 
   let changesDetected = false;
 
@@ -96,12 +97,14 @@ async function mergeAndVerifyAssets(directoryPath, assetListPath) {
     const assetData = readJsonFile(filePath);
     if (!assetData) continue; // Skip files that couldn't be parsed
 
+    contractsInDirectory.add(assetData.contract);
+
     if (!validate(assetData)) {
       console.error(`Asset validation failed for ${file}:`, validate.errors);
       continue; // Skip invalid assets
     }
 
-    const existingAsset = existingAssetsMap[assetData.contract];
+    const existingAsset = existingAssetsList.assets.find(asset => asset.contract === assetData.contract);
     if (existingAsset) {
       // Check for changes if asset already exists
       const hasChanged = Object.keys(assetData).some(key => JSON.stringify(assetData[key]) !== JSON.stringify(existingAsset[key]));
@@ -109,29 +112,36 @@ async function mergeAndVerifyAssets(directoryPath, assetListPath) {
         console.log(`Changes detected for asset ${assetData.contract} in file ${file}`);
         changesDetected = true;
         // Update the existing asset with new data
-        existingAssetsMap[assetData.contract] = assetData;
+        Object.assign(existingAsset, assetData);
       }
     } else {
-      // New asset, add to the map
+      // New asset, indicate changes and it will be added later
       console.log(`Adding new asset from file ${file}`);
-      existingAssetsMap[assetData.contract] = assetData;
       changesDetected = true;
+      existingAssetsList.assets.push(assetData);
     }
+  }
+
+  // Check for deletions by comparing existing contracts to those found in the directory
+  const contractsToDelete = [...existingContractsSet].filter(contract => !contractsInDirectory.has(contract));
+  if (contractsToDelete.length > 0) {
+    console.log(`Removing deleted assets: ${contractsToDelete.join(', ')}`);
+    changesDetected = true;
+    existingAssetsList.assets = existingAssetsList.assets.filter(asset => !contractsToDelete.includes(asset.contract));
   }
 
   if (changesDetected) {
     const newVersion = incrementVersion(existingAssetsList.version);
-
     const updatedAssetsList = {
       ...existingAssetsList,
       version: newVersion,
-      assets: Object.values(existingAssetsMap).sort((a, b) => a.contract.localeCompare(b.contract))
+      assets: existingAssetsList.assets.sort((a, b) => a.contract.localeCompare(b.contract))
     };
 
     writeJsonFile(assetListPath, updatedAssetsList);
   } else {
     console.log("------------------------------------");
-    console.log("No new assets were added or changes detected.");
+    console.log("No new assets were added, changes detected, or assets deleted.");
     console.log("------------------------------------");
   }
 }
