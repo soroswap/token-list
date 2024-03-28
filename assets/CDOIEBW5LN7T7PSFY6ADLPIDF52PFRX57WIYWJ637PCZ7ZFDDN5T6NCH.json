@@ -4,6 +4,7 @@
   "code": "SDEXEX",
   "name": "SDEX Explorer Token",
   "domain": "sdexexplorer.com",
+  "org": "SDEX Explorer",
   "icon": "https://ipfs.io/ipfs/bafkreiexs7jvn2jaill67333t5wkxhefqcb4rabouzjfpnhrwcjjw4uawa",
   "decimals": 7
 }

@@ -1,9 +1,34 @@
 const fs = require('fs');
 const path = require('path');
-const StellarSdk = require('stellar-sdk');
+const Ajv = require('ajv').default;
+const addFormats = require('ajv-formats');
 
-const horizonServer = new StellarSdk.Horizon.Server('https://horizon.stellar.org');
-const networkPassphrase = StellarSdk.Networks.PUBLIC
+const assetSchema = {
+  "type": "object",
+  "properties": {
+    "name": { "type": "string", "maxLength": 30, "minLength": 5 },
+    "contract": { "type": "string", "pattern": "^C[A-Z0-9]{55}$" },
+    "code": { "type": "string", "pattern": "^[A-Za-z0-9]{1,12}$" },
+    "issuer": { "type": "string", "pattern": "^G[A-Z0-9]{55}$" },
+    "org": { "type": "string", "maxLength": 30, "minLength": 5 },
+    "domain": { "type": "string", "pattern": "^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$" },
+    "icon": { 
+      "type": "string",
+      "oneOf": [
+        { "format": "uri" },
+        { "pattern": "^baf[a-zA-Z0-9]+$" }
+      ]
+    },
+    "decimals": { "type": "integer", "minimum": 0, "maximum": 38 },
+    "comment": { "type": "string", "maxLength": 150 }
+  },
+  "required": ["name", "org"],
+  "anyOf": [
+    { "required": ["contract"] },
+    { "required": ["code", "issuer"] }
+  ],
+  "additionalProperties": false
+};
 
 function readJsonFile(filePath) {
   try {
@@ -25,118 +50,101 @@ function writeJsonFile(filePath, data) {
   }
 }
 
-async function getIssuerDomain(issuer) {
-  try {
-    const accountResponse = await horizonServer.accounts().accountId(issuer).call();
-    return accountResponse.home_domain;
-  } catch (err) {
-    console.error(`Error fetching issuer domain: ${err}`);
-    return null;
-  }
-}
+function incrementVersion(version) {
+  let [major, minor, patch] = version.split('.').map(num => parseInt(num, 10));
 
-async function getAssetRecords(asset) {
-  try {
-    const assetsResponse = await horizonServer.assets().forCode(asset.code).forIssuer(asset.issuer).call()
-    return assetsResponse.records;
-  } catch (err) {
-    console.error(`Error fetching asset records: ${err}`);
-    return null;
+  // Increment version logic
+  patch += 1;
+  if (patch > 9) {
+    patch = 0;
+    minor += 1;
+    if (minor > 9) {
+      minor = 0;
+      major += 1;
+    }
   }
-}
 
-async function checkIconUrl(url) {
-  try {
-      const response = await fetch(url);
-      if (!response.ok) {
-          throw new Error(`Request failed with status ${response.status}`);
-      }
-      const contentType = response.headers.get('Content-Type');
-      if (!contentType.startsWith('image/')) {
-          throw new Error('URL does not point to an image');
-      }
-      console.log('URL points to a valid image');
-  } catch (error) {
-      console.error(`Error: ${error.message}`);
-      throw error;
-  }
+  major = Math.min(major, 999);
+
+  return `${major}.${minor}.${patch}`;
 }
 
 
-async function mergeAndVerifyTokens(directoryPath, tokenListPath) {
-  const existingTokenList = readJsonFile(tokenListPath);
-  const existingTokens = existingTokenList ? existingTokenList.tokens.map(token => token.contract) : [];
+async function mergeAndVerifyAssets(directoryPath, assetListPath) {
+  const ajv = new Ajv();
+  addFormats(ajv);
+  const validate = ajv.compile(assetSchema);
 
-  const tokensDir = path.join(__dirname, directoryPath);
-  const tokenFiles = fs.readdirSync(tokensDir).filter(file => path.extname(file) === '.json');
+  const existingAssetsList = readJsonFile(assetListPath);
+  if (!existingAssetsList || !Array.isArray(existingAssetsList.assets)) {
+    console.error(`Existing asset list is invalid or not found at ${assetListPath}`);
+    return;
+  }
 
-  const newTokens = await Promise.all(tokenFiles.map(async (file) => {
-    const filePath = path.join(tokensDir, file);
-    const tokenData = readJsonFile(filePath);
+  // Create a set of existing contract addresses for easy lookup
+  const existingContractsSet = new Set(existingAssetsList.assets.map(asset => asset.contract));
 
-    // Check if the token is already verified
-    if (!existingTokens.includes(tokenData.contract)) {
-      if (tokenData.issuer) {
-        // Checking issuer domain and provided domain
-        const issuerDomain = await getIssuerDomain(tokenData.issuer);
-        if (issuerDomain !== tokenData.domain) {
-          throw new Error(`Domain mismatch for token ${tokenData.code}: expected ${issuerDomain}, got ${tokenData.domain}`);
-        }
+  const assetsDir = path.join(__dirname, directoryPath);
+  const assetFiles = fs.readdirSync(assetsDir).filter(file => path.extname(file) === '.json');
 
-        // Checking Asset contract address and provided contract address
-        const newAsset = new StellarSdk.Asset(tokenData.code, tokenData.issuer)
-        const newAssetContract = newAsset.contractId(networkPassphrase)
-        if(newAssetContract !== tokenData.contract) {
-          throw new Error(`Contract mismatch for token ${tokenData.code}: expected ${newAssetContract}, got ${tokenData.contract}`);
-        }
+  // Set to track contracts that are still present in the directory
+  const contractsInDirectory = new Set();
 
-        // Checking if asset exists
-        const assetRecords = await getAssetRecords(newAsset)
-        if(assetRecords.length <= 0) {
-          throw new Error(`Asset has no records or doesnt exists`);
-        }
-        
+  let changesDetected = false;
+
+  for (const file of assetFiles) {
+    const filePath = path.join(assetsDir, file);
+    const assetData = readJsonFile(filePath);
+    if (!assetData) continue; // Skip files that couldn't be parsed
+
+    contractsInDirectory.add(assetData.contract);
+
+    if (!validate(assetData)) {
+      console.error(`Asset validation failed for ${file}:`, validate.errors);
+      continue; // Skip invalid assets
+    }
+
+    const existingAsset = existingAssetsList.assets.find(asset => asset.contract === assetData.contract);
+    if (existingAsset) {
+      // Check for changes if asset already exists
+      const hasChanged = Object.keys(assetData).some(key => JSON.stringify(assetData[key]) !== JSON.stringify(existingAsset[key]));
+      if (hasChanged) {
+        console.log(`Changes detected for asset ${assetData.contract} in file ${file}`);
+        changesDetected = true;
+        // Update the existing asset with new data
+        Object.assign(existingAsset, assetData);
       }
-      
-      // Check if icon exists
-      await checkIconUrl(tokenData.icon).catch((error) => {
-        throw new Error(`Icon URL is not valid ${tokenData.icon}`)
-      })
-
-      // TODO: should check if decimal are Correct
-      // TODO: should check if contract exists on soroban
-
-      return tokenData;
+    } else {
+      // New asset, indicate changes and it will be added later
+      console.log(`Adding new asset from file ${file}`);
+      changesDetected = true;
+      existingAssetsList.assets.push(assetData);
     }
-  }));
+  }
 
-  // Filter out undefined elements (tokens that were already verified)
-  const verifiedNewTokens = newTokens.filter(token => token !== undefined);
+  // Check for deletions by comparing existing contracts to those found in the directory
+  const contractsToDelete = [...existingContractsSet].filter(contract => !contractsInDirectory.has(contract));
+  if (contractsToDelete.length > 0) {
+    console.log(`Removing deleted assets: ${contractsToDelete.join(', ')}`);
+    changesDetected = true;
+    existingAssetsList.assets = existingAssetsList.assets.filter(asset => !contractsToDelete.includes(asset.contract));
+  }
 
-  if (verifiedNewTokens.length > 0) {
-    // Extract the XLM token
-    const xlmTokenIndex = existingTokenList.tokens.findIndex(token => token.code === "XLM" && token.contract === "CAS3J7GYLGXMF6TDJBBYYSE3HQ6BBSMLNUQ34T6TZMYMW2EVH34XOWMA");
-    let xlmToken = null;
-    if (xlmTokenIndex !== -1) {
-      xlmToken = existingTokenList.tokens.splice(xlmTokenIndex, 1)[0];
-    }
-  
-    const combinedTokens = [...existingTokenList.tokens, ...verifiedNewTokens];
-  
-    const sortedTokens = combinedTokens.sort((a, b) => a.contract.localeCompare(b.contract));
-  
-    if (xlmToken) {
-      sortedTokens.unshift(xlmToken);
-    }
-  
-    const updatedTokenList = {
-      ...existingTokenList,
-      tokens: sortedTokens
+  if (changesDetected) {
+    const newVersion = incrementVersion(existingAssetsList.version);
+    const updatedAssetsList = {
+      ...existingAssetsList,
+      version: newVersion,
+      assets: existingAssetsList.assets.sort((a, b) => a.contract.localeCompare(b.contract))
     };
-  
-    writeJsonFile(tokenListPath, updatedTokenList);
+
+    writeJsonFile(assetListPath, updatedAssetsList);
+  } else {
+    console.log("------------------------------------");
+    console.log("No new assets were added, changes detected, or assets deleted.");
+    console.log("------------------------------------");
   }
 }
 
 // Update the paths as needed
-mergeAndVerifyTokens('../tokens', './tokenList.json');
+mergeAndVerifyAssets('../assets', './tokenList.json');

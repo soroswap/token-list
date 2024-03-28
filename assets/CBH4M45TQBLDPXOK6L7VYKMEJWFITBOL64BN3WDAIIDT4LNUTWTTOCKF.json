@@ -1,9 +1,10 @@
 {
+  "name": "ETH by Ultra Capital",
   "code": "ETH",
   "issuer": "GBFXOHVAS43OIWNIO7XLRJAHT3BICFEIKOJLZVXNT572MISM4CMGSOCC",
   "contract": "CBH4M45TQBLDPXOK6L7VYKMEJWFITBOL64BN3WDAIIDT4LNUTWTTOCKF",
-  "org": "Ultra Stellar LLC dba Ultra Stellar",
-  "domain": "ultrastellar.com",
+  "org": "Ultra Capital LLC",
+  "domain": "ultracapital.xyz",
   "icon": "https://ipfs.io/ipfs/bafkreiad2di72p5p7bs3tolvimrq4bspcle3eqc74j7557wrqsnxlxlqya",
   "decimals": 7
 }

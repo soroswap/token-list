@@ -1,9 +1,10 @@
 {
+  "name": "BTC by Ultra Capital",
   "code": "BTC",
   "issuer": "GDPJALI4AZKUU2W426U5WKMAT6CN3AJRPIIRYR2YM54TL2GDWO5O2MZM",
   "contract": "CAO7DDJNGMOYQPRYDY5JVZ5YEK4UQBSMGLAEWRCUOTRMDSBMGWSAATDZ",
-  "org": "Ultra Stellar LLC dba Ultra Stellar",
-  "domain": "ultrastellar.com",
+  "org": "Ultra Capital LLC",
+  "domain": "ultracapital.xyz",
   "icon": "https://ipfs.io/ipfs/bafkreidhjwrkvsvuixny3j6w2xk4vhr5x7urz525usl7xvjur35fsc6bmu",
   "decimals": 7
 }

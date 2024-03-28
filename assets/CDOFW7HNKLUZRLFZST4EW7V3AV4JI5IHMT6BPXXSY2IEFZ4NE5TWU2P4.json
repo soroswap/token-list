@@ -1,9 +1,10 @@
 {
+  "name": "yUSDC",
   "code": "yUSDC",
   "issuer": "GDGTVWSM4MGS4T7Z6W4RPWOCHE2I6RDFCIFZGS3DOA63LWQTRNZNTTFF",
   "contract": "CDOFW7HNKLUZRLFZST4EW7V3AV4JI5IHMT6BPXXSY2IEFZ4NE5TWU2P4",
-  "org": "Ultra Stellar LLC dba Ultra Stellar",
-  "domain": "ultrastellar.com",
+  "org": "Ultra Capital LLC",
+  "domain": "ultracapital.xyz",
   "icon": "https://ipfs.io/ipfs/bafkreicvkevokwxgvqn6vjmf4hf2krk6txy3igi7ei6dwvleb5hqe4odcy",
   "decimals": 7
 }

@@ -1,8 +1,9 @@
 {
+  "name": "iFIDR",
   "code": "iFIDR",
   "issuer": "GBVVM7ZYANANRP3DWVRANRDUU4M7J5W77EDTSZFD62LQ7SOHJD5IFIDR",
   "contract": "CDTHHEDO2YPVXEHZZA3MW5IYECGEM3MF7THR3H7TLDFD6PYPKMAMF6GJ",
-  "org": "Fixedidr dba Cryptoasset and cryptocurrency developer.",
+  "org": "Fixedidr",
   "domain": "fixedidr.com",
   "icon": "https://ipfs.io/ipfs/bafkreibsbysxyucxuz2ksrktqzioqyuuep7ulp26crkb7ebngal7tjraa4",
   "decimals": 7

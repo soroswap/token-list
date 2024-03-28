@@ -1,37 +1,19 @@
 {
-  "name": "Soroswap",
-  "logoURI": "",
-  "keywords": [
-    "soroswap",
-    "defi"
-  ],
-  "timestamp": "2024-03-18T13:15:20.723Z",
+  "name": "Assets curated by Soroswap Protocol",
+  "provider": "Soroswap Protocol",
+  "description": "The list of assets curated by Soroswap Protocol",
+  "version": "1.1.0",
+  "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
-  "tokens": [
+  "assets": [
     {
-      "code": "XLM",
-      "contract": "CAS3J7GYLGXMF6TDJBBYYSE3HQ6BBSMLNUQ34T6TZMYMW2EVH34XOWMA",
-      "name": "Stellar Lumens",
-      "icon": "https://assets.coingecko.com/coins/images/100/standard/Stellar_symbol_black_RGB.png",
-      "decimals": 7
-    },
-    {
+      "name": "XRP by Muyu Network",
       "code": "XRP",
       "issuer": "GBXRPL45NPHCVMFFAYZVUVFFVKSIZ362ZXFP7I2ETNQ3QKZMFLPRDTD5",
       "contract": "CAAV3AE3VKD2P4TY7LWTQMMJHIJ4WOCZ5ANCIJPC3NRSERKVXNHBU2W7",
       "org": "Muyu Network",
       "domain": "fchain.io",
       "icon": "https://ipfs.io/ipfs/bafkreih6jv72q2zuthweyyzq5vqu4dcnxbkefd7o7shgs2llnqrdeufyiy",
-      "decimals": 7
-    },
-    {
-      "code": "UAF",
-      "issuer": "GDT5EUZMXIABSKZAQA4HNTWYOJI2D64DATP6KNVTV4WDZJ3K7FZDRC5E",
-      "contract": "CABRSN5TS2CMUTNTI6IDYREPJSNBPMZHEGKXHVGFIQ5TJYQ2ZA6SCJ3D",
-      "name": "Ukrainian Army Forces support token",
-      "org": "Cassator Corp.",
-      "domain": "uaf.sl8.online",
-      "icon": "https://ipfs.io/ipfs/bafkreigzj2f2ejxsvfnnp77po2my4jng725ozv3qpm3f7qyei3vdb274fi",
       "decimals": 7
     },
     {
@@ -65,11 +47,12 @@
       "decimals": 7
     },
     {
+      "name": "BTC by Ultra Capital",
       "code": "BTC",
       "issuer": "GDPJALI4AZKUU2W426U5WKMAT6CN3AJRPIIRYR2YM54TL2GDWO5O2MZM",
       "contract": "CAO7DDJNGMOYQPRYDY5JVZ5YEK4UQBSMGLAEWRCUOTRMDSBMGWSAATDZ",
-      "org": "Ultra Stellar LLC dba Ultra Stellar",
-      "domain": "ultrastellar.com",
+      "org": "Ultra Capital LLC",
+      "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreidhjwrkvsvuixny3j6w2xk4vhr5x7urz525usl7xvjur35fsc6bmu",
       "decimals": 7
     },
@@ -77,7 +60,7 @@
       "code": "NUNA",
       "issuer": "GCX2ENOVSSOOH6G4HIOBMPCBFXHDVDGA546NK3ZFX3NP3QS25BKZBWOW",
       "contract": "CAPIOPSODD5QP4SJNIS4ASUWML4LH7ZEKTAPBJYZSMKXCATEKDZFKLHK",
-      "name": "NUNA",
+      "name": "NUNA Project",
       "org": "NUNA ORG",
       "domain": "nunaproject.art",
       "icon": "https://ipfs.io/ipfs/bafkreiaamlsnnkh74cdz2fmn6ukfg3euonv55mrgzmxjampaknhxmbwtdy",
@@ -94,12 +77,13 @@
       "decimals": 7
     },
     {
+      "name": "Mobius",
       "code": "MOBI",
       "issuer": "GA6HCMBLTZS5VYYBCATRBRZ3BZJMAFUDKYYF6AH6MVCMGWMRDNSWJPIH",
       "contract": "CATHRLMZW3JUIYSXYE4YAI3SBBBQGXYAP674RINGUBQLNFTCZHMI5XZJ",
       "org": "unknown",
       "domain": "mobius.network",
-      "icon": null,
+      "icon": "https://assets.coingecko.com/coins/images/1501/standard/mobius.png?1696502545",
       "decimals": 7
     },
     {
@@ -116,7 +100,7 @@
       "code": "AQUA",
       "issuer": "GBNZILSTVQZ4R7IKQDGHYGY2QXL5QOFJYQMXPKWRRM5PAV7Y4M67AQUA",
       "contract": "CAUIKL3IYGMERDRUN6YSCLWVAKIFG5Q4YJHUKM4S4NJZQIA3BAS6OJPK",
-      "name": "AQUA",
+      "name": "AQUA Token",
       "org": "Aquarius dba AQUA token",
       "domain": "aqua.network",
       "icon": "https://ipfs.io/ipfs/bafkreigzckkixvbkru2gzve67zu3bfauccugkr6zovkdv6h2yxxrppyyqa",
@@ -143,11 +127,12 @@
       "decimals": 7
     },
     {
+      "name": "yBTC by Ultra Capital",
       "code": "yBTC",
       "issuer": "GBUVRNH4RW4VLHP4C5MOF46RRIRZLAVHYGX45MVSTKA2F6TMR7E7L6NW",
       "contract": "CB2XMFB6BDIHFOSFB5IXHDOYV3SI3IXMNIZLPDZHC7ENDCXSBEBZAO2Y",
-      "org": "Ultra Stellar LLC dba Ultra Stellar",
-      "domain": "ultrastellar.com",
+      "org": "Ultra Capital LLC",
+      "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreifuhpzfs5f6umrzrkqcspgvchruzwyuyvtgpzhs4nyvuraertoaby",
       "decimals": 7
     },
@@ -156,7 +141,7 @@
       "issuer": "GA2MSSZKJOU6RNL3EJKH3S5TB5CDYTFQFWRYFGUJVIN5I6AOIRTLUHTO",
       "contract": "CBAANNZVSOH6I42ZVVFTVB2JNVSHVBYUDWGGJHB4BLCXARYTNN3ODU3F",
       "name": "Kenya Shilling",
-      "org": "ClickPesa Limited dba ClickPesa",
+      "org": "ClickPesa Limited",
       "domain": "connect.clickpesa.com",
       "icon": "https://ipfs.io/ipfs/bafkreifmkwj7guus75d2nolw6amwzx4nmajbqfy3kizja2lzegywybgeja",
       "decimals": 7
@@ -166,7 +151,7 @@
       "issuer": "GC4HS4CQCZULIOTGLLPGRAAMSBDLFRR6Y7HCUQG66LNQDISXKIXXADIM",
       "contract": "CBBJTE34KZHJACB2A6OXCRTDDLX4LI7GKYYD6XYJSGMX46BLNAG752HS",
       "name": "IXINIUM",
-      "org": "Baltic Representative Office dba Ixinium",
+      "org": "Baltic Representative Office",
       "domain": "ixinium.io",
       "icon": "https://ipfs.io/ipfs/bafkreical3abuzgw67yjg4lkiih4q24im63hwkwpmlbn4avtntnhzzmi7y",
       "decimals": 7
@@ -186,17 +171,18 @@
       "issuer": "GDVKY2GU2DRXWTBEYJJWSFXIGBZV6AZNBVVSUHEPZI54LIS6BA7DVVSP",
       "contract": "CBF4E5GSTVSITE5Q2ENOTEUQJPBZAU3SBDVLQMSQ7GLBRTSYGUAT722K",
       "name": "Brazilian Real",
-      "org": "nTokens Serviços Digitais Ltda",
+      "org": "nTokens Servicos Digitais Ltda",
       "domain": "ntokens.com",
       "icon": "https://ipfs.io/ipfs/bafkreiae7oor6xk7w27o5r7qdh4vw7yfu4c723swftguffgw6s7k4sofhu",
       "decimals": 7
     },
     {
+      "name": "ETH by Ultra Capital",
       "code": "ETH",
       "issuer": "GBFXOHVAS43OIWNIO7XLRJAHT3BICFEIKOJLZVXNT572MISM4CMGSOCC",
       "contract": "CBH4M45TQBLDPXOK6L7VYKMEJWFITBOL64BN3WDAIIDT4LNUTWTTOCKF",
-      "org": "Ultra Stellar LLC dba Ultra Stellar",
-      "domain": "ultrastellar.com",
+      "org": "Ultra Capital LLC",
+      "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreiad2di72p5p7bs3tolvimrq4bspcle3eqc74j7557wrqsnxlxlqya",
       "decimals": 7
     },
@@ -204,7 +190,7 @@
       "code": "SSLX",
       "issuer": "GBHFGY3ZNEJWLNO4LBUKLYOCEK4V7ENEBJGPRHHX7JU47GWHBREH37UR",
       "contract": "CBHBD77PWZ3AXPQVYVDBHDKEMVNOR26UZUZHWCB6QC7J5SETQPRUQAS4",
-      "name": "SSLX",
+      "name": "SSLX Cassator",
       "org": "Cassator Corp.",
       "domain": "sslx.sl8.online",
       "icon": "https://ipfs.io/ipfs/bafkreiecqakv3lqychk6wwzccywywvtwjag3vtehzj4m3qilcj7735cfva",
@@ -265,7 +251,7 @@
       "issuer": "GCKIK5F6J4KMKF6MKB5EM67S5CK557EZQ3IAMZM5FFAYST63S3HWXVPE",
       "contract": "CBVJZDNMOPEEPED3OBY4VLQPQKU4IOCKWACDKXPBO4E6TQI432W66BE5",
       "name": "Coin Mex",
-      "org": "CRITOINVEX SAPI DE CV dba AnchorMXN",
+      "org": "CRITOINVEX SAPI DE CV",
       "domain": "anchormxn.com",
       "icon": "https://ipfs.io/ipfs/bafkreiep6gyqkufcaqcq774ax57b22quvrfdz4gosx67tgfkjlhmjhqnj4",
       "decimals": 7
@@ -284,18 +270,19 @@
       "code": "NGNC",
       "issuer": "GASBV6W7GGED66MXEVC7YZHTWWYMSVYEY35USF2HJZBLABLYIFQGXZY6",
       "contract": "CBYFV4W2LTMXYZ3XWFX5BK2BY255DU2DSXNAE4FJ5A5VYUWGIBJDOIGG",
-      "name": "NGNC",
+      "name": "NGNC Coin",
       "org": "LINK.IO LTD",
       "domain": "ngnc.online",
       "icon": "https://uploads-ssl.webflow.com/60a70a1080cf2974d4b1595e/61961ce43c530394bcb05349_NGRC.png",
       "decimals": 7
     },
     {
+      "name": "yXLM by Ultra Capital",
       "code": "yXLM",
       "issuer": "GARDNV3Q7YGT4AKSDF25LT32YSCCW4EV22Y2TV3I2PU2MMXJTEDL5T55",
       "contract": "CBZVSNVB55ANF24QVJL2K5QCLOAB6XITGTGXYEAF6NPTXYKEJUYQOHFC",
-      "org": "Ultra Stellar LLC dba Ultra Stellar",
-      "domain": "ultrastellar.com",
+      "org": "Ultra Capital LLC",
+      "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreihntcz2lpaxawmbhwidtuifladkgew6olwuly2dz5pewqillhhpay",
       "decimals": 7
     },
@@ -353,7 +340,7 @@
       "code": "ARST",
       "issuer": "GCSAZVWXZKWS4XS223M5F54H2B6XPIIXZZGP7KEAIU6YSL5HDRGCI3DG",
       "contract": "CCRPYMVKZLWGZHEDZ23FOE22E3T3HOCNP5Y2EFZFVRUVIXU5NJ7UNGV2",
-      "name": "ARST",
+      "name": "ARST Coin",
       "org": "Relay Tech Services Ltd",
       "domain": "pubnet-sep.latamex.com",
       "icon": "https://ipfs.io/ipfs/bafkreicyzwet6qdlj4koo2nwechpqd3z3cqdls3wln5qxqiqo5sj7xwj7u",
@@ -364,7 +351,7 @@
       "issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
       "contract": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
       "name": "USD Coin",
-      "org": "Centre Consortium LLC dba Centre Consortium",
+      "org": "Centre Consortium LLC",
       "domain": "centre.io",
       "icon": "https://ipfs.io/ipfs/bafkreibpzncuhbk5ozhdw7xkcdoyf3xhwhcwcf6sj7axjzimxw6vm6pvyy",
       "decimals": 7
@@ -394,7 +381,7 @@
       "issuer": "GA2MSSZKJOU6RNL3EJKH3S5TB5CDYTFQFWRYFGUJVIN5I6AOIRTLUHTO",
       "contract": "CD2GNQFE3GRUY5LRE5WT26OQIUBUQ5YKRVDRQ3FWCW7A7NZAPPFIHFAY",
       "name": "Tanzania Shilling",
-      "org": "ClickPesa Limited dba ClickPesa",
+      "org": "ClickPesa Limited",
       "domain": "connect.clickpesa.com",
       "icon": "https://ipfs.io/ipfs/bafkreifmkwj7guus75d2nolw6amwzx4nmajbqfy3kizja2lzegywybgeja",
       "decimals": 7
@@ -403,7 +390,7 @@
       "code": "XTAR",
       "issuer": "GAORYJ3KBDGIM7FFSKVUJHJ5NEFWIRDIAGGBJBJS7TY6ECZS53257IG4",
       "contract": "CDCKFBZYF2AQCSM3JOF2ZM27O3Y6AJAI4OTCQKAFNZ3FHBYUTFOKICIY",
-      "name": "XTAR",
+      "name": "XTAR Coin",
       "org": "Dogstarcoin",
       "domain": "dogstarcoin.com",
       "icon": "https://ipfs.io/ipfs/bafkreidytzpcgxnlx6ean6zabs2mz373zf5q2l25j27i7okufmuqlzdxqm",
@@ -414,7 +401,7 @@
       "issuer": "GAWODAROMJ33V5YDFY3NPYTHVYQG7MJXVJ2ND3AOGIHYRWINES6ACCPD",
       "contract": "CDCSVQEMYBNK7URICI77CENLP23OIM4AAXUIJ32Z6V3ZT3QXCP2HJXD7",
       "name": "Naira Token",
-      "org": "Cowrie Integrated Systems dba Cowrie Exchange",
+      "org": "Cowrie Integrated Systems",
       "domain": "cowrie.exchange",
       "icon": "https://ipfs.io/ipfs/bafkreicctofbpuujxn6s7jh5kc4nzdygacumvp36qhnhtgowesfmkyweoy",
       "decimals": 7
@@ -423,8 +410,8 @@
       "code": "FIDR",
       "issuer": "GBZQNUAGO4DZFWOHJ3PVXZKZ2LTSOVAMCTVM46OEMWNWTED4DFS3NAYH",
       "contract": "CDDQRIGZRK6Z6ILV4P276HL7D3P63GFW6HBA4N4YXDMFHZ2M4VZGVYRW",
-      "name": "FIDR",
-      "org": "Fixedidr dba Cryptoasset and cryptocurrency developer.",
+      "name": "FIDR Coin",
+      "org": "Fixedidr",
       "domain": "fixedidr.com",
       "icon": "https://ipfs.io/ipfs/bafkreic6at7ntdsnjth45d3vokoi4lhdi7euqnt75gbbgq5pyje7ugjhla",
       "decimals": 7
@@ -460,11 +447,12 @@
       "decimals": 7
     },
     {
+      "name": "yUSDC",
       "code": "yUSDC",
       "issuer": "GDGTVWSM4MGS4T7Z6W4RPWOCHE2I6RDFCIFZGS3DOA63LWQTRNZNTTFF",
       "contract": "CDOFW7HNKLUZRLFZST4EW7V3AV4JI5IHMT6BPXXSY2IEFZ4NE5TWU2P4",
-      "org": "Ultra Stellar LLC dba Ultra Stellar",
-      "domain": "ultrastellar.com",
+      "org": "Ultra Capital LLC",
+      "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreicvkevokwxgvqn6vjmf4hf2krk6txy3igi7ei6dwvleb5hqe4odcy",
       "decimals": 7
     },
@@ -474,14 +462,16 @@
       "code": "SDEXEX",
       "name": "SDEX Explorer Token",
       "domain": "sdexexplorer.com",
+      "org": "SDEX Explorer",
       "icon": "https://ipfs.io/ipfs/bafkreiexs7jvn2jaill67333t5wkxhefqcb4rabouzjfpnhrwcjjw4uawa",
       "decimals": 7
     },
     {
+      "name": "iFIDR",
       "code": "iFIDR",
       "issuer": "GBVVM7ZYANANRP3DWVRANRDUU4M7J5W77EDTSZFD62LQ7SOHJD5IFIDR",
       "contract": "CDTHHEDO2YPVXEHZZA3MW5IYECGEM3MF7THR3H7TLDFD6PYPKMAMF6GJ",
-      "org": "Fixedidr dba Cryptoasset and cryptocurrency developer.",
+      "org": "Fixedidr",
       "domain": "fixedidr.com",
       "icon": "https://ipfs.io/ipfs/bafkreibsbysxyucxuz2ksrktqzioqyuuep7ulp26crkb7ebngal7tjraa4",
       "decimals": 7
@@ -527,11 +517,12 @@
       "decimals": 7
     },
     {
+      "name": "yETH By Ultra Capital",
       "code": "yETH",
       "issuer": "GDYQNEF2UWTK4L6HITMT53MZ6F5QWO3Q4UVE6SCGC4OMEQIZQQDERQFD",
       "contract": "CDYEOOVL6WV4JRY45CXQKOBJFFAPOM5KNQCCDNM333L6RM2L4RO3LKYG",
-      "org": "Ultra Stellar LLC dba Ultra Stellar",
-      "domain": "ultrastellar.com",
+      "org": "Ultra Capital LLC",
+      "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreihqsw7iai5gcfwvgnexdcwvftiv7fjjbg2skc2wcdygfngllv5ute",
       "decimals": 7
     },
