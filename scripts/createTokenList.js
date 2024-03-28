@@ -50,6 +50,26 @@ function writeJsonFile(filePath, data) {
   }
 }
 
+function incrementVersion(version) {
+  let [major, minor, patch] = version.split('.').map(num => parseInt(num, 10));
+
+  // Increment version logic
+  patch += 1;
+  if (patch > 9) {
+    patch = 0;
+    minor += 1;
+    if (minor > 9) {
+      minor = 0;
+      major += 1;
+    }
+  }
+
+  major = Math.min(major, 999);
+
+  return `${major}.${minor}.${patch}`;
+}
+
+
 async function mergeAndVerifyAssets(directoryPath, assetListPath) {
   const ajv = new Ajv();
   addFormats(ajv);
@@ -100,8 +120,11 @@ async function mergeAndVerifyAssets(directoryPath, assetListPath) {
   }
 
   if (changesDetected) {
+    const newVersion = incrementVersion(existingAssetsList.version);
+
     const updatedAssetsList = {
       ...existingAssetsList,
+      version: newVersion,
       assets: Object.values(existingAssetsMap).sort((a, b) => a.contract.localeCompare(b.contract))
     };
 

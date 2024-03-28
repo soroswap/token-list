@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
