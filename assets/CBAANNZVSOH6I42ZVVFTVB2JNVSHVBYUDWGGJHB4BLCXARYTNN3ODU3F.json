@@ -1,9 +1,9 @@
 {
-  "code": "TZS",
+  "code": "KES",
   "issuer": "GA2MSSZKJOU6RNL3EJKH3S5TB5CDYTFQFWRYFGUJVIN5I6AOIRTLUHTO",
-  "contract": "CD2GNQFE3GRUY5LRE5WT26OQIUBUQ5YKRVDRQ3FWCW7A7NZAPPFIHFAY",
-  "name": "Tanzania Shilling",
-  "org": "ClickPesa Limited dba ClickPesa",
+  "contract": "CBAANNZVSOH6I42ZVVFTVB2JNVSHVBYUDWGGJHB4BLCXARYTNN3ODU3F",
+  "name": "Kenya Shilling",
+  "org": "ClickPesa Limited",
   "domain": "connect.clickpesa.com",
   "icon": "https://ipfs.io/ipfs/bafkreifmkwj7guus75d2nolw6amwzx4nmajbqfy3kizja2lzegywybgeja",
   "decimals": 7

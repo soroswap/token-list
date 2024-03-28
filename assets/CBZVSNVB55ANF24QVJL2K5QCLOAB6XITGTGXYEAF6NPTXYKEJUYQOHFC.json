@@ -1,9 +1,10 @@
 {
+  "name": "yXLM by Ultra Capital",
   "code": "yXLM",
   "issuer": "GARDNV3Q7YGT4AKSDF25LT32YSCCW4EV22Y2TV3I2PU2MMXJTEDL5T55",
   "contract": "CBZVSNVB55ANF24QVJL2K5QCLOAB6XITGTGXYEAF6NPTXYKEJUYQOHFC",
-  "org": "Ultra Stellar LLC dba Ultra Stellar",
-  "domain": "ultrastellar.com",
+  "org": "Ultra Capital LLC",
+  "domain": "ultracapital.xyz",
   "icon": "https://ipfs.io/ipfs/bafkreihntcz2lpaxawmbhwidtuifladkgew6olwuly2dz5pewqillhhpay",
   "decimals": 7
 }
