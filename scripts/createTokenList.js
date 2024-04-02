@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const Ajv = require('ajv').default;
 const addFormats = require('ajv-formats');
+const StellarSdk = require('stellar-sdk');
+const trustlinesWalletSecretKey = process.argv[2]
 
 const assetSchema = {
   "type": "object",
@@ -69,6 +71,49 @@ function incrementVersion(version) {
   return `${major}.${minor}.${patch}`;
 }
 
+async function setTrustline(tokenSymbol, tokenIssuer, tries = 1) {
+  const MAX_TRIES = 3;
+  const INITIAL_FEE = 100;
+
+  const publicKey = StellarSdk.Keypair.fromSecret(
+    trustlinesWalletSecretKey
+  ).publicKey();
+  const source = await loadedConfig.horizonRpc.loadAccount(publicKey);
+
+  const operation = StellarSdk.Operation.changeTrust({
+    source: source.accountId(),
+    asset: new StellarSdk.Asset(tokenSymbol, tokenIssuer),
+  });
+
+  const txn = new StellarSdk.TransactionBuilder(source, {
+    fee: Number(INITIAL_FEE * tries).toString(),
+    timebounds: { minTime: 0, maxTime: 0 },
+    networkPassphrase: loadedConfig.passphrase,
+  })
+    .addOperation(operation)
+    .setTimeout(StellarSdk.TimeoutInfinite)
+    .build();
+
+  const keyPair = StellarSdk.Keypair.fromSecret(trustlinesWalletSecretKey);
+  txn.sign(keyPair);
+
+  try {
+    let response = await loadedConfig.horizonRpc.submitTransaction(txn);
+    console.log('Trustline set for ', tokenSymbol);
+    return response;
+  } catch (error) {
+    if (tries < MAX_TRIES) {
+      console.log('Error trying to set trustline for ', tokenSymbol);
+      console.log(error);
+      console.log('Retrying...');
+      await setTrustline(tokenSymbol, tokenIssuer, tries + 1);
+    } else {
+      console.log('Max tries reached for ', tokenSymbol), '. Unable to set trustline.';
+      console.log(error);
+    }
+  }
+}
+
 
 async function mergeAndVerifyAssets(directoryPath, assetListPath) {
   const ajv = new Ajv();
@@ -113,12 +158,14 @@ async function mergeAndVerifyAssets(directoryPath, assetListPath) {
         changesDetected = true;
         // Update the existing asset with new data
         Object.assign(existingAsset, assetData);
+        setTrustline(assetData.code, assetData.issuer)
       }
     } else {
       // New asset, indicate changes and it will be added later
       console.log(`Adding new asset from file ${file}`);
       changesDetected = true;
       existingAssetsList.assets.push(assetData);
+      setTrustline(assetData.code, assetData.issuer)
     }
   }
 
