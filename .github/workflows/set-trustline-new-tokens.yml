@@ -1,0 +1,22 @@
+name: Set trustlines to new tokens
+
+on:
+  push:
+    branches:
+        - main  # Set trustlines to new tokens when pushing to main branch
+jobs:
+    trust-new-tokens:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4.1.1
+        
+            - name: Set up Node.js
+              uses: actions/setup-node@v4.0.2
+              with:
+                node-version: '18'
+        
+            - name: Install dependencies
+              run: yarn install
+
+            - name: Set trustlines to new tokens
+              run: yarn setNewTrustlines
