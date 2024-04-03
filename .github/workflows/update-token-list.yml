@@ -25,7 +25,7 @@ jobs:
         run: yarn install
 
       - name: Run merge script
-        run: yarn merge ${{ secrets.TRUSTLINES_PRIVATE_KEY }}
+        run: yarn merge
 
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v4
@@ -35,3 +35,6 @@ jobs:
           branch: ${{ github.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set new trustlines
+        run: yarn set-trustlines ${{ secrets.TRUSTLINES_PRIVATE_KEY }}

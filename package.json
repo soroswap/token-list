@@ -9,7 +9,7 @@
   "scripts": {
     "merge": "node scripts/createTokenList",
     "verify": "node scripts/verifyTokens",
-    "setNewTrustlines": "node scripts/setNewTrustlines"
+    "set-trustlines": "node scripts/setTrustlines"
   },
   "dependencies": {
     "ajv": "^8.12.0",
