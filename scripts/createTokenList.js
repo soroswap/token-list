@@ -69,7 +69,6 @@ function incrementVersion(version) {
   return `${major}.${minor}.${patch}`;
 }
 
-
 async function mergeAndVerifyAssets(directoryPath, assetListPath) {
   const ajv = new Ajv();
   addFormats(ajv);

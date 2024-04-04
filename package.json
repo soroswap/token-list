@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "merge": "node scripts/createTokenList",
-    "verify": "node scripts/verifyTokens"
+    "verify": "node scripts/verifyTokens",
+    "set-trustlines": "node scripts/setTrustlines"
   },
   "dependencies": {
     "ajv": "^8.12.0",

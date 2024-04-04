@@ -35,3 +35,6 @@ jobs:
           branch: ${{ github.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set new trustlines
+        run: yarn set-trustlines ${{ secrets.TRUSTLINES_PRIVATE_KEY }}
