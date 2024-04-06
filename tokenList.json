@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -104,6 +104,16 @@
       "org": "StellarNFT.io",
       "domain": "stellarnft.io",
       "icon": "https://ipfs.io/ipfs/bafkreigttnjyjt7nga4ynwwirlcy7ppk7jrhc7tq6yq5aa25kj6ime74pe",
+      "decimals": 7
+    },
+    {
+      "name": "GQX Capital",
+      "code": "GQX",
+      "issuer": "GD7TC72O5HML5UMZXQCIXGBR4KJ3MYM2ICPOR4BBN56K6JUSRVWTDAQF",
+      "contract": "CAZQYRFG7A2CZTZ2NEODHZGIOORFFKOEFV7WWZOBJEYXER56ASCUBD7P",
+      "org": "King Noot Enterprises",
+      "domain": "kingtroll.stellarmint.io",
+      "icon": "https://stellarmint.io/index.php?gf-download=2023%2F02%2FGQXCapital.png&form-id=13&field-id=2&hash=9cc3d50814bbb4daeb121a74c7d8c2c8504b3b7502dc137b3f98e725802777ff",
       "decimals": 7
     },
     {
@@ -414,6 +424,16 @@
       "org": "FRED ENERGY Ltd",
       "domain": "fredenergy.org",
       "icon": "https://ipfs.io/ipfs/bafkreigk3er23l4mf6yznwf3agqrj2npmbl2yxig5qkrdtwd4od6k2azti",
+      "decimals": 7
+    },
+    {
+      "name": "Auto Market Maker",
+      "code": "AMM",
+      "issuer": "GARQ7O5JPBD2DDVEFFZ2LVWH77BYSC7K7RMGI7W5GLRVSWPHZBNGBDOQ",
+      "contract": "CDHBIACXSM5K2NFCCHQIJQNDJPHGPW4OHIYVXGCFMVT7PNLWXY4NGRNH",
+      "org": "King Noot Enterprises",
+      "domain": "kingtroll.stellarmint.io",
+      "icon": "https://stellarmint.io/index.php?gf-download=2024%2F02%2FAMMLogo24.png&form-id=13&field-id=2&hash=3c639ce6fdc02c4a0ee7143610364e14a3d98d5850aad40d11da8dad11d6754d",
       "decimals": 7
     },
     {
