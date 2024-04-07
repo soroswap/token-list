@@ -1,7 +1,7 @@
 
 # Create Soroswap Token Listing
 
-Please answer all the questions so other Soroswap contributors make informed decisions about token listings for the DEX and Liquidity Pools.
+Please answer all the questions so other Soroswap contributors can make informed decisions about token listings for the DEX and Liquidity Pools.
 
 The format is in Markdown and text between `<!--` and `-->` is invisible and intended to guide. If you're not sure about it, you can swap between the Editor and Preview to see how it looks.
 
