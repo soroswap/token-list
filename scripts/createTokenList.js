@@ -35,8 +35,7 @@ function readJsonFile(filePath) {
     const data = fs.readFileSync(filePath, 'utf8');
     return JSON.parse(data);
   } catch (err) {
-    console.error(`Error reading file from disk: ${err}`);
-    return null;
+    throw new Error(`Failed to parse JSON from file: ${err.message}. This may be due to incorrect formatting or a syntax error in the JSON data.`);
   }
 }
 
