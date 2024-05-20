@@ -1,4 +1,5 @@
 {
+  
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
@@ -6,6 +7,16 @@
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
+    {
+      "code": "Zi",                
+      "issuer": "GDBNNE67F54PTUZTCTOQYT5CQZFXA2AX6O5DCA5BVR653OP6KCWGG2Z7",            
+      "contract": "CBZCBYTP3TFCT7PCDRPJDQK7UY2R3QA4H6MF2P6XDS5CZNXLPF6S6OPB",           
+      "name": "Zioncoin",             
+      "org": "Zioncoin Foundation",                
+      "domain": "https://zioncoin.org.uk",             
+      "icon": "https://zioncoin.org.uk/wp-content/uploads/2023/12/Zi_Zioncoin_Ticker.png",                
+      "decimals": 7           
+    },
     {
       "name": "XRP by Muyu Network",
       "code": "XRP",
