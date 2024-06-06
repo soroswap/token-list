@@ -1,11 +1,10 @@
 {
-    "code": "Zi",
-    "issuer": "GDBNNE67F54PTUZTCTOQYT5CQZFXA2AX6O5DCA5BVR653OP6KCWGG2Z7",
-    "contract": "CBZCBYTP3TFCT7PCDRPJDQK7UY2R3QA4H6MF2P6XDS5CZNXLPF6S6OPB",
-    "name": "Zioncoin",
-    "org": "Zioncoin Foundation",
-    "domain": "zioncoin.org.uk",
-    "icon": "https://zioncoin.org.uk/wp-content/uploads/2023/12/Zi_Zioncoin_Ticker.png",
-    "decimals": 7 
-    }
-   
+  "code": "Zi",
+  "issuer": "GDBNNE67F54PTUZTCTOQYT5CQZFXA2AX6O5DCA5BVR653OP6KCWGG2Z7",
+  "contract": "CBZCBYTP3TFCT7PCDRPJDQK7UY2R3QA4H6MF2P6XDS5CZNXLPF6S6OPB",
+  "name": "Zioncoin",
+  "org": "Zioncoin Foundation",
+  "domain": "zioncoin.org.uk",
+  "icon":"https://zioncoin.org.uk/wp-content/uploads/2023/12/Zi_Zioncoin_Ticker.png",
+  "decimals": 7
+}
