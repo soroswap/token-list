@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -284,6 +284,16 @@
       "org": "LINK.IO LTD",
       "domain": "ngnc.online",
       "icon": "https://uploads-ssl.webflow.com/60a70a1080cf2974d4b1595e/61961ce43c530394bcb05349_NGRC.png",
+      "decimals": 7
+    },
+    {
+      "code": "Zi",
+      "issuer": "GDBNNE67F54PTUZTCTOQYT5CQZFXA2AX6O5DCA5BVR653OP6KCWGG2Z7",
+      "contract": "CBZCBYTP3TFCT7PCDRPJDQK7UY2R3QA4H6MF2P6XDS5CZNXLPF6S6OPB",
+      "name": "Zioncoin",
+      "org": "Zioncoin Foundation",
+      "domain": "zioncoin.org.uk",
+      "icon": "https://zioncoin.org.uk/wp-content/uploads/2023/12/Zi_Zioncoin_Ticker.png",
       "decimals": 7
     },
     {
