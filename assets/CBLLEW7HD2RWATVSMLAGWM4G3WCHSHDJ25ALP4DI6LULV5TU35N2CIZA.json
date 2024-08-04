@@ -1,0 +1,10 @@
+{
+  "code": "XRF",
+  "issuer": "GCHI6I3X62ND5XUMWINNNKXS2HPYZWKFQBZZYBSMHJ4MIP2XJXSZTXRF",
+  "contract": "CBLLEW7HD2RWATVSMLAGWM4G3WCHSHDJ25ALP4DI6LULV5TU35N2CIZA",
+  "name": "Reflector xRF",
+  "org": "Reflector",
+  "domain": "reflector.network",
+  "icon": "https://reflector.network/images/logo.svg",
+  "decimals": 7
+}
