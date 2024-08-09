@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -214,6 +214,16 @@
       "org": "Interstellar, Inc.",
       "domain": "interstellar.exchange",
       "icon": "https://ipfs.io/ipfs/bafkreifwufagmqgea3pr2jcfu773pm2evktzi2445jmyfbgmatcz7qttu4",
+      "decimals": 7
+    },
+    {
+      "code": "XRF",
+      "issuer": "GCHI6I3X62ND5XUMWINNNKXS2HPYZWKFQBZZYBSMHJ4MIP2XJXSZTXRF",
+      "contract": "CBLLEW7HD2RWATVSMLAGWM4G3WCHSHDJ25ALP4DI6LULV5TU35N2CIZA",
+      "name": "Reflector xRF",
+      "org": "Reflector",
+      "domain": "reflector.network",
+      "icon": "https://reflector.network/images/logo.svg",
       "decimals": 7
     },
     {
