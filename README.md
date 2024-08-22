@@ -10,14 +10,14 @@ To include your token in the Soroswap token list, ensure your token adheres to t
 
 ```plaintext
 {
-  "code": "string;                 // The code representing your token.
-  "issuer": "string?",             // The issuer's account address (optional).
-  "contract": "string;             // The contract address for your token.
-  "name": "string?",               // The name of your token (optional).
-  "org": "string?",                // The organization behind the token (optional).
-  "domain": "string?",             // The website for your token or organization (optional).
-  "icon": "string;                 // A URL to the token's icon.
-  "decimals": number;              // The number of decimals for your token. (7)
+  "code": "string;                 // ACT.
+  "issuer": "string?",             // GAHHULDPDVGB5WS5PH7BCGLJ7ZHECDBIIMKB62UPVDUOCHNFL7HX3FS7.
+  "contract": "string;             // CAU7TR4L52CSCYOLOPXPJJ7T6EMEXTEE4XKRH2ASY23EFYEMU5WUFYP2.
+  "name": "string?",               // Authentic-Payment Community Token.
+  "org": "string?",                // Authentic-Payment.
+  "domain": "string?",             // Authentic-payment.com.
+  "icon": "string;                 // https://authentic-payment.com/wp-content/uploads/2023/01/IMG_1156.png.
+  "decimals": number;              // 5.
 }
 ```
 
