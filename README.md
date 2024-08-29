@@ -57,8 +57,13 @@ If you want to run it locally, you need to set the environment variables `PRIVAT
 ```bash
 yarn restore-footprints
 ```
-
-
+## Setting trustlines for a wallet
+This feature allow a wallet to set trustlines for all tokens in the token list. You can run the script as follows:
+  
+  ```bash
+  yarn set-trustlines $TRUSTLINES_PRIVATE_KEY
+  ```
+make sure the environment variable `TRUSTLINES_PRIVATE_KEY` is set.
 
 ## Questions or Concerns?
 
