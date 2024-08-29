@@ -3,7 +3,7 @@ name: Restore Footprint of Token Contracts
 on:
   schedule:
     # Runs daily at 00:00 UTC
-    - cron: "3 21 * * *"
+    - cron: "7 1 * * *"
 
 jobs:
   run-script:
