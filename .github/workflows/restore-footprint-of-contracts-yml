@@ -1,6 +1,7 @@
 name: Restore Footprint of Token Contracts
 
 on:
+  workflow_dispatch:
   schedule:
     # Runs daily at 00:00 UTC
     - cron: "7 1 * * *"
