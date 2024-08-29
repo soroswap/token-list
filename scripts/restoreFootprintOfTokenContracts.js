@@ -29,7 +29,7 @@ class FootprintRestorer {
                 console.log("it should be bumped")
                 this.restoreFootprintTransaction(instance);
                 // timeout to avoid rate limiting
-                await new Promise(resolve => setTimeout(resolve, 5000));
+                await new Promise(resolve => setTimeout(resolve, 8000));
             }
             else {
                 console.log("it should not be bumped")
