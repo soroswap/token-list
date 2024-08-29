@@ -2,6 +2,10 @@ const fs = require('fs');
 const StellarSdk = require('stellar-sdk');
 const trustlinesWalletSecretKey = process.argv[2];
 
+if (!trustlinesWalletSecretKey) {
+  console.error('Please provide a trustlines wallet secret key');
+  process.exit(1);
+}
 const assetsList = readJsonFile('./tokenList.json');
 
 const horizonServer = new StellarSdk.Horizon.Server('https://horizon.stellar.org');
