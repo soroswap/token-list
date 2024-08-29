@@ -57,6 +57,15 @@ class FootprintRestorer {
                 preparedTx.sign(this.keypair);
                 const txRes = await this.server.sendTransaction(preparedTx);
                 console.log('🚀 ~ FootprintRestorer ~ restoreFootprintTransaction ~ txRes:', txRes);
+                if (txRes.status === 'ERROR'){
+                    const errorResult = txRes.errorResult?._attributes?.result?._switch?.name;
+                    if (errorResult === 'txInsufficientBalance') {
+                        console.log('Insufficient balance to restore footprint. Please fund the account.');
+                        // Perform additional actions here, such as notifying the user or attempting to fund the account
+                    } else {
+                        console.log('Error restoring footprint transaction', JSON.stringify(txRes,null, 2) );
+                    }
+                }
                 return txRes;
             } catch (error){
                 console.log('Error restoring footprint transaction', error);
