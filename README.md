@@ -46,6 +46,11 @@ Ensure your token's details are correctly formatted according to the structure a
 - Upon merging your PR, a GitHub Actions workflow automatically updates the `tokenList.json`. Manual updates to this file are not required in your PR.
 - All submissions undergo review. Please allow some time for the review and inclusion process.
 
+## Restoring footprints of the token list
+It runs daily. But you can trigger it manually:
+
+Go to github actions and launch the workflow `Restore footprints of the token list`.
+
 ## Questions or Concerns?
 
 For questions or further clarification, feel free to open an issue in this repository. We're here to help ensure a smooth integration process for your token into the Soroswap ecosystem.
