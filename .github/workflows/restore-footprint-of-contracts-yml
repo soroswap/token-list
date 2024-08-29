@@ -1,0 +1,25 @@
+name: Restore Footprint of Token Contracts
+
+on:
+  schedule:
+    # Runs daily at 00:00 UTC
+    - cron: "3 21 * * *"
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run restoreFootprintOfTokenContracts.js script
+        run: yarn node scripts/restoreFootprintOfTokenContracts.js
