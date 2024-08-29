@@ -77,6 +77,15 @@ class FootprintRestorer {
 async function main()  {
 
     const privateKey = process.env.PRIVATE_KEY;
+
+    if(!privateKey) {
+        console.error('Please provide a private key');
+        return;
+    }
+    if(!rpc) {
+        console.error('Please provide a RPC URL');
+        return;
+    }
     const keypair = StellarSdk.Keypair.fromSecret(privateKey);
 
     const footprintRestorer = new FootprintRestorer(rpc, keypair);

@@ -23,7 +23,7 @@ jobs:
         run: yarn install
 
       - name: Run restoreFootprintOfTokenContracts.js script
-        run: yarn node scripts/restoreFootprintOfTokenContracts.js
+        run: yarn restore-footprints
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           RPC_URL: ${{ secrets.RPC_URL }}
