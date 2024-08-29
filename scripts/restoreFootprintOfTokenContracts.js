@@ -82,9 +82,7 @@ async function main()  {
     const footprintRestorer = new FootprintRestorer(rpc, keypair);
 
     await footprintRestorer.setup();
-    // CAAV3AE3VKD2P4TY7LWTQMMJHIJ4WOCZ5ANCIJPC3NRSERKVXNHBU2W7 XRP
-    // CAPIOPSODD5QP4SJNIS4ASUWML4LH7ZEKTAPBJYZSMKXCATEKDZFKLHK NUNA
-    // await footprintRestorer.restoreFootprintToContract("CDUYP3U6HGTOBUNQD2WTLWNMNADWMENROKZZIHGEVGKIU3ZUDF42CDOK");
+
     await footprintRestorer.restoreFootprints();
 }
 main()
