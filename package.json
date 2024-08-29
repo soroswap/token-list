@@ -14,6 +14,6 @@
   "dependencies": {
     "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
-    "stellar-sdk": "^11.2.2"
+    "stellar-sdk": "^12.2.0"
   }
 }
