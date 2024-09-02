@@ -55,6 +55,7 @@ class FootprintRestorer {
             .build();
         let preparedTx = await this.server.prepareTransaction(tx);
         preparedTx.sign(this.keypair);
+        return preparedTx;
     }
 
     async sendTransaction(tx) {
