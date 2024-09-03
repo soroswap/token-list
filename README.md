@@ -73,6 +73,8 @@ This feature allow a wallet to set trustlines for all tokens in the token list. 
   ```
 make sure the environment variable `TRUSTLINES_PRIVATE_KEY` is set.
 
+Currently the Public Key is `GBHYCV7DRS3GTFZYTW4MTHMBKRJJSZKV7LSCAERQQKUHZRYBW34FGUE4`
+
 ## Questions or Concerns?
 
 For questions or further clarification, feel free to open an issue in this repository. We're here to help ensure a smooth integration process for your token into the Soroswap ecosystem.
