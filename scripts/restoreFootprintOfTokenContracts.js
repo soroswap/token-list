@@ -1,12 +1,15 @@
 const StellarSdk = require("stellar-sdk");
 const tokenList = require("../tokenList.json"); // Adjust the path as needed
 const rpc = process.env.RPC_URL;
+const horizonUrl = process.env.HORIZON_URL;
+const addressWithTrustlines = "GBHYCV7DRS3GTFZYTW4MTHMBKRJJSZKV7LSCAERQQKUHZRYBW34FGUE4"
 
 class FootprintRestorer {
 
-    constructor(rpc, keypair) {
+    constructor(rpc, horizonUrl, keypair) {
         this.keypair = keypair;
         this.server = new StellarSdk.SorobanRpc.Server(rpc, { allowHttp: true });
+        this.horizonServer = new StellarSdk.Horizon.Server(rpc);
     }
 
     async setup() {
@@ -16,6 +19,73 @@ class FootprintRestorer {
 
     async updateAccount() {
         this.account = await this.server.getAccount(this.keypair.publicKey());
+    }
+
+    getAllPairsEndpoint() {
+        const endpoint = "https://info.soroswap.finance/api/pairs/plain?network=MAINNET";
+        return endpoint;
+    }
+
+    async populatePairs() {
+        const endpoint = this.getAllPairsEndpoint();
+        try {
+            const response = await fetch(endpoint);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            this.allPairs = await response.json();
+
+        } catch (error) {
+            console.error("Error fetching pairs", error);
+            return;
+        }
+    }
+
+    async getFundedAddress(asset) {
+        const holders = await this.getAssetHolders(asset);
+        const holdersWithBalance = holders.filter(h => h.balance > 0);
+        if (holdersWithBalance.length > 0) {
+            return holdersWithBalance[0];
+        } else {
+            console.log(`No funded account found for ${asset.code}`);
+            return null;
+        }
+
+    }
+
+    async getAssetHolders(asset, limit = 10) {
+        try {
+            const accountsWithTrustline = await this.horizonServer.accounts()
+                .forAsset(asset)
+                .limit(limit)
+                .call();
+            const balances = accountsWithTrustline.records.map(account => ({
+                accountId: account.id,
+                balance: account.balances.find(b => b.asset_code === asset.code && b.asset_issuer === asset.issuer).balance
+            }));
+            return balances;
+        } catch (error) {
+            console.error('Error fetching asset holders:', error);
+            return [];
+        }
+    }
+
+    getPairsWithAsset(tokenListAsset) {
+        const pairs = this.allPairs.filter(pair => {
+            return pair.tokenA == tokenListAsset.contract || pair.tokenB == tokenListAsset.contract;
+        });
+        return pairs;
+    }
+
+    getOtherAsset(pair, contract) {
+        if (pair.tokenA === contract) {
+            return pair.tokenB;
+        } else if (pair.tokenB === contract) {
+            return pair.tokenA;
+        } else {
+            console.log("Contract not found in pair", contract);
+            return null;
+        }
     }
 
     async restoreFootprintToContract(contract) {
@@ -87,8 +157,7 @@ class FootprintRestorer {
         }
     }
 
-    async checkRestoration(tx) {
-        const simulation = await this.server.simulateTransaction(tx);
+    async checkRestoration(simulation) {
         // console.log('🚀 ~ FootprintRestorer ~ checkRestoration ~ simulation:', simulation);
         const restorePreamble = simulation.restorePreamble;
         // console.log('🚀 ~ FootprintRestorer ~ checkRestoration ~ restorePreamble:', restorePreamble);
@@ -136,31 +205,31 @@ class FootprintRestorer {
                         const contractCode = key.contractCode()
                         console.log('🚀 ~ FootprintRestorer ~ readWriteKeys.forEach ~ contractCode:', contractCode);
                     }
-                    // const res = StellarSdk.scValToNative(val)
-                    // console.log('🚀 ~ FootprintRestorer ~ readWriteKeys.forEach ~ res:', res);
-                    // console.log(`Entry ${index + 1}:`, JSON.stringify(key, null, 2));
-                    // const vec = key.contractData().key().vec()
-                    // console.log('🚀 ~ FootprintRestorer ~ readWriteKeys.forEach ~ vec:', vec);
-                    // vec.forEach((entry, index) => {
-                    //     try {
-                    //         console.log('🚀 ~ FootprintRestorer ~ readWriteKeys.forEach ~ entry:', entry);
-                    //         const entryContract = entry.address().contractId()
-                    //         console.log('🚀 ~ FootprintRestorer ~ vec.forEach ~ entryContract:', entryContract);
-                    //     } catch (e) {
-                    //         console.log('🚀 ~ FootprintRestorer ~ vec.forEach ~ e:', e);
-                    //     }
-                    // })
                 });
-                return true
+                return [true, restorePreamble]
             }
-
-            const sorobanDataBuilt = sorobanDataBuilder.build();
+            // const sorobanDataBuilt = sorobanDataBuilder.build();
             // console.log('🚀 ~ FootprintRestorer ~ checkRestoration ~ sorobanDataBuilt:', sorobanDataBuilt);
 
         }
+        return [false, null]
     }
 
-    async swapTransaction(fundedAddress, contract1, contract2) {
+    async skimTransaction(pairAddress) {
+        const pair = new StellarSdk.Contract(pairAddress);
+
+        const skimTx = new StellarSdk.TransactionBuilder(this.account, {
+            fee: 100,
+            networkPassphrase: StellarSdk.Networks.PUBLIC,
+        })
+            .addOperation(pair.call("skim", new StellarSdk.Address(this.keypair.publicKey()).toScVal()))
+            .setTimeout(30)
+            .build();
+        const simulatedTransaction = await this.server.simulateTransaction(skimTx);
+        return simulatedTransaction;
+    }
+
+    async swapTransaction(fundedAddress, contract1, contract2, amount0) {
         const routerAddress = "CAG5LRYQ5JVEUI5TEID72EYOVX44TTUJT5BQR2J6J77FH65PCCFAJDDH"
         const routerContract = new StellarSdk.Contract(routerAddress);
 
@@ -168,8 +237,8 @@ class FootprintRestorer {
             contract1,
             contract2,
         ].map((address) => new StellarSdk.Address(address));
-        const amount0 = "1000";
-        const amount1 = "1";
+        // const amount0 = "1000";
+        const amount1 = "0";
 
         const amount0ScVal = StellarSdk.nativeToScVal(amount0, { type: "i128" });
         const amount1ScVal = StellarSdk.nativeToScVal(amount1, { type: "i128" });
@@ -180,6 +249,7 @@ class FootprintRestorer {
             amount1ScVal,
             pathScVal, // path
             new StellarSdk.Address(fundedAddress).toScVal(),
+            // new StellarSdk.Address(addressWithTrustlines).toScVal(),
             StellarSdk.nativeToScVal(getCurrentTimePlusOneHour(), { type: "u64" })
         ];
 
@@ -203,8 +273,9 @@ class FootprintRestorer {
             } else {
                 console.log("An error occurred during the transaction simulation:", errorMessage);
             }
+            // return;
         }
-        return tx;
+        return simulatedTransaction;
     }
 
     async handleLedgerEntriesRestoration(transaction) {
@@ -243,7 +314,6 @@ class FootprintRestorer {
 
 async function main() {
     const privateKey = process.env.PRIVATE_KEY;
-
     if (!privateKey) {
         console.error("Please provide a private key");
         return;
@@ -252,12 +322,46 @@ async function main() {
         console.error("Please provide a RPC URL");
         return;
     }
-    const keypair = StellarSdk.Keypair.fromSecret(privateKey);
-    console.log('🚀 ~ main ~ keypair:', keypair.publicKey());
+    if (!horizonUrl) {
+        console.error("Please provide a Horizon URL");
+        return;
+    }
 
-    const footprintRestorer = new FootprintRestorer(rpc, keypair);
+    const keypair = StellarSdk.Keypair.fromSecret(privateKey);
+
+    const footprintRestorer = new FootprintRestorer(rpc, horizonUrl, keypair);
 
     await footprintRestorer.setup();
+    await footprintRestorer.populatePairs();
+
+    // for (const tokenListAsset of [tokenList.assets[0]]) {
+    for (const tokenListAsset of tokenList.assets) {
+        const asset = new StellarSdk.Asset(tokenListAsset.code, tokenListAsset.issuer);
+        // console.log('🚀 ~ main ~ asset:', asset);
+        const pairs = footprintRestorer.getPairsWithAsset(tokenListAsset);
+        if (pairs.length === 0) {
+            console.log(`No pairs found for ${tokenListAsset.code}:${tokenListAsset.issuer}, contract: ${tokenListAsset.contract}`);
+        } else {
+            const { accountId: fundedAddress, balance } = await footprintRestorer.getFundedAddress(asset);
+            // console.log('🚀 ~ balance:', balance);
+            // console.log(`Pairs found for ${tokenListAsset.code}:${tokenListAsset.issuer}, contract: ${tokenListAsset.contract}`);
+            for (const pair of pairs) {
+                // console.log('🚀 ~ pair:', pair);
+                const otherAsset = footprintRestorer.getOtherAsset(pair, tokenListAsset.contract);
+                // console.log(`Pair: ${pair.tokenA}:${pair.tokenB}, Other asset: ${otherAsset}, tokenListAsset: ${tokenListAsset.contract}`);
+                // const txSimulated = await footprintRestorer.swapTransaction(fundedAddress, tokenListAsset.contract, otherAsset, unitToStroops(balance))
+                const txSimulated = await footprintRestorer.skimTransaction(pair.address);
+                const [needsRestoration, restorePreamble] = await footprintRestorer.checkRestoration(txSimulated);
+                if (needsRestoration) {
+                    console.log("Restoration needed for pair", pair);
+                    // await footprintRestorer.handleLedgerEntriesRestoration(swapTx);
+                } else {
+                    // console.log("No restoration needed for pair", pair);
+                }
+            }
+        }
+    }
+
     // await footprintRestorer.restoreFootprints();
     // const contract = "CDHBIACXSM5K2NFCCHQIJQNDJPHGPW4OHIYVXGCFMVT7PNLWXY4NGRNH"; // AMM
     // const contract = "CAZQYRFG7A2CZTZ2NEODHZGIOORFFKOEFV7WWZOBJEYXER56ASCUBD7P"; // GQX
@@ -270,12 +374,12 @@ async function main() {
     // const contract1 = "CAUIKL3IYGMERDRUN6YSCLWVAKIFG5Q4YJHUKM4S4NJZQIA3BAS6OJPK" // aqua
     // const contract2 = "CDCKFBZYF2AQCSM3JOF2ZM27O3Y6AJAI4OTCQKAFNZ3FHBYUTFOKICIY" // XTAR
 
-    const fundedAddress = "GCPJFNZAARY3Z2AM7RVXDZDLPOEBT4QHTQXFOFKMZHLV7PPDKE2M67Q6"
-    const contract1 = "CBCU5VMZ3GNHHKJUWZ2GI7K36MEAXOJW2RJCIJHFPVFGBME3WADLXA6W" // BlabberCoin
-    const contract2 = "CDME3GWAU7YSHVB6GWKDOQORR6TYKKQG6G7FDMMO7OPMQALBCNI5A2JR" // HahaToken
+    // const fundedAddress = "GCPJFNZAARY3Z2AM7RVXDZDLPOEBT4QHTQXFOFKMZHLV7PPDKE2M67Q6"
+    // const contract1 = "CBCU5VMZ3GNHHKJUWZ2GI7K36MEAXOJW2RJCIJHFPVFGBME3WADLXA6W" // BlabberCoin
+    // const contract2 = "CDME3GWAU7YSHVB6GWKDOQORR6TYKKQG6G7FDMMO7OPMQALBCNI5A2JR" // HahaToken
 
-    const swapTx = await footprintRestorer.swapTransaction(fundedAddress, contract1, contract2)
-    await footprintRestorer.checkRestoration(swapTx);
+    // const swapTx = await footprintRestorer.swapTransaction(fundedAddress, contract1, contract2)
+    // await footprintRestorer.checkRestoration(swapTx);
 
     // const txXDR = "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"
     // const tx = StellarSdk.TransactionBuilder.fromXDR(txXDR, StellarSdk.Networks.PUBLIC);
@@ -293,4 +397,8 @@ const getCurrentTimePlusOneHour = () => {
     const oneHourLater = now + 3600000;
 
     return oneHourLater;
+};
+
+const unitToStroops = (unit) => {
+    return unit.replace(".", "");
 };
