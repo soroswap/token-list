@@ -65,6 +65,8 @@ yarn install
 ```bash
 yarn restore-footprints
 ```
+If you need to change the endpoint for getting all pairs go to `scripts/restoreFootprintOfTokenContracts.js`
+
 ## Setting trustlines for a wallet
 This feature allow a wallet to set trustlines for all tokens in the token list. You can run the script as follows:
   
