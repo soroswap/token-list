@@ -1,10 +1,10 @@
 {
-  "code": "BLND",                 // The code representing your token.
-  "issuer": "GDJEHTBE6ZHUXSWFI642DCGLUOECLHPF3KSXHPXTSTJ7E3JF6MQ5EZYY",             // The issuer's account address (optional).
-  "contract": "CD25MNVTZDL4Y3XBCPCJXGXATV5WUHHOWMYFF4YBEGU5FCPGMYTVG5JY",             // The contract address for your token.
-  "name": "Blend",               // The name of your token (optional).
-  "org": "Blend Protocol",                // The organization behind the token (optional).
-  "domain": "blend.capital",             // The website for your token or organization (optional).
-  "icon": "https://stellar.myfilebase.com/ipfs/QmaDc2ArxQom1bFkE7JsqqZ2VdThvLV2GTRimaeJcpxU8L",                 // A URL to the token's icon.
-  "decimals": 7;              // The number of decimals for your token. (7)
+  "code": "BLND",
+  "issuer": "GDJEHTBE6ZHUXSWFI642DCGLUOECLHPF3KSXHPXTSTJ7E3JF6MQ5EZYY",
+  "contract": "CD25MNVTZDL4Y3XBCPCJXGXATV5WUHHOWMYFF4YBEGU5FCPGMYTVG5JY",
+  "name": "Blend",
+  "org": "Blend Protocol",
+  "domain": "blend.capital",
+  "icon": "https://stellar.myfilebase.com/ipfs/QmaDc2ArxQom1bFkE7JsqqZ2VdThvLV2GTRimaeJcpxU8L",
+  "decimals": 7,
 }
