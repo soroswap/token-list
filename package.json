@@ -9,11 +9,12 @@
   "scripts": {
     "merge": "node scripts/createTokenList",
     "verify": "node scripts/verifyTokens",
-    "set-trustlines": "node scripts/setTrustlines"
+    "set-trustlines": "node scripts/setTrustlines",
+    "restore-footprints": "node scripts/restoreFootprintOfTokenContracts.js"
   },
   "dependencies": {
     "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
-    "stellar-sdk": "^11.2.2"
+    "stellar-sdk": "^12.2.0"
   }
 }

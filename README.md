@@ -46,6 +46,25 @@ Ensure your token's details are correctly formatted according to the structure a
 - Upon merging your PR, a GitHub Actions workflow automatically updates the `tokenList.json`. Manual updates to this file are not required in your PR.
 - All submissions undergo review. Please allow some time for the review and inclusion process.
 
+## Restoring footprints of the token list
+It runs daily. But you can trigger it manually:
+
+Go to github actions and launch the workflow `Restore footprints of the token list`.
+Make sure `GB5KBIU6KUCKEVVDZOMIIJAKGAEOKQOBZX5TMOBXGCU3D5RAO22WETXE` address is funded to run it on github.
+
+If you want to run it locally, you need to set the environment variables `PRIVATE_KEY` and `RPC_URL`. Then, you can run the restore footprints script with the following command:
+
+```bash
+yarn restore-footprints
+```
+## Setting trustlines for a wallet
+This feature allow a wallet to set trustlines for all tokens in the token list. You can run the script as follows:
+  
+  ```bash
+  yarn set-trustlines $TRUSTLINES_PRIVATE_KEY
+  ```
+make sure the environment variable `TRUSTLINES_PRIVATE_KEY` is set.
+
 ## Questions or Concerns?
 
 For questions or further clarification, feel free to open an issue in this repository. We're here to help ensure a smooth integration process for your token into the Soroswap ecosystem.
