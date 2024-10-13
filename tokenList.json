@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -394,6 +394,16 @@
       "org": "Threefold foundation",
       "domain": "threefold.io",
       "icon": "https://ipfs.io/ipfs/bafkreicd6a4z2chjt7ypqow5gja5ioe5xh5zhi2kqzsidp3l4w7vywcqaq",
+      "decimals": 7
+    },
+    {
+      "code": "BLND",
+      "issuer": "GDJEHTBE6ZHUXSWFI642DCGLUOECLHPF3KSXHPXTSTJ7E3JF6MQ5EZYY",
+      "contract": "CD25MNVTZDL4Y3XBCPCJXGXATV5WUHHOWMYFF4YBEGU5FCPGMYTVG5JY",
+      "name": "Blend",
+      "org": "Blend Protocol",
+      "domain": "blend.capital",
+      "icon": "https://stellar.myfilebase.com/ipfs/QmaDc2ArxQom1bFkE7JsqqZ2VdThvLV2GTRimaeJcpxU8L",
       "decimals": 7
     },
     {
