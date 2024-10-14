@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -464,6 +464,16 @@
       "org": "unknown",
       "domain": "stellarport.io",
       "icon": "https://ipfs.io/ipfs/bafkreiarw43hogb73q5cywj265lysdplyzcnslucoyxh6s44wbypnimu3y",
+      "decimals": 7
+    },
+    {
+      "code": "USDx",
+      "issuer": "GAVH5ZWACAY2PHPUG4FL3LHHJIYIHOFPSIUGM2KHK25CJWXHAV6QKDMN",
+      "contract": "CDIKURWHYS4FFTR5KOQK6MBFZA2K3E26WGBQI6PXBYWZ4XIOPJHDFJKP",
+      "name": "Decentralized USD Coin",
+      "org": "FxDAO LLC",
+      "domain": "fxdao.io",
+      "icon": "https://stellar.myfilebase.com/ipfs/QmQqpy1GLcGqqsg6DaHqLQntPPuFcdHZYG2pLBpHohvCUd",
       "decimals": 7
     },
     {
