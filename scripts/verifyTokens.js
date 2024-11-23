@@ -117,6 +117,9 @@ async function verifyNewAssets(directoryPath, assetListPath) {
 
     // Skip validation for files that couldn't be read properly
     if (!assetData || !validate(assetData)) {
+      console.log("🚀 ~ verifyNewAssets ~ validate(assetData):", validate(assetData))
+      console.log("🚀 ~ verifyNewAssets ~ assetData:", assetData)
+      
       throw new Error(`Asset validation failed for ${file}:`, validate.errors);
     }
 

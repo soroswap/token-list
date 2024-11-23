@@ -34,9 +34,15 @@ Ensure your token's details are correctly formatted according to the structure a
    cd token-list
    ```
 
-3. **Add Your Token**: Create a new JSON file within the `tokens` directory. Name it `<CONTRACT_ADDRESS>.json`, replacing `<CONTRACT_ADDRESS>` with your token's actual contract address.
+3. **Add Your Token**: Create a new JSON file within the `assets` directory. Name it `<CONTRACT_ADDRESS>.json`, replacing `<CONTRACT_ADDRESS>` with your token's actual contract address.
 
-4. **Fill Out Token Information**: Populate the new file with your token's details. Follow the provided structure, including all required fields and any applicable optional fields.
+4. **Fill Out Token Information**: Populate the new file with your token's details. Follow the provided structure, including all required fields and any applicable optional fields. Check the toml file of the asset in Stellar.Expert to get the correct information
+
+5. **Run Local Tests**: Your PR can only be merged if the tests pass, so first run the tests locally:
+```
+yarn
+yarn verify
+```
 
 5. **Submit a Pull Request (PR)**: Push the changes to your fork and submit a PR to this repository. The PR should only add the new token file to the `tokens` directory.
 
