@@ -38,6 +38,12 @@ Ensure your token's details are correctly formatted according to the structure a
 
 4. **Fill Out Token Information**: Populate the new file with your token's details. Follow the provided structure, including all required fields and any applicable optional fields. Check the toml file of the asset in Stellar.Expert to get the correct information
 
+5. **Run Local Tests**: Your PR can only be merged if the tests pass, so first run the tests locally:
+```
+yarn
+yarn verify
+```
+
 5. **Submit a Pull Request (PR)**: Push the changes to your fork and submit a PR to this repository. The PR should only add the new token file to the `tokens` directory.
 
 ### Important Guidelines
