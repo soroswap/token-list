@@ -1,0 +1,10 @@
+{
+    "name": "Glo Dollar",
+    "code": "USDGLO",
+    "issuer": "GBBS25EGYQPGEZCGCFBKG4OAGFXU6DSOQBGTHELLJT3HZXZJ34HWS6XV",
+    "contract": "CB226ZOEYXTBPD3QEGABTJYSKZVBP2PASEISLG3SBMTN5CE4QZUVZ3CE",
+    "org": "Glo Development Foundation, Inc",
+    "domain": "https://glodollar.org/",
+    "icon": "https://app.glodollar.org/glo-logo.png",
+    "decimals": 7
+  }
