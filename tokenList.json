@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -157,6 +157,16 @@
       "decimals": 7
     },
     {
+      "code": "GBPx",
+      "issuer": "GAVH5ZWACAY2PHPUG4FL3LHHJIYIHOFPSIUGM2KHK25CJWXHAV6QKDMN",
+      "contract": "CBCO65UOWXY2GR66GOCMCN6IU3Y45TXCPBY3FLUNL4AOUMOCKVIVV6JC",
+      "name": "Decentralized GBP Coin",
+      "org": "FxDAO LLC",
+      "domain": "fxdao.io",
+      "icon": "https://stellar.myfilebase.com/ipfs/QmeGXphMJgKHdhoVxb6P3jEJEkj79WPheLiga7ouNd5EZm",
+      "decimals": 7
+    },
+    {
       "code": "CLPX",
       "issuer": "GDYSPBVZHPQTYMGSYNOHRZQNLB3ZWFVQ2F7EP7YBOLRGD42XIC3QUX5G",
       "contract": "CBDRPADR3KIBJNUBNRTTO4P7NO5RVPMYKRJB5YCZUZ6B66RKYK324UJY",
@@ -224,6 +234,16 @@
       "org": "Reflector",
       "domain": "reflector.network",
       "icon": "https://reflector.network/images/logo.svg",
+      "decimals": 7
+    },
+    {
+      "code": "EURx",
+      "issuer": "GAVH5ZWACAY2PHPUG4FL3LHHJIYIHOFPSIUGM2KHK25CJWXHAV6QKDMN",
+      "contract": "CBN3NCJSMOQTC6SPEYK3A44NU4VS3IPKTARJLI3Y77OH27EWBY36TP7U",
+      "name": "Decentralized EUR Coin",
+      "org": "FxDAO LLC",
+      "domain": "fxdao.io",
+      "icon": "https://stellar.myfilebase.com/ipfs/QmTGegMR2v86ZjzHvhT3DMD6t1ri1VUz82tqRt4SxbFjC1",
       "decimals": 7
     },
     {
