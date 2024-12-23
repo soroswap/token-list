@@ -1,0 +1,10 @@
+{
+  "code": "EURx",
+  "issuer": "GAVH5ZWACAY2PHPUG4FL3LHHJIYIHOFPSIUGM2KHK25CJWXHAV6QKDMN",
+  "contract": "CBN3NCJSMOQTC6SPEYK3A44NU4VS3IPKTARJLI3Y77OH27EWBY36TP7U",
+  "name": "Decentralized EUR Coin",
+  "org": "FxDAO LLC",
+  "domain": "fxdao.io",
+  "icon": "https://stellar.myfilebase.com/ipfs/QmTGegMR2v86ZjzHvhT3DMD6t1ri1VUz82tqRt4SxbFjC1",
+  "decimals": 7
+}
