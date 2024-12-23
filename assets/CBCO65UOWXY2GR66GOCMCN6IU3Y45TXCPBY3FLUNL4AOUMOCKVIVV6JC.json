@@ -1,0 +1,10 @@
+{
+  "code": "GBPx",
+  "issuer": "GAVH5ZWACAY2PHPUG4FL3LHHJIYIHOFPSIUGM2KHK25CJWXHAV6QKDMN",
+  "contract": "CBCO65UOWXY2GR66GOCMCN6IU3Y45TXCPBY3FLUNL4AOUMOCKVIVV6JC",
+  "name": "Decentralized GBP Coin",
+  "org": "FxDAO LLC",
+  "domain": "fxdao.io",
+  "icon": "https://stellar.myfilebase.com/ipfs/QmeGXphMJgKHdhoVxb6P3jEJEkj79WPheLiga7ouNd5EZm",
+  "decimals": 7
+}
