@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -464,6 +464,16 @@
       "org": "Cowrie Integrated Systems",
       "domain": "cowrie.exchange",
       "icon": "https://ipfs.io/ipfs/bafkreicctofbpuujxn6s7jh5kc4nzdygacumvp36qhnhtgowesfmkyweoy",
+      "decimals": 7
+    },
+    {
+      "code": "STROOPY",
+      "issuer": "GBZ3SMMNNSOLVV6LGNDBDWRVD2N56VUZZ6LVB6VGOOJGSMWI7ISLOJEC",
+      "contract": "CDDL6HGNYGVRCQB37DDFTIFYMGTX36AQMCXI6U3NOAO2BBZDNGKMGQSY",
+      "name": "STROOPY",
+      "org": "Silver Hen Tech",
+      "domain": "xlmeme.com",
+      "icon": "https://xlmeme.com/cdn-cgi/imagedelivery/BMsStEZme-xi9eCyEb_01g/bfb4bba0-00d6-434b-ea8a-89d733dcd000/public",
       "decimals": 7
     },
     {
