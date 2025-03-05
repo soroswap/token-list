@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "name": "SHT",
   "code": "SHT",
@@ -8,15 +7,4 @@
   "domain": "zomb.fun",
   "icon": "https://zomb.fun/images/sht-logo.png",
   "decimals": 7
-=======
-{
-  "name": "SHT",
-  "code": "SHT",
-  "issuer": "GCBJGB67Z2UTZVXVPYFF2KZ4P5ZEEVCZWRGYBLN3CZCG63VOF6LNSPEE",
-  "contract": "CAE2AI67RNYJL6GYEHWBTFVCFEI3DNW3VMK26N7ZZKA75IUFVCF2GIJ3",
-  "org": "Silver Hen Tech",
-  "domain": "zomb.fun",
-  "icon": "https://zomb.fun/images/sht-logo.png",
-  "decimals": 7
->>>>>>> caaebd472daeb45c377cddc020cde1ed0c823c84
 }
