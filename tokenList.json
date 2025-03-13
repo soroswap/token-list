@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -244,6 +244,16 @@
       "org": "Reflector",
       "domain": "reflector.network",
       "icon": "https://reflector.network/images/logo.svg",
+      "decimals": 7
+    },
+    {
+      "code": "USTRY",
+      "issuer": "GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC",
+      "contract": "CBLV4ATSIWU67CFSQU2NVRKINQIKUZ2ODSZBUJTJ43VJVRSBTZYOPNUR",
+      "name": "Etherfuse USTRY",
+      "org": "Etherfuse",
+      "domain": "etherfuse.com",
+      "icon": "https://stablebonds.s3.us-west-2.amazonaws.com/stablebond/spl-ustry.png",
       "decimals": 7
     },
     {
