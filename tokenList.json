@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -44,6 +44,16 @@
       "org": "unknown",
       "domain": "stellarport.io",
       "icon": "https://ipfs.io/ipfs/bafkreihbyszxadmibtyidcdi7ume4fosyb3yjcqwcazfkfjez722wdiw6u",
+      "decimals": 7
+    },
+    {
+      "code": "CETES",
+      "issuer": "GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC",
+      "contract": "CAL6ER2TI6CTRAY6BFXWNWA7WTYXUXTQCHUBCIBU5O6KM3HJFG6Z6VXV",
+      "name": "Etherfuse CETES",
+      "org": "Etherfuse",
+      "domain": "etherfuse.com",
+      "icon": "https://stablebonds.s3.us-west-2.amazonaws.com/stablebond/spl-cetes.png",
       "decimals": 7
     },
     {
