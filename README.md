@@ -58,11 +58,21 @@ It runs daily. But you can trigger it manually:
 Go to github actions and launch the workflow `Restore footprints of the token list`.
 Make sure `GB5KBIU6KUCKEVVDZOMIIJAKGAEOKQOBZX5TMOBXGCU3D5RAO22WETXE` address is funded to run it on github.
 
-If you want to run it locally, you need to set the environment variables `PRIVATE_KEY` and `RPC_URL`. Then, you can run the restore footprints script with the following command:
+If you want to run it locally, you need to set the environment variables `PRIVATE_KEY`, `RPC_URL`, `HORIZON_URL`. Then, you can run the restore footprints script with the following command:
+Otherwise you can use docker, just run the following command:
+```bash 
+cp .env.local.example .env
+# Fill the .env file with the required environment variables
+bash docker/run.sh
+
+yarn install
+```
 
 ```bash
 yarn restore-footprints
 ```
+If you need to change the endpoint for getting all pairs go to `scripts/restoreFootprintOfTokenContracts.js`
+
 ## Setting trustlines for a wallet
 This feature allow a wallet to set trustlines for all tokens in the token list. You can run the script as follows:
   
@@ -70,6 +80,8 @@ This feature allow a wallet to set trustlines for all tokens in the token list. 
   yarn set-trustlines $TRUSTLINES_PRIVATE_KEY
   ```
 make sure the environment variable `TRUSTLINES_PRIVATE_KEY` is set.
+
+Currently the Public Key is `GBHYCV7DRS3GTFZYTW4MTHMBKRJJSZKV7LSCAERQQKUHZRYBW34FGUE4`
 
 ## Questions or Concerns?
 
