@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -124,6 +124,16 @@
       "org": "Glo Development Foundation",
       "domain": "app.glodollar.org",
       "icon": "https://app.glodollar.org/glo-logo.png",
+      "decimals": 7
+    },
+    {
+      "name": "The Blockchain Superfood",
+      "code": "KALE",
+      "issuer": "GBDVX4VELCDSQ54KQJYTNHXAHFLBCA77ZY2USQBM4CSHTTV7DME7KALE",
+      "contract": "CB23WRDQWGSP6YPMY4UV5C4OW5CBTXKYN3XEATG7KJEZCXMJBYEHOUOV",
+      "org": "The KALEpail Project",
+      "domain": "kalepail.com",
+      "icon": "https://imagedelivery.net/yd3qPvu7Jy_6BfgoQb2pZQ/30466c1d-ef73-4d2b-8814-949157465a00/public",
       "decimals": 7
     },
     {
