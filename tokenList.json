@@ -635,6 +635,16 @@
       "domain": "stellarport.io",
       "icon": "https://ipfs.io/ipfs/bafkreidiycqxm3ffga2xrdzkaty4bqdpq5d2mm7ylckya4vsa3tstyp66a",
       "decimals": 7
+    },
+    {
+      "code": "USDL",
+      "issuer": "",
+      "contract": "CB4PO24UJF7KFNUNQJISIRPO2KSULUWIOP4JT3S3KYW5UFXRQPZD34E4",
+      "name": "Lift Dollar",
+      "org": "Paxos",
+      "domain": "https://www.paxos.com",
+      "icon": "https://424565.fs1.hubspotusercontent-na1.net/hubfs/424565/USDL-Logo-T32x32.png",
+      "decimals": 18
     }
   ]
 }
