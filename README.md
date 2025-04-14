@@ -2,6 +2,8 @@
 
 Welcome to the official repository for the Soroswap token list. This list is essential for validating swap paths on the Soroswap Automated Market Maker (AMM) protocol on Soroban. By adhering to this list, we ensure a trusted and secure environment for all swaps conducted through Soroswap.
 
+Please contact us on Discord after you have created a PR! :)
+
 ## Adding Your Token to the List
 
 To include your token in the Soroswap token list, ensure your token adheres to the following structure. Fields marked with an asterisk (*) are optional and can be omitted if not applicable to your token.
