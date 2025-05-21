@@ -625,6 +625,16 @@
       "domain": "stellarport.io",
       "icon": "https://ipfs.io/ipfs/bafkreidiycqxm3ffga2xrdzkaty4bqdpq5d2mm7ylckya4vsa3tstyp66a",
       "decimals": 7
+    },
+    {
+      "code": "Zi",
+      "issuer": "GAYW7P7VQ6BDSSW4TJOIXX5CITVFG455NQIAMCK22BYUOUHI6CKOAEFV",
+      "contract": "CCB5ZZYCX45YJ4NSVMYAQTSJ7OYBDL7XCJE2ZSIANWUHWCJTIRZZFA6I",
+      "name": "ZIONCOIN",
+      "org": "Zioncoin Foundation",
+      "domain": "zioncoin.org.uk",
+      "icon": "https://zioncoin.org.uk/wp-content/uploads/2023/12/Zi_Zioncoin_Ticker.png",
+      "decimals": 7
     }
   ]
 }
