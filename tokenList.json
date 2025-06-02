@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -304,6 +304,16 @@
       "org": "Interstellar, Inc.",
       "domain": "interstellar.exchange",
       "icon": "https://ipfs.io/ipfs/bafkreig5ehodvqgbx75eftbafcfz3npwasnxy72smwvsv67iqcqnhqvwuq",
+      "decimals": 7
+    },
+    {
+      "name": "Poye",
+      "code": "POYE",
+      "issuer": "GCANJQJUFIWG7TXKCAJPG726KWW5CXISB2KM2MZRYLVV6AMZENZQN2ZE",
+      "contract": "CBT2U7I6J7LSEEJQQXBEOSRXNRNLH5UQPWG74Q36J3RHNQOQ5KEFCJ4Y",
+      "org": "Poye Network",
+      "domain": "poye.xyz",
+      "icon": "https://stellar.myfilebase.com/ipfs/QmYUeh7TRHB6bbBrZ2JLSsVEgww4fAHfPzaa7gFDDXrPB4",
       "decimals": 7
     },
     {
