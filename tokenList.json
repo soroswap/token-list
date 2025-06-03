@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -354,6 +354,16 @@
       "org": "Zioncoin Foundation",
       "domain": "zioncoin.org.uk",
       "icon": "https://zioncoin.org.uk/wp-content/uploads/2023/12/Zi_Zioncoin_Ticker.png",
+      "decimals": 7
+    },
+    {
+      "code": "oUSD",
+      "issuer": "GBIWJGAOSFC4KUPHXM573TKTWHMI7VW7D4GCHYZYH243Q6HVBV7ORBIT",
+      "contract": "CBZPEXQLJCGUYTAQRQ4FGCXUV5O4TZER5WSOMCGNDNIIO4EJ4FU5GQNZ",
+      "name": "Orbit USD",
+      "org": "Orbit CDP",
+      "domain": "orbitcdp.finance",
+      "icon": "https://testnet.orbitcdp.finance/icons/tokens/ousd.svg",
       "decimals": 7
     },
     {

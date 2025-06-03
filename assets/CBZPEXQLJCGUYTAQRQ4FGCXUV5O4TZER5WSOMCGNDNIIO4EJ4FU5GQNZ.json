@@ -1,0 +1,10 @@
+{
+  "code": "oUSD",
+  "issuer": "GBIWJGAOSFC4KUPHXM573TKTWHMI7VW7D4GCHYZYH243Q6HVBV7ORBIT",
+  "contract": "CBZPEXQLJCGUYTAQRQ4FGCXUV5O4TZER5WSOMCGNDNIIO4EJ4FU5GQNZ",
+  "name": "Orbit USD",
+  "org": "Orbit CDP",
+  "domain": "orbitcdp.finance",
+  "icon": "https://testnet.orbitcdp.finance/icons/tokens/ousd.svg",
+  "decimals": 7
+}
