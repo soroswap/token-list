@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -394,16 +394,6 @@
       "org": "Grupo Anchor S.A. dba Anclap",
       "domain": "api.anclap.com",
       "icon": "https://ipfs.io/ipfs/bafkreidhcfxkltthg3cechrwh6acxw44xgrmndwmnk5b6ikprhe4yrfsmi",
-      "decimals": 7
-    },
-    {
-      "code": "USD",
-      "issuer": "GDUKMGUGDZQK6YHYA5Z6AY2G4XDSZPSZ3SW5UN3ARVMO6QSRDWP5YLEX",
-      "contract": "CCEBHXWHT2UX6QQ7WZOV6KRGUILICPRFOZD2CEAHZ5AYX7EFW3RG6I2F",
-      "name": "US Dollar",
-      "org": "AnchorCoin LLC dba AnchorUSD",
-      "domain": "stablecoin.anchorusd.com",
-      "icon": "https://ipfs.io/ipfs/bafkreid3hvcllxpmlldwxcn7u5sdx6pf2gipd3ygqwjo7mpns2p42opwby",
       "decimals": 7
     },
     {
