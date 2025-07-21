@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -184,16 +184,6 @@
       "org": "Poye Network",
       "domain": "poye.xyz",
       "icon": "https://stellar.myfilebase.com/ipfs/QmYUeh7TRHB6bbBrZ2JLSsVEgww4fAHfPzaa7gFDDXrPB4",
-      "decimals": 7
-    },
-    {
-      "code": "EURC",
-      "issuer": "GAQRF3UGHBT6JYQZ7YSUYCIYWAF4T2SAA5237Q5LIQYJOHHFAWDXZ7NM",
-      "contract": "CBVDRT5474OBUEXF5MJB3UGQ5CG7CKGCAH5M4RV5NBCDJUBZ5OXHJLOU",
-      "name": "EURo Coin",
-      "org": "MYKOBO",
-      "domain": "mykobo.co",
-      "icon": "https://ipfs.io/ipfs/bafkreib6tcswtof2e2bmcoks5miqmegkqrftml33ghedsczbhh72ugloza",
       "decimals": 7
     },
     {
