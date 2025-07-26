@@ -57,16 +57,6 @@
       "decimals": 7
     },
     {
-      "code": "NUNA",
-      "issuer": "GCX2ENOVSSOOH6G4HIOBMPCBFXHDVDGA546NK3ZFX3NP3QS25BKZBWOW",
-      "contract": "CAPIOPSODD5QP4SJNIS4ASUWML4LH7ZEKTAPBJYZSMKXCATEKDZFKLHK",
-      "name": "NUNA Project",
-      "org": "NUNA ORG",
-      "domain": "nunaproject.art",
-      "icon": "https://ipfs.io/ipfs/bafkreiaamlsnnkh74cdz2fmn6ukfg3euonv55mrgzmxjampaknhxmbwtdy",
-      "decimals": 7
-    },
-    {
       "code": "BCH",
       "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
       "contract": "CASVAKL4HL2UYUOHHRX6GPWEVDJJLZGD32RCKSD2ENJ7KF2BOGLFNN7G",
