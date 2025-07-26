@@ -31,7 +31,7 @@
       "issuer": "GBVOL67TMUQBGL4TZYNMY3ZQ5WGQYFPFD5VJRWXR72VA33VFNL225PL5",
       "contract": "CAIRIR3ITE2KNBWHRIAOBBZ2AHIKU5BVTKFTW5IYCOAENR4L5T2THGN6",
       "name": "Bitcoin",
-      "org": "unknown",
+      "org": "Stellar Port",
       "domain": "stellarport.io",
       "icon": "https://ipfs.io/ipfs/bafkreihbyszxadmibtyidcdi7ume4fosyb3yjcqwcazfkfjez722wdiw6u",
       "decimals": 7
@@ -241,7 +241,7 @@
       "issuer": "GBVOL67TMUQBGL4TZYNMY3ZQ5WGQYFPFD5VJRWXR72VA33VFNL225PL5",
       "contract": "CBPMFYWP4FFV7PQUYHXJZBXS75EHR6FXYSYEZWH2UM7AUYSKI2Z3PTCG",
       "name": "Ripple",
-      "org": "unknown",
+      "org": "Stellar Port",
       "domain": "stellarport.io",
       "icon": "https://ipfs.io/ipfs/bafkreiheegvgfzbks6tacnlw24ub2frnr7j32rkzamieifhi2avljcly6m",
       "decimals": 7
@@ -461,7 +461,7 @@
       "contract": "CDHG3SIDGBS4A4ZEV55DYRBUVBJGQVUSNQ2U34BHMFJUVBKLCUOUD6YT",
       "code": "LTC",
       "name": "Litecoin",
-      "org": "unknown",
+      "org": "Stellar Port",
       "domain": "stellarport.io",
       "icon": "https://ipfs.io/ipfs/bafkreiarw43hogb73q5cywj265lysdplyzcnslucoyxh6s44wbypnimu3y",
       "decimals": 7
@@ -541,7 +541,7 @@
       "issuer": "GBVOL67TMUQBGL4TZYNMY3ZQ5WGQYFPFD5VJRWXR72VA33VFNL225PL5",
       "contract": "CDZNTXPXR2I7VFDBYBADK2DE2SSGQ3DTXT5MJDCTYUMNVFK3CWG5NVC7",
       "name": "Ethereum",
-      "org": "unknown",
+      "org": "Stellar Port",
       "domain": "stellarport.io",
       "icon": "https://ipfs.io/ipfs/bafkreidiycqxm3ffga2xrdzkaty4bqdpq5d2mm7ylckya4vsa3tstyp66a",
       "decimals": 7
