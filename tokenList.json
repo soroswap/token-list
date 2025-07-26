@@ -57,16 +57,6 @@
       "decimals": 7
     },
     {
-      "code": "BCH",
-      "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
-      "contract": "CASVAKL4HL2UYUOHHRX6GPWEVDJJLZGD32RCKSD2ENJ7KF2BOGLFNN7G",
-      "name": "Bitcoin Cash",
-      "org": "Interstellar, Inc.",
-      "domain": "interstellar.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreidjldlehssveyqbiolqjifjfoygywozvzsgsieepoe7k7uczi7zmu",
-      "decimals": 7
-    },
-    {
       "name": "Mobius",
       "code": "MOBI",
       "issuer": "GA6HCMBLTZS5VYYBCATRBRZ3BZJMAFUDKYYF6AH6MVCMGWMRDNSWJPIH",
@@ -217,16 +207,6 @@
       "decimals": 7
     },
     {
-      "code": "BTC",
-      "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
-      "contract": "CBJ6JFEMRMSGMOT2CUH3JIKW7AOOZW3HMFNBQFEVHHCE76PWEXAQAJDB",
-      "name": "Bitcoin",
-      "org": "Interstellar, Inc.",
-      "domain": "interstellar.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreifwufagmqgea3pr2jcfu773pm2evktzi2445jmyfbgmatcz7qttu4",
-      "decimals": 7
-    },
-    {
       "code": "XRF",
       "issuer": "GCHI6I3X62ND5XUMWINNNKXS2HPYZWKFQBZZYBSMHJ4MIP2XJXSZTXRF",
       "contract": "CBLLEW7HD2RWATVSMLAGWM4G3WCHSHDJ25ALP4DI6LULV5TU35N2CIZA",
@@ -274,16 +254,6 @@
       "org": "YieldBlox DAO",
       "domain": "script3.io",
       "icon": "https://uploads-ssl.webflow.com/607f603d2f412c67690368b8/60df683719cc056004ea932b_YBX%20token%20web%20bad.png",
-      "decimals": 7
-    },
-    {
-      "code": "XRP",
-      "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
-      "contract": "CBSEMU4NLPURIO37O5KNATEIHGY2BTF27PBJH46H5ESRB7MREGWNMYKJ",
-      "name": "Ripple",
-      "org": "Interstellar, Inc.",
-      "domain": "interstellar.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreig5ehodvqgbx75eftbafcfz3npwasnxy72smwvsv67iqcqnhqvwuq",
       "decimals": 7
     },
     {
@@ -424,16 +394,6 @@
       "org": "Centre Consortium LLC",
       "domain": "centre.io",
       "icon": "https://ipfs.io/ipfs/bafkreibpzncuhbk5ozhdw7xkcdoyf3xhwhcwcf6sj7axjzimxw6vm6pvyy",
-      "decimals": 7
-    },
-    {
-      "code": "LTC",
-      "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
-      "contract": "CCWVP5HVC2TSRNLONGRVS7UK47ORIPURNAGFQ3VR6DP2B77E67QV6P7B",
-      "name": "Litecoin",
-      "org": "Interstellar, Inc.",
-      "domain": "interstellar.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreihtokghz3v4rceerzbvzfvxluhsdw6leri3ogps4mxnqcgrhhngpq",
       "decimals": 7
     },
     {
