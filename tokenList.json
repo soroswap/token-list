@@ -427,16 +427,6 @@
       "decimals": 7
     },
     {
-      "code": "NGNT",
-      "issuer": "GAWODAROMJ33V5YDFY3NPYTHVYQG7MJXVJ2ND3AOGIHYRWINES6ACCPD",
-      "contract": "CDCSVQEMYBNK7URICI77CENLP23OIM4AAXUIJ32Z6V3ZT3QXCP2HJXD7",
-      "name": "Naira Token",
-      "org": "Cowrie Integrated Systems",
-      "domain": "cowrie.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreicctofbpuujxn6s7jh5kc4nzdygacumvp36qhnhtgowesfmkyweoy",
-      "decimals": 7
-    },
-    {
       "code": "STROOPY",
       "issuer": "GBZ3SMMNNSOLVV6LGNDBDWRVD2N56VUZZ6LVB6VGOOJGSMWI7ISLOJEC",
       "contract": "CDDL6HGNYGVRCQB37DDFTIFYMGTX36AQMCXI6U3NOAO2BBZDNGKMGQSY",
@@ -504,16 +494,6 @@
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreicvkevokwxgvqn6vjmf4hf2krk6txy3igi7ei6dwvleb5hqe4odcy",
-      "decimals": 7
-    },
-    {
-      "issuer": "GBQHMDRWV3WU5YACBUUCBY4Y6PPWBJXW5WCSG5XJ63FC4HXJNGXYFD5J",
-      "contract": "CDOIEBW5LN7T7PSFY6ADLPIDF52PFRX57WIYWJ637PCZ7ZFDDN5T6NCH",
-      "code": "SDEXEX",
-      "name": "SDEX Explorer Token",
-      "domain": "sdexexplorer.com",
-      "org": "SDEX Explorer",
-      "icon": "https://ipfs.io/ipfs/bafkreiexs7jvn2jaill67333t5wkxhefqcb4rabouzjfpnhrwcjjw4uawa",
       "decimals": 7
     },
     {
