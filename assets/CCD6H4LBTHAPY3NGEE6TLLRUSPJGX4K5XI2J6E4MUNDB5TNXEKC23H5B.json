@@ -2,9 +2,9 @@
   "code": "ARS",
   "issuer": "GCYE7C77EB5AWAA25R5XMWNI2EDOKTTFTTPZKM2SR5DI4B4WFD52DARS",
   "contract": "CCD6H4LBTHAPY3NGEE6TLLRUSPJGX4K5XI2J6E4MUNDB5TNXEKC23H5B",
-  "name": "Peso Digital",
-  "org": "Grupo Anchor S.A. dba Anclap",
+  "name": "ARS by Anclap",
+  "org": "Anclap",
   "domain": "api.anclap.com",
-  "icon": "https://ipfs.io/ipfs/bafkreidhcfxkltthg3cechrwh6acxw44xgrmndwmnk5b6ikprhe4yrfsmi",
+  "icon": "https://static.anclap.com/coin/ars.png",
   "decimals": 7
 }

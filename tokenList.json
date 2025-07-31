@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.2.1",
+  "version": "1.3.2",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -17,33 +17,13 @@
       "decimals": 7
     },
     {
-      "code": "XCHF",
-      "issuer": "GDPKQ2TSNJOFSEE7XSUXPWRP27H6GFGLWD7JCHNEYYWQVGFA543EVBVT",
-      "contract": "CACFQEH2USDRGSBYFOVJMX4DMX7HMRYAYOV2IWR7XEX3DD3HYQEWPAAL",
-      "name": "Swiss Franc",
-      "org": "KB Trading",
-      "domain": "kbtrading.org",
-      "icon": "https://ipfs.io/ipfs/bafkreibsn3p2iues6gfdrugown3qhkh6jpe5grg2uhffrmf2djfttq77bu",
-      "decimals": 7
-    },
-    {
-      "code": "ETH",
-      "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
-      "contract": "CAH5D34KB7BQ2XXYEUYTBEXK7UZATBP2KHVGSHODHKQXIRTE7IOKI37Q",
-      "name": "Ethereum",
-      "org": "Interstellar, Inc.",
-      "domain": "interstellar.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreiby2lmnaavh3md6ontok7s6sarhn24ypp2dgjveynbhliqpfjjtkq",
-      "decimals": 7
-    },
-    {
-      "code": "BTC",
-      "issuer": "GBVOL67TMUQBGL4TZYNMY3ZQ5WGQYFPFD5VJRWXR72VA33VFNL225PL5",
-      "contract": "CAIRIR3ITE2KNBWHRIAOBBZ2AHIKU5BVTKFTW5IYCOAENR4L5T2THGN6",
-      "name": "Bitcoin",
-      "org": "unknown",
-      "domain": "stellarport.io",
-      "icon": "https://ipfs.io/ipfs/bafkreihbyszxadmibtyidcdi7ume4fosyb3yjcqwcazfkfjez722wdiw6u",
+      "code": "CETES",
+      "issuer": "GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC",
+      "contract": "CAL6ER2TI6CTRAY6BFXWNWA7WTYXUXTQCHUBCIBU5O6KM3HJFG6Z6VXV",
+      "name": "Etherfuse CETES",
+      "org": "Etherfuse",
+      "domain": "etherfuse.com",
+      "icon": "https://stablebonds.s3.us-west-2.amazonaws.com/stablebond/spl-cetes.png",
       "decimals": 7
     },
     {
@@ -57,36 +37,6 @@
       "decimals": 7
     },
     {
-      "code": "NUNA",
-      "issuer": "GCX2ENOVSSOOH6G4HIOBMPCBFXHDVDGA546NK3ZFX3NP3QS25BKZBWOW",
-      "contract": "CAPIOPSODD5QP4SJNIS4ASUWML4LH7ZEKTAPBJYZSMKXCATEKDZFKLHK",
-      "name": "NUNA Project",
-      "org": "NUNA ORG",
-      "domain": "nunaproject.art",
-      "icon": "https://ipfs.io/ipfs/bafkreiaamlsnnkh74cdz2fmn6ukfg3euonv55mrgzmxjampaknhxmbwtdy",
-      "decimals": 7
-    },
-    {
-      "code": "BCH",
-      "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
-      "contract": "CASVAKL4HL2UYUOHHRX6GPWEVDJJLZGD32RCKSD2ENJ7KF2BOGLFNN7G",
-      "name": "Bitcoin Cash",
-      "org": "Interstellar, Inc.",
-      "domain": "interstellar.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreidjldlehssveyqbiolqjifjfoygywozvzsgsieepoe7k7uczi7zmu",
-      "decimals": 7
-    },
-    {
-      "name": "Mobius",
-      "code": "MOBI",
-      "issuer": "GA6HCMBLTZS5VYYBCATRBRZ3BZJMAFUDKYYF6AH6MVCMGWMRDNSWJPIH",
-      "contract": "CATHRLMZW3JUIYSXYE4YAI3SBBBQGXYAP674RINGUBQLNFTCZHMI5XZJ",
-      "org": "unknown",
-      "domain": "mobius.network",
-      "icon": "https://assets.coingecko.com/coins/images/1501/standard/mobius.png?1696502545",
-      "decimals": 7
-    },
-    {
       "code": "AQUA",
       "issuer": "GBNZILSTVQZ4R7IKQDGHYGY2QXL5QOFJYQMXPKWRRM5PAV7Y4M67AQUA",
       "contract": "CAUIKL3IYGMERDRUN6YSCLWVAKIFG5Q4YJHUKM4S4NJZQIA3BAS6OJPK",
@@ -94,16 +44,6 @@
       "org": "Aquarius dba AQUA token",
       "domain": "aqua.network",
       "icon": "https://ipfs.io/ipfs/bafkreigzckkixvbkru2gzve67zu3bfauccugkr6zovkdv6h2yxxrppyyqa",
-      "decimals": 7
-    },
-    {
-      "code": "StellarNFT",
-      "issuer": "GALZZQF5JXHPHGI5A2ZW2EPL76DU4DWSYYGTPLOAMMEQEEECFSSRIOZJ",
-      "contract": "CAWSVMCGBT4YEDH4PK64TZ3IRTXDHZJ6PDSSUARFLKRG2H3MUBLTVQ6C",
-      "name": "Stellar NFT",
-      "org": "StellarNFT.io",
-      "domain": "stellarnft.io",
-      "icon": "https://ipfs.io/ipfs/bafkreigttnjyjt7nga4ynwwirlcy7ppk7jrhc7tq6yq5aa25kj6ime74pe",
       "decimals": 7
     },
     {
@@ -117,13 +57,13 @@
       "decimals": 7
     },
     {
-      "code": "RIO",
-      "issuer": "GBNLJIYH34UWO5YZFA3A3HD3N76R6DOI33N4JONUOHEEYZYCAYTEJ5AK",
-      "contract": "CB2XLDU74PIXO5DENULX53IIC3DMKGN2UM5IBGMSSI634IAQJ7O3Z3UQ",
-      "name": "Realio Token",
-      "org": "Realio Network LTD dba Realio",
-      "domain": "realio.fund",
-      "icon": "https://ipfs.io/ipfs/bafkreifrek4ch6myyddfobxbnhev3npmdkteodf35pf3owi32arnkx7sge",
+      "name": "The Blockchain Superfood",
+      "code": "KALE",
+      "issuer": "GBDVX4VELCDSQ54KQJYTNHXAHFLBCA77ZY2USQBM4CSHTTV7DME7KALE",
+      "contract": "CB23WRDQWGSP6YPMY4UV5C4OW5CBTXKYN3XEATG7KJEZCXMJBYEHOUOV",
+      "org": "The KALEpail Project",
+      "domain": "kalepail.com",
+      "icon": "https://imagedelivery.net/yd3qPvu7Jy_6BfgoQb2pZQ/30466c1d-ef73-4d2b-8814-949157465a00/public",
       "decimals": 7
     },
     {
@@ -137,26 +77,6 @@
       "decimals": 7
     },
     {
-      "code": "KES",
-      "issuer": "GA2MSSZKJOU6RNL3EJKH3S5TB5CDYTFQFWRYFGUJVIN5I6AOIRTLUHTO",
-      "contract": "CBAANNZVSOH6I42ZVVFTVB2JNVSHVBYUDWGGJHB4BLCXARYTNN3ODU3F",
-      "name": "Kenya Shilling",
-      "org": "ClickPesa Limited",
-      "domain": "connect.clickpesa.com",
-      "icon": "https://ipfs.io/ipfs/bafkreifmkwj7guus75d2nolw6amwzx4nmajbqfy3kizja2lzegywybgeja",
-      "decimals": 7
-    },
-    {
-      "code": "XXA",
-      "issuer": "GC4HS4CQCZULIOTGLLPGRAAMSBDLFRR6Y7HCUQG66LNQDISXKIXXADIM",
-      "contract": "CBBJTE34KZHJACB2A6OXCRTDDLX4LI7GKYYD6XYJSGMX46BLNAG752HS",
-      "name": "IXINIUM",
-      "org": "Baltic Representative Office",
-      "domain": "ixinium.io",
-      "icon": "https://ipfs.io/ipfs/bafkreical3abuzgw67yjg4lkiih4q24im63hwkwpmlbn4avtntnhzzmi7y",
-      "decimals": 7
-    },
-    {
       "code": "GBPx",
       "issuer": "GAVH5ZWACAY2PHPUG4FL3LHHJIYIHOFPSIUGM2KHK25CJWXHAV6QKDMN",
       "contract": "CBCO65UOWXY2GR66GOCMCN6IU3Y45TXCPBY3FLUNL4AOUMOCKVIVV6JC",
@@ -164,26 +84,6 @@
       "org": "FxDAO LLC",
       "domain": "fxdao.io",
       "icon": "https://stellar.myfilebase.com/ipfs/QmeGXphMJgKHdhoVxb6P3jEJEkj79WPheLiga7ouNd5EZm",
-      "decimals": 7
-    },
-    {
-      "code": "CLPX",
-      "issuer": "GDYSPBVZHPQTYMGSYNOHRZQNLB3ZWFVQ2F7EP7YBOLRGD42XIC3QUX5G",
-      "contract": "CBDRPADR3KIBJNUBNRTTO4P7NO5RVPMYKRJB5YCZUZ6B66RKYK324UJY",
-      "name": "Chilean PESO",
-      "org": "CLPX S.A.",
-      "domain": "clpx.finance",
-      "icon": "https://ipfs.io/ipfs/bafkreihpqcfkijx4tuy6swjo6zggdvffq3hgmzhxeavzl7435fpl5ufvpu",
-      "decimals": 7
-    },
-    {
-      "code": "BRL",
-      "issuer": "GDVKY2GU2DRXWTBEYJJWSFXIGBZV6AZNBVVSUHEPZI54LIS6BA7DVVSP",
-      "contract": "CBF4E5GSTVSITE5Q2ENOTEUQJPBZAU3SBDVLQMSQ7GLBRTSYGUAT722K",
-      "name": "Brazilian Real",
-      "org": "nTokens Servicos Digitais Ltda",
-      "domain": "ntokens.com",
-      "icon": "https://ipfs.io/ipfs/bafkreiae7oor6xk7w27o5r7qdh4vw7yfu4c723swftguffgw6s7k4sofhu",
       "decimals": 7
     },
     {
@@ -207,33 +107,23 @@
       "decimals": 7
     },
     {
-      "code": "BTCLN",
-      "issuer": "GDPKQ2TSNJOFSEE7XSUXPWRP27H6GFGLWD7JCHNEYYWQVGFA543EVBVT",
-      "contract": "CBHIQPUXLFLC5O44ZJVUTCL5LMZFLVGU5DEIGSYKBSAPFMOGTKOQEPFM",
-      "name": "Bitcoin Lightning",
-      "org": "KB Trading",
-      "domain": "kbtrading.org",
-      "icon": "https://ipfs.io/ipfs/bafkreichfnldnhnlvnhokfss2yizyppk2ar3cqfm3psfd6bhg2dpj2tshy",
-      "decimals": 7
-    },
-    {
-      "code": "BTC",
-      "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
-      "contract": "CBJ6JFEMRMSGMOT2CUH3JIKW7AOOZW3HMFNBQFEVHHCE76PWEXAQAJDB",
-      "name": "Bitcoin",
-      "org": "Interstellar, Inc.",
-      "domain": "interstellar.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreifwufagmqgea3pr2jcfu773pm2evktzi2445jmyfbgmatcz7qttu4",
-      "decimals": 7
-    },
-    {
       "code": "XRF",
       "issuer": "GCHI6I3X62ND5XUMWINNNKXS2HPYZWKFQBZZYBSMHJ4MIP2XJXSZTXRF",
       "contract": "CBLLEW7HD2RWATVSMLAGWM4G3WCHSHDJ25ALP4DI6LULV5TU35N2CIZA",
       "name": "Reflector xRF",
       "org": "Reflector",
       "domain": "reflector.network",
-      "icon": "https://reflector.network/images/logo.svg",
+      "icon": "https://reflector.network/favicon-32x32.png",
+      "decimals": 7
+    },
+    {
+      "code": "USTRY",
+      "issuer": "GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC",
+      "contract": "CBLV4ATSIWU67CFSQU2NVRKINQIKUZ2ODSZBUJTJ43VJVRSBTZYOPNUR",
+      "name": "Etherfuse USTRY",
+      "org": "Etherfuse",
+      "domain": "etherfuse.com",
+      "icon": "https://stablebonds.s3.us-west-2.amazonaws.com/stablebond/spl-ustry.png",
       "decimals": 7
     },
     {
@@ -267,33 +157,13 @@
       "decimals": 7
     },
     {
-      "code": "XRP",
-      "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
-      "contract": "CBSEMU4NLPURIO37O5KNATEIHGY2BTF27PBJH46H5ESRB7MREGWNMYKJ",
-      "name": "Ripple",
-      "org": "Interstellar, Inc.",
-      "domain": "interstellar.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreig5ehodvqgbx75eftbafcfz3npwasnxy72smwvsv67iqcqnhqvwuq",
-      "decimals": 7
-    },
-    {
-      "code": "EURC",
-      "issuer": "GAQRF3UGHBT6JYQZ7YSUYCIYWAF4T2SAA5237Q5LIQYJOHHFAWDXZ7NM",
-      "contract": "CBVDRT5474OBUEXF5MJB3UGQ5CG7CKGCAH5M4RV5NBCDJUBZ5OXHJLOU",
-      "name": "EURo Coin",
-      "org": "MYKOBO",
-      "domain": "mykobo.co",
-      "icon": "https://ipfs.io/ipfs/bafkreib6tcswtof2e2bmcoks5miqmegkqrftml33ghedsczbhh72ugloza",
-      "decimals": 7
-    },
-    {
-      "code": "MXN",
-      "issuer": "GCKIK5F6J4KMKF6MKB5EM67S5CK557EZQ3IAMZM5FFAYST63S3HWXVPE",
-      "contract": "CBVJZDNMOPEEPED3OBY4VLQPQKU4IOCKWACDKXPBO4E6TQI432W66BE5",
-      "name": "Coin Mex",
-      "org": "CRITOINVEX SAPI DE CV",
-      "domain": "anchormxn.com",
-      "icon": "https://ipfs.io/ipfs/bafkreiep6gyqkufcaqcq774ax57b22quvrfdz4gosx67tgfkjlhmjhqnj4",
+      "name": "Poye",
+      "code": "POYE",
+      "issuer": "GCANJQJUFIWG7TXKCAJPG726KWW5CXISB2KM2MZRYLVV6AMZENZQN2ZE",
+      "contract": "CBT2U7I6J7LSEEJQQXBEOSRXNRNLH5UQPWG74Q36J3RHNQOQ5KEFCJ4Y",
+      "org": "Poye Network",
+      "domain": "poye.xyz",
+      "icon": "https://stellar.myfilebase.com/ipfs/QmYUeh7TRHB6bbBrZ2JLSsVEgww4fAHfPzaa7gFDDXrPB4",
       "decimals": 7
     },
     {
@@ -317,13 +187,13 @@
       "decimals": 7
     },
     {
-      "code": "Zi",
-      "issuer": "GDBNNE67F54PTUZTCTOQYT5CQZFXA2AX6O5DCA5BVR653OP6KCWGG2Z7",
-      "contract": "CBZCBYTP3TFCT7PCDRPJDQK7UY2R3QA4H6MF2P6XDS5CZNXLPF6S6OPB",
-      "name": "Zioncoin",
-      "org": "Zioncoin Foundation",
-      "domain": "zioncoin.org.uk",
-      "icon": "https://zioncoin.org.uk/wp-content/uploads/2023/12/Zi_Zioncoin_Ticker.png",
+      "code": "oUSD",
+      "issuer": "GBIWJGAOSFC4KUPHXM573TKTWHMI7VW7D4GCHYZYH243Q6HVBV7ORBIT",
+      "contract": "CBZPEXQLJCGUYTAQRQ4FGCXUV5O4TZER5WSOMCGNDNIIO4EJ4FU5GQNZ",
+      "name": "Orbit USD",
+      "org": "Orbit CDP",
+      "domain": "orbitcdp.finance",
+      "icon": "https://testnet.orbitcdp.finance/icons/tokens/ousd.svg",
       "decimals": 7
     },
     {
@@ -340,20 +210,10 @@
       "code": "ARS",
       "issuer": "GCYE7C77EB5AWAA25R5XMWNI2EDOKTTFTTPZKM2SR5DI4B4WFD52DARS",
       "contract": "CCD6H4LBTHAPY3NGEE6TLLRUSPJGX4K5XI2J6E4MUNDB5TNXEKC23H5B",
-      "name": "Peso Digital",
-      "org": "Grupo Anchor S.A. dba Anclap",
+      "name": "ARS by Anclap",
+      "org": "Anclap",
       "domain": "api.anclap.com",
-      "icon": "https://ipfs.io/ipfs/bafkreidhcfxkltthg3cechrwh6acxw44xgrmndwmnk5b6ikprhe4yrfsmi",
-      "decimals": 7
-    },
-    {
-      "code": "USD",
-      "issuer": "GDUKMGUGDZQK6YHYA5Z6AY2G4XDSZPSZ3SW5UN3ARVMO6QSRDWP5YLEX",
-      "contract": "CCEBHXWHT2UX6QQ7WZOV6KRGUILICPRFOZD2CEAHZ5AYX7EFW3RG6I2F",
-      "name": "US Dollar",
-      "org": "AnchorCoin LLC dba AnchorUSD",
-      "domain": "stablecoin.anchorusd.com",
-      "icon": "https://ipfs.io/ipfs/bafkreid3hvcllxpmlldwxcn7u5sdx6pf2gipd3ygqwjo7mpns2p42opwby",
+      "icon": "https://static.anclap.com/coin/ars.png",
       "decimals": 7
     },
     {
@@ -387,16 +247,6 @@
       "decimals": 7
     },
     {
-      "code": "ARST",
-      "issuer": "GCSAZVWXZKWS4XS223M5F54H2B6XPIIXZZGP7KEAIU6YSL5HDRGCI3DG",
-      "contract": "CCRPYMVKZLWGZHEDZ23FOE22E3T3HOCNP5Y2EFZFVRUVIXU5NJ7UNGV2",
-      "name": "ARST Coin",
-      "org": "Relay Tech Services Ltd",
-      "domain": "pubnet-sep.latamex.com",
-      "icon": "https://ipfs.io/ipfs/bafkreicyzwet6qdlj4koo2nwechpqd3z3cqdls3wln5qxqiqo5sj7xwj7u",
-      "decimals": 7
-    },
-    {
       "code": "USDC",
       "issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
       "contract": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
@@ -404,26 +254,6 @@
       "org": "Centre Consortium LLC",
       "domain": "centre.io",
       "icon": "https://ipfs.io/ipfs/bafkreibpzncuhbk5ozhdw7xkcdoyf3xhwhcwcf6sj7axjzimxw6vm6pvyy",
-      "decimals": 7
-    },
-    {
-      "code": "LTC",
-      "issuer": "GCNSGHUCG5VMGLT5RIYYZSO7VQULQKAJ62QA33DBC5PPBSO57LFWVV6P",
-      "contract": "CCWVP5HVC2TSRNLONGRVS7UK47ORIPURNAGFQ3VR6DP2B77E67QV6P7B",
-      "name": "Litecoin",
-      "org": "Interstellar, Inc.",
-      "domain": "interstellar.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreihtokghz3v4rceerzbvzfvxluhsdw6leri3ogps4mxnqcgrhhngpq",
-      "decimals": 7
-    },
-    {
-      "code": "TFT",
-      "issuer": "GBOVQKJYHXRR3DX6NOX2RRYFRCUMSADGDESTDNBDS6CDVLGVESRTAC47",
-      "contract": "CCXY3CNHSU2DPUOZFKNNH67IVRMBRCATX4SABDSLBY5LAJI66LRLHTJQ",
-      "name": "Threefold Token",
-      "org": "Threefold foundation",
-      "domain": "threefold.io",
-      "icon": "https://ipfs.io/ipfs/bafkreicd6a4z2chjt7ypqow5gja5ioe5xh5zhi2kqzsidp3l4w7vywcqaq",
       "decimals": 7
     },
     {
@@ -437,36 +267,6 @@
       "decimals": 7
     },
     {
-      "code": "TZS",
-      "issuer": "GA2MSSZKJOU6RNL3EJKH3S5TB5CDYTFQFWRYFGUJVIN5I6AOIRTLUHTO",
-      "contract": "CD2GNQFE3GRUY5LRE5WT26OQIUBUQ5YKRVDRQ3FWCW7A7NZAPPFIHFAY",
-      "name": "Tanzania Shilling",
-      "org": "ClickPesa Limited",
-      "domain": "connect.clickpesa.com",
-      "icon": "https://ipfs.io/ipfs/bafkreifmkwj7guus75d2nolw6amwzx4nmajbqfy3kizja2lzegywybgeja",
-      "decimals": 7
-    },
-    {
-      "code": "XTAR",
-      "issuer": "GAORYJ3KBDGIM7FFSKVUJHJ5NEFWIRDIAGGBJBJS7TY6ECZS53257IG4",
-      "contract": "CDCKFBZYF2AQCSM3JOF2ZM27O3Y6AJAI4OTCQKAFNZ3FHBYUTFOKICIY",
-      "name": "XTAR Coin",
-      "org": "Dogstarcoin",
-      "domain": "dogstarcoin.com",
-      "icon": "https://ipfs.io/ipfs/bafkreidytzpcgxnlx6ean6zabs2mz373zf5q2l25j27i7okufmuqlzdxqm",
-      "decimals": 7
-    },
-    {
-      "code": "NGNT",
-      "issuer": "GAWODAROMJ33V5YDFY3NPYTHVYQG7MJXVJ2ND3AOGIHYRWINES6ACCPD",
-      "contract": "CDCSVQEMYBNK7URICI77CENLP23OIM4AAXUIJ32Z6V3ZT3QXCP2HJXD7",
-      "name": "Naira Token",
-      "org": "Cowrie Integrated Systems",
-      "domain": "cowrie.exchange",
-      "icon": "https://ipfs.io/ipfs/bafkreicctofbpuujxn6s7jh5kc4nzdygacumvp36qhnhtgowesfmkyweoy",
-      "decimals": 7
-    },
-    {
       "code": "STROOPY",
       "issuer": "GBZ3SMMNNSOLVV6LGNDBDWRVD2N56VUZZ6LVB6VGOOJGSMWI7ISLOJEC",
       "contract": "CDDL6HGNYGVRCQB37DDFTIFYMGTX36AQMCXI6U3NOAO2BBZDNGKMGQSY",
@@ -474,36 +274,6 @@
       "org": "Silver Hen Tech",
       "domain": "xlmeme.com",
       "icon": "https://xlmeme.com/cdn-cgi/imagedelivery/BMsStEZme-xi9eCyEb_01g/bfb4bba0-00d6-434b-ea8a-89d733dcd000/public",
-      "decimals": 7
-    },
-    {
-      "code": "FIDR",
-      "issuer": "GBZQNUAGO4DZFWOHJ3PVXZKZ2LTSOVAMCTVM46OEMWNWTED4DFS3NAYH",
-      "contract": "CDDQRIGZRK6Z6ILV4P276HL7D3P63GFW6HBA4N4YXDMFHZ2M4VZGVYRW",
-      "name": "FIDR Coin",
-      "org": "Fixedidr",
-      "domain": "fixedidr.com",
-      "icon": "https://ipfs.io/ipfs/bafkreic6at7ntdsnjth45d3vokoi4lhdi7euqnt75gbbgq5pyje7ugjhla",
-      "decimals": 7
-    },
-    {
-      "code": "FRED",
-      "issuer": "GCA73U2PZFWAXJSNVMEVPNPPJCZGETWPWZC6E4DJAIWP3ZW3BAGYZLV6",
-      "contract": "CDGLDM5N34GBRCALDBKVVV4ACVS2TWZLUSMILM32FPIMPHLUUIIRTCNF",
-      "name": "FRED Energy",
-      "org": "FRED ENERGY Ltd",
-      "domain": "fredenergy.org",
-      "icon": "https://ipfs.io/ipfs/bafkreigk3er23l4mf6yznwf3agqrj2npmbl2yxig5qkrdtwd4od6k2azti",
-      "decimals": 7
-    },
-    {
-      "issuer": "GBVOL67TMUQBGL4TZYNMY3ZQ5WGQYFPFD5VJRWXR72VA33VFNL225PL5",
-      "contract": "CDHG3SIDGBS4A4ZEV55DYRBUVBJGQVUSNQ2U34BHMFJUVBKLCUOUD6YT",
-      "code": "LTC",
-      "name": "Litecoin",
-      "org": "unknown",
-      "domain": "stellarport.io",
-      "icon": "https://ipfs.io/ipfs/bafkreiarw43hogb73q5cywj265lysdplyzcnslucoyxh6s44wbypnimu3y",
       "decimals": 7
     },
     {
@@ -517,16 +287,6 @@
       "decimals": 7
     },
     {
-      "code": "PYBC",
-      "issuer": "GBVB43NLVIP2USHXSKI7QQCZKZU2Z6U6A5PAHMIW7LLNVMQJTOX2BZI5",
-      "contract": "CDJXADCJHQJDAQQMUJU4TTRXS4ZAEFIA5F5RG4HP7M42CKQIZCXTCDR2",
-      "name": "PaybandCoin",
-      "org": "Maned Owl Events, LLC",
-      "domain": "luxpayband.io",
-      "icon": "https://ipfs.io/ipfs/bafkreidiczvmtyufd32rbdtgljdtahte3dwzc2xgrvf62z4va46iunj5gm",
-      "decimals": 7
-    },
-    {
       "name": "yUSDC",
       "code": "yUSDC",
       "issuer": "GDGTVWSM4MGS4T7Z6W4RPWOCHE2I6RDFCIFZGS3DOA63LWQTRNZNTTFF",
@@ -534,26 +294,6 @@
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreicvkevokwxgvqn6vjmf4hf2krk6txy3igi7ei6dwvleb5hqe4odcy",
-      "decimals": 7
-    },
-    {
-      "issuer": "GBQHMDRWV3WU5YACBUUCBY4Y6PPWBJXW5WCSG5XJ63FC4HXJNGXYFD5J",
-      "contract": "CDOIEBW5LN7T7PSFY6ADLPIDF52PFRX57WIYWJ637PCZ7ZFDDN5T6NCH",
-      "code": "SDEXEX",
-      "name": "SDEX Explorer Token",
-      "domain": "sdexexplorer.com",
-      "org": "SDEX Explorer",
-      "icon": "https://ipfs.io/ipfs/bafkreiexs7jvn2jaill67333t5wkxhefqcb4rabouzjfpnhrwcjjw4uawa",
-      "decimals": 7
-    },
-    {
-      "name": "iFIDR",
-      "code": "iFIDR",
-      "issuer": "GBVVM7ZYANANRP3DWVRANRDUU4M7J5W77EDTSZFD62LQ7SOHJD5IFIDR",
-      "contract": "CDTHHEDO2YPVXEHZZA3MW5IYECGEM3MF7THR3H7TLDFD6PYPKMAMF6GJ",
-      "org": "Fixedidr",
-      "domain": "fixedidr.com",
-      "icon": "https://ipfs.io/ipfs/bafkreibsbysxyucxuz2ksrktqzioqyuuep7ulp26crkb7ebngal7tjraa4",
       "decimals": 7
     },
     {
@@ -567,26 +307,6 @@
       "decimals": 7
     },
     {
-      "code": "EURMTL",
-      "issuer": "GACKTN5DAZGWXRWB2WLM6OPBDHAMT6SJNGLJZPQMEZBUR4JUGBX2UK7V",
-      "contract": "CDUYP3U6HGTOBUNQD2WTLWNMNADWMENROKZZIHGEVGKIU3ZUDF42CDOK",
-      "name": "EURMTL",
-      "org": "Montelibero dba Montelibero",
-      "domain": "mtl.montelibero.org",
-      "icon": "https://ipfs.io/ipfs/bafkreicg536a5xuhenf4lpmzvgcorbh7zr2mgt3ugxyme7kfhpadeh5zgm",
-      "decimals": 7
-    },
-    {
-      "code": "IDRT",
-      "issuer": "GDPKQ2TSNJOFSEE7XSUXPWRP27H6GFGLWD7JCHNEYYWQVGFA543EVBVT",
-      "contract": "CDYBK2X5ZEQ7ZNDN7IPWWMOQ6SWEJW4A4UE2PNDFDVCYNAXB64O4FNXX",
-      "name": "Indonesian IDRT",
-      "org": "KB Trading",
-      "domain": "kbtrading.org",
-      "icon": "https://ipfs.io/ipfs/bafkreiavw2o7r5nzkjvkbgqhdbt33i65ydjszouw5pivuotcuk3ip6hqye",
-      "decimals": 7
-    },
-    {
       "name": "yETH By Ultra Capital",
       "code": "yETH",
       "issuer": "GDYQNEF2UWTK4L6HITMT53MZ6F5QWO3Q4UVE6SCGC4OMEQIZQQDERQFD",
@@ -594,16 +314,6 @@
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreihqsw7iai5gcfwvgnexdcwvftiv7fjjbg2skc2wcdygfngllv5ute",
-      "decimals": 7
-    },
-    {
-      "code": "ETH",
-      "issuer": "GBVOL67TMUQBGL4TZYNMY3ZQ5WGQYFPFD5VJRWXR72VA33VFNL225PL5",
-      "contract": "CDZNTXPXR2I7VFDBYBADK2DE2SSGQ3DTXT5MJDCTYUMNVFK3CWG5NVC7",
-      "name": "Ethereum",
-      "org": "unknown",
-      "domain": "stellarport.io",
-      "icon": "https://ipfs.io/ipfs/bafkreidiycqxm3ffga2xrdzkaty4bqdpq5d2mm7ylckya4vsa3tstyp66a",
       "decimals": 7
     }
   ]

@@ -1,0 +1,10 @@
+{
+    "code": "CETES",
+    "issuer": "GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC",
+    "contract": "CAL6ER2TI6CTRAY6BFXWNWA7WTYXUXTQCHUBCIBU5O6KM3HJFG6Z6VXV",
+    "name": "Etherfuse CETES",
+    "org": "Etherfuse",
+    "domain": "etherfuse.com",
+    "icon": "https://stablebonds.s3.us-west-2.amazonaws.com/stablebond/spl-cetes.png",
+    "decimals": 7
+}
