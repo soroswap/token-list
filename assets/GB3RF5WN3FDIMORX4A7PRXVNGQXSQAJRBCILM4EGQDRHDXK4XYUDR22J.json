@@ -1,0 +1,10 @@
+{
+    "name": "Ben Lambo",
+    "code": "BEN",
+    "issuer": "GB3RF5WN3FDIMORX4A7PRXVNGQXSQAJRBCILM4EGQDRHDXK4XYUDR22J",
+    "contract": "GB3RF5WN3FDIMORX4A7PRXVNGQXSQAJRBCILM4EGQDRHDXK4XYUDR22J",
+    "org": "",
+    "domain": "lu.meme",
+    "icon": "https://lu.meme/_next/image?url=https%3A%2F%2Fcdn.lu.meme%2Fprod%2Fmeme%2Fmeme-ViLdd0fiBBIhMfNNcWD9u3wBnUUDmrWg.jpg&w=3840&q=75",
+    "decimals": 7
+  }
