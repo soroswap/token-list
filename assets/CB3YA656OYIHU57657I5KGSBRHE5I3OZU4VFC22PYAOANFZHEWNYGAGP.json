@@ -1,0 +1,10 @@
+{
+  "name": "Ondo U.S. Dollar Yield",
+  "code": "USDY",
+  "issuer": "GAJMPX5NBOG6TQFPQGRABJEEB2YE7RFRLUKJDZAZGAD5GFX4J7TADAZ6",
+  "contract": "CB3YA656OYIHU57657I5KGSBRHE5I3OZU4VFC22PYAOANFZHEWNYGAGP",
+  "org": "Ondo Finance",
+  "domain": "ondo.finance",
+  "icon": "https://cdn.ondo.finance/brand/logos/ondo-icon-black_160x160.png",
+  "decimals": 7
+}
