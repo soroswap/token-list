@@ -1,0 +1,10 @@
+{
+  "name": "Stellarcarbon CARBON tCO₂e",
+  "code": "CARBON",
+  "issuer": "GCBOATLWKXACOWKRRWORARDI2HFDSYPALMTS23YBZKHOB6XLW6CARBON",
+  "contract": "CDDS7IQJGQ2ZMO66E3MUYXZ56H2OO7RBTTAGZLZKOEA4EXCGZX65JGA7",
+  "org": "Stellarcarbon",
+  "domain": "stellarcarbon.io",
+  "icon": "https://ipfs.io/ipfs/QmezCX5JCXBWZNej8ui6TE9H764Vi13UWy1a8bE6TDP7uz",
+  "decimals": 3
+}
