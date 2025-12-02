@@ -3,7 +3,10 @@ name: Update Token List
 on:
   push:
     branches:
-      - main 
+      - main
+    paths:
+      - 'assets/**'
+
 permissions:
   contents: write
   pull-requests: write 
@@ -38,3 +41,24 @@ jobs:
 
       - name: Set new trustlines
         run: yarn set-trustlines ${{ secrets.TRUSTLINES_PRIVATE_KEY }}
+
+      - name: Sync to Indexer
+        env:
+          INDEXER_URL: ${{ secrets.INDEXER_URL }}
+        run: |
+          response=$(curl -s -w "\n%{http_code}" -X POST \
+            -H "Content-Type: application/json" \
+            -H "x-github-key: ${{ secrets.INDEXER_GITHUB_API_KEY }}" \
+            -d @tokenList.json \
+            "${INDEXER_URL}/api/token-lists/soroswap/sync")
+
+          http_code=$(echo "$response" | tail -n1)
+          body=$(echo "$response" | sed '$d')
+
+          echo "Response: $body"
+          echo "HTTP Status: $http_code"
+
+          if [ "$http_code" != "200" ]; then
+            echo "Failed to sync to indexer"
+            exit 1
+          fi
