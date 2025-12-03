@@ -1,0 +1,10 @@
+{
+    "code": "HITZ",
+    "issuer": "GCAETBNBFKVGLYFXKCLMKT6ZVHFXHRSDFSEW7ODIUJYC6R7H2QJ6OKGU",
+    "contract": "CBS5ZVKSSUKF4JY77CKUZPN72EDUM3OOGPYZKFC3KQVONXPJTF6UODD7",
+    "name": "Hitz Token",
+    "org": "Skyhitz",
+    "domain": "skyhitz.io",
+    "icon": "https://skyhitz.io/icon.png",
+    "decimals": 7
+}
