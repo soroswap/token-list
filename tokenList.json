@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -164,6 +164,16 @@
       "org": "YieldBlox DAO",
       "domain": "script3.io",
       "icon": "https://uploads-ssl.webflow.com/607f603d2f412c67690368b8/60df683719cc056004ea932b_YBX%20token%20web%20bad.png",
+      "decimals": 7
+    },
+    {
+      "code": "HITZ",
+      "issuer": "GCAETBNBFKVGLYFXKCLMKT6ZVHFXHRSDFSEW7ODIUJYC6R7H2QJ6OKGU",
+      "contract": "CBS5ZVKSSUKF4JY77CKUZPN72EDUM3OOGPYZKFC3KQVONXPJTF6UODD7",
+      "name": "Skyhitz Token",
+      "org": "Skyhitz",
+      "domain": "skyhitz.io",
+      "icon": "https://skyhitz.io/icon.png",
       "decimals": 7
     },
     {
