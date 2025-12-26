@@ -119,8 +119,8 @@ async function verifyNewAssets(directoryPath, assetListPath) {
     if (!assetData || !validate(assetData)) {
       console.log("🚀 ~ verifyNewAssets ~ validate(assetData):", validate(assetData))
       console.log("🚀 ~ verifyNewAssets ~ assetData:", assetData)
-      
-      throw new Error(`Asset validation failed for ${file}:`, validate.errors);
+
+      throw new Error(`Asset validation failed for ${file}: ${JSON.stringify(validate.errors, null, 2)}`);
     }
 
     const existingAsset = existingAssetsMap[assetData.contract];
