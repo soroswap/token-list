@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.3.4",
+  "version": "1.3.7",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -34,6 +34,16 @@
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreidhjwrkvsvuixny3j6w2xk4vhr5x7urz525usl7xvjur35fsc6bmu",
+      "decimals": 7
+    },
+    {
+      "code": "ZOMB",
+      "issuer": "GBGMZVSIHG7QPMD2I7DYLNTYN3KSFEP47E32C7YCDGCWV4X5NLYVM3M7",
+      "contract": "CATNYPHNO3U72V7ZVUE6QESDWTSBORW2BE7WFM3BQABQNNZQ32F2HYNC",
+      "name": "Zombie Coin",
+      "org": "Silver Hen Tech",
+      "domain": "xlmeme.com",
+      "icon": "https://xlmeme.com/cdn-cgi/imagedelivery/BMsStEZme-xi9eCyEb_01g/a2b0f7e2-09ac-4a89-086e-5e928f57ab00/public",
       "decimals": 7
     },
     {
@@ -167,6 +177,16 @@
       "decimals": 7
     },
     {
+      "code": "HITZ",
+      "issuer": "GCAETBNBFKVGLYFXKCLMKT6ZVHFXHRSDFSEW7ODIUJYC6R7H2QJ6OKGU",
+      "contract": "CBS5ZVKSSUKF4JY77CKUZPN72EDUM3OOGPYZKFC3KQVONXPJTF6UODD7",
+      "name": "Skyhitz Token",
+      "org": "Skyhitz",
+      "domain": "skyhitz.io",
+      "icon": "https://skyhitz.io/icon.png",
+      "decimals": 7
+    },
+    {
       "name": "Poye",
       "code": "POYE",
       "issuer": "GCANJQJUFIWG7TXKCAJPG726KWW5CXISB2KM2MZRYLVV6AMZENZQN2ZE",
@@ -184,6 +204,16 @@
       "org": "Lumenswap LLC dba Lumenswap",
       "domain": "lumenswap.io",
       "icon": "https://ipfs.io/ipfs/bafkreiazthj4bttq75cxhgaekfxnv7ub6b2hq6qr5qkea4bhy4gie4qegy",
+      "decimals": 7
+    },
+    {
+      "name": "lumenaire",
+      "code": "LMNR",
+      "issuer": "GALUVE2YREE6NU4T2746XL7XORCEY5NVDJ7WADGWANUZWQJZ3PTP5PHB",
+      "contract": "CBY4MSZXK5L4HDMJHDXQLNLOA5MM5BIGCHQYMRG7ZAFY34UNU4UXPEJJ",
+      "org": "lumenaire",
+      "domain": "lu.meme",
+      "icon": "https://cdn.lu.meme/prod/meme/meme-aJFJRH1LcIxvTXATPI81Yair5DTVTW56.jpeg",
       "decimals": 7
     },
     {
