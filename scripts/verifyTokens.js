@@ -110,6 +110,7 @@ async function verifyNewAssets(directoryPath, assetListPath) {
 
   let assetChanges = [];
   let verifiedNewAssets = [];
+  let verificationErrors = [];
 
   for (const file of assetFiles) {
     const filePath = path.join(assetsDir, file);
@@ -117,10 +118,9 @@ async function verifyNewAssets(directoryPath, assetListPath) {
 
     // Skip validation for files that couldn't be read properly
     if (!assetData || !validate(assetData)) {
-      console.log("🚀 ~ verifyNewAssets ~ validate(assetData):", validate(assetData))
-      console.log("🚀 ~ verifyNewAssets ~ assetData:", assetData)
-
-      throw new Error(`Asset validation failed for ${file}: ${JSON.stringify(validate.errors, null, 2)}`);
+      const errors = JSON.stringify(validate.errors, null, 2);
+      verificationErrors.push(`Asset validation failed for ${file}:\n${errors}`);
+      continue;
     }
 
     const existingAsset = existingAssetsMap[assetData.contract];
@@ -154,8 +154,7 @@ async function verifyNewAssets(directoryPath, assetListPath) {
             // Check icon validity
             await checkIconUrl(assetData.icon);
           } catch (error) {
-            console.error(`Verification failed for asset ${file}: ${error}`);
-            isValid = false;
+            verificationErrors.push(`Verification failed for asset ${file}: ${error.message}`);
           }
         }
         assetChanges.push({ ...assetData });
@@ -188,7 +187,7 @@ async function verifyNewAssets(directoryPath, assetListPath) {
           // Check icon validity
           await checkIconUrl(assetData.icon);
         } catch (error) {
-          console.error(`Verification failed for asset ${file}: ${error}`);
+          verificationErrors.push(`Verification failed for asset ${file}: ${error.message}`);
           isValid = false;
         }
       }
@@ -211,6 +210,22 @@ async function verifyNewAssets(directoryPath, assetListPath) {
   } else {
     console.log("No changes detected in existing assets.");
   }
+
+  // If there are any verification errors, log them and exit with failure
+  if (verificationErrors.length > 0) {
+    console.error("\n❌ Verification errors found:");
+    verificationErrors.forEach((error) => {
+      console.error(error);
+    });
+    process.exit(1);
+  }
 }
 
-verifyNewAssets("../assets", "./tokenList.json");
+verifyNewAssets("../assets", "./tokenList.json")
+  .then(() => {
+    console.log("✅ Verification completed successfully");
+  })
+  .catch((error) => {
+    console.error("❌ Verification failed:", error.message);
+    process.exit(1);
+  });
