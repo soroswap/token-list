@@ -2,6 +2,7 @@ name: Verify new Tokens
 
 on:
   pull_request:
+  workflow_dispatch:
     branches:
       - main   
 jobs:
