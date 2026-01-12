@@ -198,6 +198,10 @@ async function verifyNewAssets(directoryPath, assetListPath) {
     }
   }
 
+  // Check if we're in a GitHub Actions PR context
+  const isPullRequest = process.env.GITHUB_EVENT_NAME === "pull_request";
+  const isGitHubActions = !!process.env.GITHUB_ACTIONS;
+
   if (verifiedNewAssets.length > 0) {
     console.log("Verified new assets:", verifiedNewAssets);
   } else {
@@ -217,6 +221,13 @@ async function verifyNewAssets(directoryPath, assetListPath) {
     verificationErrors.forEach((error) => {
       console.error(error);
     });
+    process.exit(1);
+  }
+
+  // In PR context, fail if no new assets were added and no changes detected
+  if (isPullRequest && isGitHubActions && verifiedNewAssets.length === 0 && assetChanges.length === 0) {
+    console.error("\n❌ Pull request validation failed: No new tokens added and no changes detected.");
+    console.error("Please add at least one new token or modify an existing token in this pull request.");
     process.exit(1);
   }
 }
