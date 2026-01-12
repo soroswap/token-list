@@ -1,10 +1,10 @@
 {
-  "code": "ACT";                
+  "code": "ACT",                
   "issuer": "GAHHULDPDVGB5WS5PH7BCGLJ7ZHECDBIIMKB62UPVDUOCHNFL7HX3FS7?",
   "contract": "CAU7TR4L52CSCYOLOPXPJJ7T6EMEXTEE4XKRH2ASY23EFYEMU5WUFYP2",
   "name": "APAY Community Token",              
-  "org": "Authentic-Payment?",                
-  "domain": "authentic-payment.com?",            
+  "org": "Authentic-Payment",                
+  "domain": "authentic-payment.com",            
   "icon": "https://authentic-payment.com/wp-content/uploads/2025/10/ACTlogoORGnoBG-1.png"             
   "decimals": 7
 }
