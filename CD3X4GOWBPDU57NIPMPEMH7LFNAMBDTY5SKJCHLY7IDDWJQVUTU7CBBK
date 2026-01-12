@@ -1,0 +1,10 @@
+{
+  "name": "DAWG",
+  "code": "DAWG",
+  "issuer": "GBVYKIM4QGW7NK3Q5S76GWMZMLAWYB6FB43JQ4J7ZOXHAA3LEZZGYHSD",
+  "contract": "CD3X4GOWBPDU57NIPMPEMH7LFNAMBDTY5SKJCHLY7IDDWJQVUTU7CBBK",
+  "org": "LibreTradingEcosystem",
+  "domain": "librequidity.org",
+  "icon": "https://librequidity.org/DAWG.png",
+  "decimals": 7
+}
