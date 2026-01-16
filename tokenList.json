@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -114,6 +114,15 @@
       "org": "FxDAO LLC",
       "domain": "fxdao.io",
       "icon": "https://stellar.myfilebase.com/ipfs/QmeGXphMJgKHdhoVxb6P3jEJEkj79WPheLiga7ouNd5EZm",
+      "decimals": 7
+    },
+    {
+      "name": "LIBRE",
+      "code": "LIBRE",
+      "issuer": "GAYCCWKECNGDRHYU3UTREBD2XLC3CUQN6FV22TKM4WCQER3IWR7TF5CY",
+      "contract": "CBEM2CAIYLM3HBOPU5HLQL7V5BUAKM3N77DYQKX4FNHTQLQUUD2ZFBOX",
+      "org": "LibreTradingEcosystem",
+      "icon": "https://librequidity.org/LIBRE.png",
       "decimals": 7
     },
     {
