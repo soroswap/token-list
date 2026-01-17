@@ -17,39 +17,86 @@ class FootprintRestorer {
     constructor(rpc, horizonUrl, keypair) {
         this.keypair = keypair;
         this.server = new StellarSdk.SorobanRpc.Server(rpc, { allowHttp: true });
-        this.horizonServer = new StellarSdk.Horizon.Server(rpc);
+        this.horizonServer = new StellarSdk.Horizon.Server(horizonUrl);
     }
 
     async setup() {
-        await this.updateAccount()
-        await this.updateLatestLedgerSeq()
+        try {
+            await this.updateAccount()
+            await this.updateLatestLedgerSeq()
+        } catch (error) {
+            // Error already logged in updateAccount/updateLatestLedgerSeq
+            throw error;
+        }
     }
 
     async updateLatestLedgerSeq() {
-        this.latestLedgerSeq = (await this.server.getLatestLedger()).sequence;
+        try {
+            this.latestLedgerSeq = (await this.server.getLatestLedger()).sequence;
+        } catch (error) {
+            console.error("Error updating latest ledger sequence:", error);
+            throw error;
+        }
     }
 
     async updateAccount() {
-        this.account = await this.server.getAccount(this.keypair.publicKey());
+        try {
+            this.account = await this.server.getAccount(this.keypair.publicKey());
+        } catch (error) {
+            if (error.code === 404) {
+                console.error(`\n❌ Account not found: ${this.keypair.publicKey()}`);
+                console.error("This account doesn't exist on the Stellar network.");
+                console.error("Please fund this account with XLM first. Unfunded accounts don't exist on Stellar.");
+                console.error(`\nTo fund the account, send XLM to: ${this.keypair.publicKey()}`);
+            } else {
+                console.error("Error updating account:", error.message || error);
+            }
+            throw error;
+        }
     }
 
     getAllPairsEndpoint() {
-        const endpoint = "https://info.soroswap.finance/api/pairs/plain?network=MAINNET&full=true";
+        const endpoint = "https://api.soroswap.finance/pools?network=mainnet&protocol=soroswap";
         return endpoint;
     }
 
     async populatePairs() {
         const endpoint = this.getAllPairsEndpoint();
+        const apiKey = process.env.SOROSWAP_API_KEY;
+        
+        if (!apiKey) {
+            throw new Error("SOROSWAP_API_KEY environment variable is required. Please add it to your .env file.");
+        }
+        
         try {
-            const response = await fetch(endpoint);
+            const response = await fetch(endpoint, {
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Content-Type': 'application/json'
+                }
+            });
             if (!response.ok) {
+                console.log(response);
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            this.allPairs = await response.json();
+            const responseData = await response.json();
+            
+            // Handle both array response and wrapped response (e.g., { data: [...] })
+            const pools = Array.isArray(responseData) ? responseData : (responseData.data || responseData.pools || []);
+            
+            // API response already has tokenA, tokenB, and address fields
+            // Map pools to expected format: { tokenA, tokenB, address }
+            this.allPairs = pools.map(pool => ({
+                tokenA: pool.tokenA,
+                tokenB: pool.tokenB,
+                address: pool.address
+            }));
+            
+            console.log(`Fetched ${this.allPairs.length} pairs from Soroswap API`);
 
         } catch (error) {
             console.error("Error fetching pairs", error);
-            return;
+            throw error;
         }
     }
     async savePairs() {
@@ -358,30 +405,46 @@ class FootprintRestorer {
 }
 
 async function main() {
-    const privateKey = process.env.PRIVATE_KEY;
-    if (!privateKey) {
-        console.error("Please provide a private key");
-        return;
+    try {
+        const privateKey = process.env.PRIVATE_KEY;
+        if (!privateKey) {
+            console.error("Please provide a private key");
+            process.exit(1);
+            return;
+        }
+        if (!rpc) {
+            console.error("Please provide a RPC URL");
+            process.exit(1);
+            return;
+        }
+        if (!horizonUrl) {
+            console.error("Please provide a Horizon URL");
+            process.exit(1);
+            return;
+        }
+
+        const keypair = StellarSdk.Keypair.fromSecret(privateKey);
+
+        const footprintRestorer = new FootprintRestorer(rpc, horizonUrl, keypair);
+
+        await footprintRestorer.setup();
+        await footprintRestorer.populatePairs();
+
+        await footprintRestorer.restoreFootprints();
+
+    } catch (error) {
+        // If error is already logged with a user-friendly message, don't log it again
+        // Only log unexpected errors
+        if (!error.code || (error.code !== 404 && error.code !== 400)) {
+            console.error("\n❌ Unexpected error:", error.message || error);
+            if (error.stack) {
+                console.error("Stack trace:", error.stack);
+            }
+        }
+        process.exit(1);
     }
-    if (!rpc) {
-        console.error("Please provide a RPC URL");
-        return;
-    }
-    if (!horizonUrl) {
-        console.error("Please provide a Horizon URL");
-        return;
-    }
-
-    const keypair = StellarSdk.Keypair.fromSecret(privateKey);
-
-    const footprintRestorer = new FootprintRestorer(rpc, horizonUrl, keypair);
-
-    await footprintRestorer.setup();
-    await footprintRestorer.populatePairs();
-
-    await footprintRestorer.restoreFootprints();
-
 }
+
 main();
 
 

@@ -10,7 +10,8 @@
     "merge": "node scripts/createTokenList",
     "verify": "node scripts/verifyTokens",
     "set-trustlines": "node scripts/setTrustlines",
-    "restore-footprints": "node scripts/restoreFootprintOfTokenContracts.js"
+    "restore-footprints": "node scripts/restoreFootprintOfTokenContracts.js",
+    "restore-footprints:env": "./scripts/restore-footprints.sh"
   },
   "dependencies": {
     "ajv": "^8.12.0",
