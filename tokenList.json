@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -146,6 +146,13 @@
       "decimals": 7
     },
     {
+      "name": "deJTRSY",
+      "contract": "CBI7UCH5KGSVQRO5H4SUCZUTZABCITZLRHQQZTWL2TK4RZ72TAR6IHRV",
+      "org": "Centrifuge",
+      "icon": "https://centrifuge.mypinata.cloud/ipfs/bafkreieracb5e57bhg7bphd7sp4hxf3yhbm3cxinst3o5mennfosagkxuu",
+      "decimals": 18
+    },
+    {
       "code": "XRF",
       "issuer": "GCHI6I3X62ND5XUMWINNNKXS2HPYZWKFQBZZYBSMHJ4MIP2XJXSZTXRF",
       "contract": "CBLLEW7HD2RWATVSMLAGWM4G3WCHSHDJ25ALP4DI6LULV5TU35N2CIZA",
@@ -274,6 +281,13 @@
       "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreihntcz2lpaxawmbhwidtuifladkgew6olwuly2dz5pewqillhhpay",
       "decimals": 7
+    },
+    {
+      "name": "deJAAA",
+      "contract": "CC64WBDGS6QQP22QTTIACYIXT3WF7BBQEYOQPLTP7GTKYY7PZ74QYGSL",
+      "org": "Centrifuge",
+      "icon": "https://centrifuge.mypinata.cloud/ipfs/bafkreifp5ww5lpbgrny36oxgzg2kjw2226lmj2vmekp4nqemm5ewhhtmwi",
+      "decimals": 18
     },
     {
       "name": "PYUSD",
