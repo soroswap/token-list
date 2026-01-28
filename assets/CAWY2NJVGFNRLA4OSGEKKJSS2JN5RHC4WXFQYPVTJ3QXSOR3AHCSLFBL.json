@@ -1,0 +1,10 @@
+{
+    "name": "DicInu",
+    "code": "DicInu",
+    "issuer": "GDMNBJWZBNQFCDUDPTG4DFLLUT6WPTMALBNX63OIM2YP5RLULTCFCNEA",
+    "contract": "CAWY2NJVGFNRLA4OSGEKKJSS2JN5RHC4WXFQYPVTJ3QXSOR3AHCSLFBL",
+    "org": "Decentralized Internet Currency",
+    "domain": "dicinu.com",
+    "icon": "https://dicinu.xmint.io/.well-known/stellar.toml",
+    "decimals": 7
+  }
