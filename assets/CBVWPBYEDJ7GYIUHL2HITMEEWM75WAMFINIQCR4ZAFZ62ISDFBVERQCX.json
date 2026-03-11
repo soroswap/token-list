@@ -1,0 +1,11 @@
+{
+  "code": "LumenJoule",
+  "issuer": "GBQG67XV2VEKRYZBGT5LZSBOHVVVX7CLTCO7WCGQAA4R2SV2BCJW2VP2",
+  "contract": "CBVWPBYEDJ7GYIUHL2HITMEEWM75WAMFINIQCR4ZAFZ62ISDFBVERQCX",
+  "name": "LumenJoule Compute Credit",
+  "org": "LumenBro",
+  "domain": "lumenbro.com",
+  "icon": "https://lumenbro.com/joule-icon.jpg",
+  "decimals": 7,
+  "comment": "Prepaid AI compute credit. 1 LumenJoule = 1,000 Joules of estimated inference energy."
+}
