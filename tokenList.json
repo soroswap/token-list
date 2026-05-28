@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -397,6 +397,16 @@
       "org": "FxDAO LLC",
       "domain": "fxdao.io",
       "icon": "https://stellar.myfilebase.com/ipfs/QmQqpy1GLcGqqsg6DaHqLQntPPuFcdHZYG2pLBpHohvCUd",
+      "decimals": 7
+    },
+    {
+      "code": "MGUSD",
+      "issuer": "GAIUGZZZSL47BKH27SUDZESZELFJDPE2UM52RACOSFJ7BIVBGKUEJSUZ",
+      "contract": "CDK2LDSYUKPEFN3HNE7K7ETUT3VIOBHSOXAK5CTO4A4RKKZQUCAIWCJA",
+      "name": "MoneyGram USD",
+      "org": "MoneyGram",
+      "domain": "mgusd.moneygram.com",
+      "icon": "https://mgusd.moneygram.com/mgusd-logo.jpeg",
       "decimals": 7
     },
     {
