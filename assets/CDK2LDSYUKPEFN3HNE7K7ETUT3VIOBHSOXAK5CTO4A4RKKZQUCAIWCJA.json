@@ -1,0 +1,10 @@
+{
+  "code": "MGUSD",
+  "issuer": "GAIUGZZZSL47BKH27SUDZESZELFJDPE2UM52RACOSFJ7BIVBGKUEJSUZ",
+  "contract": "CDK2LDSYUKPEFN3HNE7K7ETUT3VIOBHSOXAK5CTO4A4RKKZQUCAIWCJA",
+  "name": "MoneyGram USD",
+  "org": "MoneyGram",
+  "domain": "mgusd.moneygram.com",
+  "icon": "https://mgusd.moneygram.com/mgusd-logo.jpeg",
+  "decimals": 7
+}
