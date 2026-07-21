@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -307,6 +307,16 @@
       "org": "Anclap",
       "domain": "api.anclap.com",
       "icon": "https://static.anclap.com/coin/ars.png",
+      "decimals": 7
+    },
+    {
+      "name": "Lumenaire",
+      "code": "xLMNR",
+      "issuer": "GDKA6WVMFSA73BMEVKPO6WXSSWP4MPRBDJVSXLLSEVIEVH226L5RJ7NL",
+      "contract": "CCEIVLOFQHALNB2ZVQJW55OYKEL7GG52JIGLUGHLRTEAFMISNSMOM5XW",
+      "org": "Lumenaire",
+      "domain": "www.thelumenaire.com",
+      "icon": "https://www.thelumenaire.com/images/xLMNR.png",
       "decimals": 7
     },
     {
