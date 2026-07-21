@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -280,6 +280,16 @@
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreihntcz2lpaxawmbhwidtuifladkgew6olwuly2dz5pewqillhhpay",
+      "decimals": 7
+    },
+    {
+      "code": "KPOP",
+      "issuer": "GDRXHIO2G7AQMXLME46XSHH4UVYD6BTNXB6V2NNMP6X4CAKH2SK4OHIT",
+      "contract": "CC54Q7EYBMPOEK7ZX4AKG76SXD3P3LQH325OHWKPMDUYA7M3XHZLWQ2N",
+      "name": "KPOP Token",
+      "org": "KPOP ROCKS",
+      "domain": "kpop.rocks",
+      "icon": "https://kpop.rocks/images/kpop-rocks-2.jpg",
       "decimals": 7
     },
     {
