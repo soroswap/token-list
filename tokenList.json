@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -379,6 +379,16 @@
       "org": "LibreTradingEcosystem",
       "domain": "librequidity.org",
       "icon": "https://librequidity.org/DAWG.png",
+      "decimals": 7
+    },
+    {
+      "name": "Dogstar",
+      "code": "XTAR",
+      "issuer": "GAORYJ3KBDGIM7FFSKVUJHJ5NEFWIRDIAGGBJBJS7TY6ECZS53257IG4",
+      "contract": "CDCKFBZYF2AQCSM3JOF2ZM27O3Y6AJAI4OTCQKAFNZ3FHBYUTFOKICIY",
+      "org": "Dogstar",
+      "domain": "dogstarcoin.com",
+      "icon": "https://www.dogstarcoin.com/assets/img/dogstarcoin-logo.png",
       "decimals": 7
     },
     {
