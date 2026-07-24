@@ -29,7 +29,13 @@ async function seeTrustlines() {
   const source = await horizonServer.loadAccount(publicKey);
   const trustedAssets = [];
   const untrustedAssets = [];
+  const skippedAssets = [];
   for (const asset of assetsList.assets) {
+    // Non-SAC Soroban tokens have no code/issuer and no trustline concept
+    if (!asset.code || !asset.issuer) {
+      skippedAssets.push(asset);
+      continue;
+    }
     const trustlineExists = source.balances.some((balance) => {
       return (
         (balance.asset_type === 'credit_alphanum4' || 
@@ -45,7 +51,7 @@ async function seeTrustlines() {
       trustedAssets.push(asset);
     }
   }
-  return {trustedAssets, untrustedAssets};
+  return {trustedAssets, untrustedAssets, skippedAssets};
 }
 
 async function setTrustline(tokenSymbol, tokenIssuer, tries = 1) {
@@ -84,9 +90,10 @@ async function setTrustline(tokenSymbol, tokenIssuer, tries = 1) {
 }
   
 async function main() {
-  const {trustedAssets, untrustedAssets} = await seeTrustlines();
+  const {trustedAssets, untrustedAssets, skippedAssets} = await seeTrustlines();
   console.log('Trusted Assets: ', trustedAssets.length);
   console.log('Untrusted Assets: ', untrustedAssets.length);
+  console.log('Skipped (no code/issuer, non-SAC): ', skippedAssets.length);
   if (untrustedAssets.length == 0){
     console.log('No new trustlines needed');
     process.exit(0);
