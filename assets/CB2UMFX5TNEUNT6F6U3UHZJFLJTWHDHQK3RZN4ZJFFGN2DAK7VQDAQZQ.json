@@ -1,0 +1,10 @@
+{
+  "code": "SAVE",                                                        
+  "issuer": "GBWKWJTPYLDEIUZ3EZ34HGXWRQ4R6DUCNLG5SIT72RL243IJZLLG5UOJ",   
+  "contract": "CB2UMFX5TNEUNT6F6U3UHZJFLJTWHDHQK3RZN4ZJFFGN2DAK7VQDAQZQ", 
+  "name": "SAVE on Stellar",                                              
+  "org": "SAVE Tokens",                                                   
+  "domain": "savetoken.net",                                     
+  "icon": "https:savetoken.net/images/project-save-logo.png",            
+  "decimals": 7
+}
