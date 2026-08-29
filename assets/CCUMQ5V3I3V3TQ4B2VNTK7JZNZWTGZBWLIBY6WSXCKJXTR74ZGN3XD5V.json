@@ -1,0 +1,10 @@
+{
+  "code": "MBC",                
+  "issuer": "GBPE7L6AMFQL2IGCVD36VVWZR5DDLINLETF2QMBAJG7ZA65MK7WI4BPK",
+  "contract": "CCUMQ5V3I3V3TQ4B2VNTK7JZNZWTGZBWLIBY6WSXCKJXTR74ZGN3XD5V",
+  "name": "Monarch Balanced Covenant",              
+  "org": "Authentic-Payment",                
+  "domain": "authentic-payment.com",            
+  "icon": "https://authentic-payment.com/wp-content/uploads/2025/08/MBC-logo.png",             
+  "decimals": 7
+}
