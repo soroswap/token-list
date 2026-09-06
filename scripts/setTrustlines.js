@@ -1,112 +1,51 @@
-const fs = require('fs');
-const StellarSdk = require('stellar-sdk');
-const trustlinesWalletSecretKey = process.argv[2];
+'use strict';
+const { Horizon, Keypair, Networks } = require('@stellar/stellar-sdk');
+const { readJsonFile } = require('./lib/jsonFiles');
+const { partitionAssetsByTrustline, submitTrustline } = require('./lib/trustlines');
 
+const HORIZON_URL = 'https://horizon.stellar.org';
+// Resolved against the CWD on purpose: every npm script runs from the repo root.
+const TOKEN_LIST_PATH = './tokenList.json';
+
+const trustlinesWalletSecretKey = process.argv[2];
 if (!trustlinesWalletSecretKey) {
   console.error('Please provide a trustlines wallet secret key');
   process.exit(1);
 }
-const assetsList = readJsonFile('./tokenList.json');
 
-const horizonServer = new StellarSdk.Horizon.Server('https://horizon.stellar.org');
-const networkPassphrase = StellarSdk.Networks.PUBLIC;
-
-const publicKey = StellarSdk.Keypair.fromSecret(trustlinesWalletSecretKey).publicKey();
-
-const MAX_TRIES = 3;
-const INITIAL_FEE = 100;
-
-function readJsonFile(filePath) {
-  try {
-    const data = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(data);
-  } catch (err) {
-    throw new Error(`Failed to parse JSON from file: ${err.message}. This may be due to incorrect formatting or a syntax error in the JSON data.`);
-  }
+const assetsList = readJsonFile(TOKEN_LIST_PATH);
+if (assetsList.assets.length == 0) {
+  console.error('No assets found in tokenList.json');
+  process.exit(1);
 }
 
-async function seeTrustlines() {
-  const source = await horizonServer.loadAccount(publicKey);
-  const trustedAssets = [];
-  const untrustedAssets = [];
-  const skippedAssets = [];
-  for (const asset of assetsList.assets) {
-    // Non-SAC Soroban tokens have no code/issuer and no trustline concept
-    if (!asset.code || !asset.issuer) {
-      skippedAssets.push(asset);
-      continue;
-    }
-    const trustlineExists = source.balances.some((balance) => {
-      return (
-        (balance.asset_type === 'credit_alphanum4' || 
-        balance.asset_type === 'credit_alphanum12')
-        &&
-        balance.asset_code === asset.code &&
-        balance.asset_issuer === asset.issuer
-      );
-    });
-    if (!trustlineExists) {
-      untrustedAssets.push(asset);
-    } else {
-      trustedAssets.push(asset);
-    }
-  }
-  return {trustedAssets, untrustedAssets, skippedAssets};
-}
+const horizonServer = new Horizon.Server(HORIZON_URL);
+const keypair = Keypair.fromSecret(trustlinesWalletSecretKey);
 
-async function setTrustline(tokenSymbol, tokenIssuer, tries = 1) {
-  const source = await horizonServer.loadAccount(publicKey);
-  const operation = StellarSdk.Operation.changeTrust({
-    source: source.accountId(),
-    asset: new StellarSdk.Asset(tokenSymbol, tokenIssuer),
-  });
-  const txn = new StellarSdk.TransactionBuilder(source, {
-    fee: Number(INITIAL_FEE * tries).toString(),
-    timebounds: { minTime: 0, maxTime: 0 },
-    networkPassphrase: networkPassphrase,
-  })
-    .addOperation(operation)
-    .setTimeout(StellarSdk.TimeoutInfinite)
-    .build();
-
-  const keyPair = StellarSdk.Keypair.fromSecret(trustlinesWalletSecretKey);
-  txn.sign(keyPair);
-
-  try {
-    let response = await horizonServer.submitTransaction(txn);
-    console.log('Trustline set for ', tokenSymbol);
-    return response;
-  } catch (error) {
-    if (tries < MAX_TRIES) {
-    console.log('Error trying to set trustline for ', tokenSymbol);
-    console.log(error);
-    console.log('Retrying...');
-    await setTrustline(tokenSymbol, tokenIssuer, tries + 1);
-    } else {
-    console.log('Max tries reached for ', tokenSymbol), '. Unable to set trustline.';
-    console.log(error);
-    }
-  }
-}
-  
 async function main() {
-  const {trustedAssets, untrustedAssets, skippedAssets} = await seeTrustlines();
+  const source = await horizonServer.loadAccount(keypair.publicKey());
+  const { trustedAssets, untrustedAssets, skippedAssets } = partitionAssetsByTrustline(
+    assetsList.assets,
+    source.balances,
+  );
   console.log('Trusted Assets: ', trustedAssets.length);
   console.log('Untrusted Assets: ', untrustedAssets.length);
   console.log('Skipped (no code/issuer, non-SAC): ', skippedAssets.length);
-  if (untrustedAssets.length == 0){
+
+  if (untrustedAssets.length == 0) {
     console.log('No new trustlines needed');
     process.exit(0);
-  } else {
-    for (const asset of untrustedAssets) {
-      await setTrustline(asset.code, asset.issuer);
-    }
   }
-}
 
-if(assetsList.assets.length == 0){
-  console.error('No assets found in tokenList.json');
-  process.exit(1);
+  for (const asset of untrustedAssets) {
+    await submitTrustline({
+      horizonServer,
+      keypair,
+      code: asset.code,
+      issuer: asset.issuer,
+      networkPassphrase: Networks.PUBLIC,
+    });
+  }
 }
 
 main()

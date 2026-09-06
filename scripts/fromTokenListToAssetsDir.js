@@ -1,28 +1,13 @@
+'use strict';
 const fs = require('fs');
 const path = require('path');
+const { readJsonFile, writeJsonFile } = require('./lib/jsonFiles');
 
-function readJsonFile(filePath) {
-  try {
-    const data = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(data);
-  } catch (err) {
-    throw new Error(`Failed to parse JSON from file: ${err.message}. This may be due to incorrect formatting or a syntax error in the JSON data.`);
-  }
-}
-
-function writeJsonFile(filePath, data) {
-  try {
-    const jsonData = JSON.stringify(data, null, 2);
-    fs.writeFileSync(filePath, jsonData, 'utf8');
-  } catch (err) {
-    console.error(`Error writing file: ${err}`);
-  }
-}
-
+// Reverse of the merge: explodes tokenList.json back into one assets/<CONTRACT>.json per token.
 function processAndSaveAssets(filePath) {
   const assetsData = readJsonFile(filePath);
   if (!assetsData || !assetsData.assets) {
-    console.log("No assets found or error reading the file.");
+    console.log('No assets found or error reading the file.');
     return;
   }
 
@@ -31,7 +16,7 @@ function processAndSaveAssets(filePath) {
     fs.mkdirSync(assetsDir);
   }
 
-  assetsData.assets.forEach(asset => {
+  assetsData.assets.forEach((asset) => {
     const tokenFilePath = path.join(assetsDir, `${asset.contract}.json`);
     writeJsonFile(tokenFilePath, asset);
     console.log(`Asset saved to ${tokenFilePath}`);

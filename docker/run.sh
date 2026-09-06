@@ -6,7 +6,7 @@ currentDir=$(pwd)
 # Set the name, image and version for the Docker container
 containerName=tokenList
 imageName=node
-versionTag=18
+versionTag=22
 
 # Display the command being executed
 echo "Command: $1"
