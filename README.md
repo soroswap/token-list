@@ -6,20 +6,21 @@ Please contact us on Discord after you have created a PR! :)
 
 ## Adding Your Token to the List
 
-To include your token in the Soroswap token list, ensure your token adheres to the following structure. Fields marked with an asterisk (*) are optional and can be omitted if not applicable to your token.
+To include your token in the Soroswap token list, ensure your token adheres to the following structure. Fields marked with `?` are optional and can be omitted if not applicable to your token.
 
 ### Token Information Structure
 
 ```plaintext
 {
-  "code": "string;                 // The code representing your token.
-  "issuer": "string?",             // The issuer's account address (optional).
-  "contract": "string;             // The contract address for your token.
-  "name": "string?",               // The name of your token (optional).
-  "org": "string?",                // The organization behind the token (optional).
-  "domain": "string?",             // The website for your token or organization (optional).
-  "icon": "string;                 // A URL to the token's icon.
-  "decimals": number;              // The number of decimals for your token. (7)
+  "name": "string",                // Required. Token name, 4 to 30 characters.
+  "org": "string",                 // Required. Issuing organization, 5 to 30 characters.
+  "contract": "string",            // Soroban contract address (C...). Required unless code and issuer are given.
+  "code": "string",                // Asset code. Required together with issuer when contract is omitted.
+  "issuer": "string?",             // Issuer account (G...). Omit for custom Soroban tokens.
+  "domain": "string?",             // Bare domain, e.g. "circle.com". Must equal the issuer's on-chain home_domain.
+  "icon": "string",                // URL that returns an image, or an IPFS CID. The verifier fetches it.
+  "decimals": number,              // Token decimals, usually 7.
+  "comment": "string?"             // Optional note, up to 150 characters.
 }
 ```
 
@@ -46,13 +47,26 @@ yarn
 yarn verify
 ```
 
-5. **Submit a Pull Request (PR)**: Push the changes to your fork and submit a PR to this repository. The PR should only add the new token file to the `tokens` directory.
+6. **Submit a Pull Request (PR)**: Push the changes to your fork and submit a PR to this repository. Fill in the pull request template. The PR should only add the new token file to the `assets` directory.
 
 ### Important Guidelines
 
-- PRs modifying any files other than adding a new token file to the `tokens` directory will be **automatically closed**. This ensures the integrity and security of the token list.
+- PRs modifying any files other than adding a new token file to the `assets` directory will be **automatically closed**. This ensures the integrity and security of the token list.
 - Upon merging your PR, a GitHub Actions workflow automatically updates the `tokenList.json`. Manual updates to this file are not required in your PR.
 - All submissions undergo review. Please allow some time for the review and inclusion process.
+
+## Development
+
+Requires Node 22.12 or newer (the scripts use `@stellar/stellar-sdk` 17).
+
+```bash
+yarn
+yarn test      # unit tests, run offline
+yarn verify    # schema plus on-chain checks of assets/, what CI runs on every PR
+yarn merge     # regenerate tokenList.json locally; CI does this on merge
+```
+
+Script logic lives in `scripts/lib/` and is covered by `tests/`. Module docs are in `docs/modules/`.
 
 ## Restoring footprints of the token list
 It runs daily. But you can trigger it manually:
@@ -60,7 +74,7 @@ It runs daily. But you can trigger it manually:
 Go to github actions and launch the workflow `Restore footprints of the token list`.
 Make sure `GB5KBIU6KUCKEVVDZOMIIJAKGAEOKQOBZX5TMOBXGCU3D5RAO22WETXE` address is funded to run it on github.
 
-If you want to run it locally, you need to set the environment variables `PRIVATE_KEY`, `RPC_URL`, `HORIZON_URL`. Then, you can run the restore footprints script with the following command:
+If you want to run it locally, you need to set the environment variables `PRIVATE_KEY`, `RPC_URL`, `HORIZON_URL` and `SOROSWAP_API_KEY`. Then, you can run the restore footprints script with the following command:
 Otherwise you can use docker, just run the following command:
 ```bash 
 cp .env.local.example .env
@@ -73,7 +87,7 @@ yarn install
 ```bash
 yarn restore-footprints
 ```
-If you need to change the endpoint for getting all pairs go to `scripts/restoreFootprintOfTokenContracts.js`
+If you need to change the endpoint for getting all pairs, edit `SOROSWAP_POOLS_ENDPOINT` in `scripts/lib/footprint.js`
 
 ## Setting trustlines for a wallet
 This feature allow a wallet to set trustlines for all tokens in the token list. You can run the script as follows:
