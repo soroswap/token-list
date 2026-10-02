@@ -2,63 +2,31 @@ name: Update Token List
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'assets/**'
+    branches: [main]
 
-permissions:
-  contents: write
-  pull-requests: write 
-  issues: read
-  packages: none
-  
 jobs:
-  update-token-list:
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
+      - name: Use Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '20'
 
       - name: Install dependencies
-        run: yarn install
-
-      - name: Run merge script
-        run: yarn merge
-
-      - name: Commit and push if changed
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "Update tokenList.json"
-          commit_options: '-a'  # Include changes to all tracked files
-          branch: ${{ github.ref }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set new trustlines
-        run: yarn set-trustlines ${{ secrets.TRUSTLINES_PRIVATE_KEY }}
+        run: npm ci
 
       - name: Sync to Indexer
+        run: |
+          curl -X POST https://indexer.soroswap.io/api/tokens/sync \
+            -H "Content-Type: application/json" \
+            -d @tokenList.json
         env:
           INDEXER_URL: ${{ secrets.INDEXER_URL }}
-        run: |
-          response=$(curl -s -w "\n%{http_code}" -X POST \
-            -H "Content-Type: application/json" \
-            -H "x-github-key: ${{ secrets.INDEXER_GITHUB_API_KEY }}" \
-            -d @tokenList.json \
-            "${INDEXER_URL}/api/token-lists/soroswap/sync")
 
-          http_code=$(echo "$response" | tail -n1)
-          body=$(echo "$response" | sed '$d')
-
-          echo "Response: $body"
-          echo "HTTP Status: $http_code"
-
-          if [ "$http_code" != "200" ]; then
-            echo "Failed to sync to indexer"
-            exit 1
-          fi
+      - name: Set trustlines
+        run: npm run setTrustlines
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
