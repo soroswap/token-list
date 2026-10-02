@@ -1,57 +1,65 @@
-'use strict';
-const { Horizon, Keypair, Networks } = require('@stellar/stellar-sdk');
-const { readJsonFile } = require('./lib/jsonFiles');
-const { partitionAssetsByTrustline, submitTrustline } = require('./lib/trustlines');
+const { Horizon } = require('@stellar/stellar-sdk');
 
-const HORIZON_URL = 'https://horizon.stellar.org';
-// Resolved against the CWD on purpose: every npm script runs from the repo root.
-const TOKEN_LIST_PATH = './tokenList.json';
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const RPC_URL = 'https://soroban-testnet.stellar.org';
+const HORIZON_URL = 'https://horizon-testnet.stellar.org';
 
-const trustlinesWalletSecretKey = process.argv[2];
-if (!trustlinesWalletSecretKey) {
-  console.error('Please provide a trustlines wallet secret key');
+if (!PRIVATE_KEY) {
+  console.error('ERROR: PRIVATE_KEY environment variable is required');
   process.exit(1);
 }
 
-const assetsList = readJsonFile(TOKEN_LIST_PATH);
-if (assetsList.assets.length == 0) {
-  console.error('No assets found in tokenList.json');
-  process.exit(1);
-}
-
-const horizonServer = new Horizon.Server(HORIZON_URL);
-const keypair = Keypair.fromSecret(trustlinesWalletSecretKey);
+const server = new Horizon.Server(HORIZON_URL);
+const stellarKeypair = Horizon.Keypair.fromSecret(PRIVATE_KEY);
+const stellarAccount = stellarKeypair.publicKey();
 
 async function main() {
-  const source = await horizonServer.loadAccount(keypair.publicKey());
-  const { trustedAssets, untrustedAssets, skippedAssets } = partitionAssetsByTrustline(
-    assetsList.assets,
-    source.balances,
-  );
-  console.log('Trusted Assets: ', trustedAssets.length);
-  console.log('Untrusted Assets: ', untrustedAssets.length);
-  console.log('Skipped (no code/issuer, non-SAC): ', skippedAssets.length);
+  console.log('Starting trustline setup...');
+  console.log(`Account: ${stellarAccount}`);
 
-  if (untrustedAssets.length == 0) {
-    console.log('No new trustlines needed');
-    process.exit(0);
+  const tokenList = require('../tokenList.json');
+
+  for (const token of tokenList.tokens) {
+    // Skip non-SAC (contract-only) tokens that don't have code/issuer
+    if (!token.code || !token.issuer) {
+      console.log(`⊘ Skipping ${token.symbol || token.name} (non-SAC, no code/issuer)`);
+      continue;
+    }
+
+    try {
+      console.log(`Setting trustline for ${token.symbol} (${token.issuer})...`);
+      
+      // Check if trustline already exists
+      const account = await server.loadAccount(stellarAccount);
+      const hasTrustline = account.lines.some(line => line.asset_code === token.code && line.asset_issuer === token.issuer);
+      
+      if (hasTrustline) {
+        console.log(`  ✓ Trustline already exists for ${token.symbol}`);
+        continue;
+      }
+
+      // Create trustline transaction
+      const baseFee = Horizon.DEFAULT_FEE;
+      const transaction = new Horizon.TransactionBuilder(account, { fee: baseFee })
+        .addOperation(Horizon.Operation.changeTrust({
+          asset: new Horizon.Asset(token.code, token.issuer),
+          limit: '1000000000',
+        }))
+        .setTimeout(30)
+        .build();
+
+      transaction.sign(stellarKeypair);
+      const submitResponse = await server.submitTransaction(transaction);
+      console.log(`  ✓ Trustline set for ${token.symbol}: ${submitResponse.hash}`);
+    } catch (error) {
+      console.error(`  ✗ Failed to set trustline for ${token.symbol}: ${error.message}`);
+    }
   }
 
-  for (const asset of untrustedAssets) {
-    await submitTrustline({
-      horizonServer,
-      keypair,
-      code: asset.code,
-      issuer: asset.issuer,
-      networkPassphrase: Networks.PUBLIC,
-    });
-  }
+  console.log('Done!');
 }
 
-main()
-  .then(() => {
-    console.log('Trustlines set successfully');
-  })
-  .catch((error) => {
-    console.error('Error setting trustlines: ', error);
-  });
+main().catch(err => {
+  console.error('Fatal error:', err);
+  process.exit(1);
+});
