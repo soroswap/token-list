@@ -1,0 +1,55 @@
+name: Check Soroban Native Contracts
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  check-native-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch soroban-native-contracts repo
+        run: |
+          gh repo clone stellarport/soroban-native-contracts /tmp/soroban-native-contracts -- --depth 1 || \
+          git clone --depth 1 https://github.com/StellarPort/soroban-native-contracts.git /tmp/soroban-native-contracts
+
+      - name: List available native contracts
+        run: |
+          echo "Available native contracts in soroban-native-contracts:"
+          ls /tmp/soroban-native-contracts/ || true
+          find /tmp/soroban-native-contracts -maxdepth 2 -type d | head -50
+
+      - name: Check native contracts exist in token list
+        run: |
+          # Define the expected native contract identifiers from the soroban-native-contracts repo
+          NATIVE_CONTRACTS=()
+          for dir in /tmp/soroban-native-contracts/*/; do
+            name=$(basename "$dir")
+            NATIVE_CONTRACTS+=("$name")
+          done
+          
+          echo "Native contracts found in soroban-native-contracts: ${NATIVE_CONTRACTS[*]}"
+          
+          # Check each native contract exists in the token-list
+          ERRORS=()
+          for contract in "${NATIVE_CONTRACTS[@]}"; do
+            # Search for the contract in all JSON files of the token list
+            if ! grep -rl "\"$contract\"" . --include="*.json" 2>/dev/null | grep -q .; then
+              # Also check if it's referenced by any token address
+              if ! grep -rl "$contract" . --include="*.json" 2>/dev/null | grep -q .; then
+                ERRORS+=("$contract")
+              fi
+            fi
+          done
+          
+          if [ ${#ERRORS[@]} -gt 0 ]; then
+            echo "::error::The following soroban native contracts are missing from the token list: ${ERRORS[*]}"
+            exit 1
+          else
+            echo "All soroban native contracts are present in the token list."
+          fi
