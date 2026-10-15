@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -14,6 +14,15 @@
       "org": "Muyu Network",
       "domain": "fchain.io",
       "icon": "https://ipfs.io/ipfs/bafkreih6jv72q2zuthweyyzq5vqu4dcnxbkefd7o7shgs2llnqrdeufyiy",
+      "decimals": 7
+    },
+    {
+      "code": "SUSDE",
+      "issuer": "GDJ5BNU5NN6NQ54D7OX6NQTUYNBZ42CAT33QGM5BIQ2QIYADAC5ICH47",
+      "contract": "CACSKWC753QVGC4J6YPDBIR2BEHFVWIAE7CBSS3HOVYMN623OAIQYE2M",
+      "name": "Staked USDe",
+      "org": "Ethena",
+      "icon": "https://gateway.pinata.cloud/ipfs/QmTQsoQenmJoc7ArBzkeAtoFCEV4W3ghPjTBcEqc7Ftn3m",
       "decimals": 7
     },
     {
@@ -361,6 +370,15 @@
       "decimals": 7
     },
     {
+      "code": "USDE",
+      "issuer": "GDJ5BNU5NN6NQ54D7OX6NQTUYNBZ42CAT33QGM5BIQ2QIYADAC5ICH47",
+      "contract": "CCNOV6XVI2O5BSTA3232GIRUQULDEBV7IWGKM6QKI6II5OIIQTU24JJN",
+      "name": "USDe",
+      "org": "Ethena",
+      "icon": "https://gateway.pinata.cloud/ipfs/QmR1aVRkbXUBQoXDeQvQcM52EG4DuC63crziQpaBVmjGfR",
+      "decimals": 7
+    },
+    {
       "code": "USDC",
       "issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
       "contract": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
@@ -388,6 +406,15 @@
       "org": "LibreTradingEcosystem",
       "domain": "librequidity.org",
       "icon": "https://librequidity.org/DAWG.png",
+      "decimals": 7
+    },
+    {
+      "code": "ENA",
+      "issuer": "GDJ5BNU5NN6NQ54D7OX6NQTUYNBZ42CAT33QGM5BIQ2QIYADAC5ICH47",
+      "contract": "CDAJNVEB7AC5DOSXEGRYY65D2HKVUKZYGY4ZXB2T4RTVL4BWBOAOLYIA",
+      "name": "ENA",
+      "org": "Ethena",
+      "icon": "https://gateway.pinata.cloud/ipfs/QmeAUc2SpxYXkMZPTrNtLabktChsMRqoj9PGQdeiCyXyrC",
       "decimals": 7
     },
     {
