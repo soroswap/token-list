@@ -12,7 +12,7 @@ To include your token in the Soroswap token list, ensure your token adheres to t
 
 ```plaintext
 {
-  "name": "string",                // Required. Token name, 4 to 30 characters.
+  "name": "string",                // Required. Token name, 1 to 30 characters.
   "org": "string",                 // Required. Issuing organization, 5 to 30 characters.
   "contract": "string",            // Soroban contract address (C...). Required unless code and issuer are given.
   "code": "string",                // Asset code. Required together with issuer when contract is omitted.
