@@ -24,6 +24,15 @@ test('rejects an asset missing name', () => {
   assert.equal(validate(rest), false);
 });
 
+test('accepts a name as short as one character, like a token whose name is its code', () => {
+  assert.equal(validate(asset({ name: 'ENA' })), true);
+  assert.equal(validate(asset({ name: 'X' })), true);
+});
+
+test('rejects an empty name', () => {
+  assert.equal(validate(asset({ name: '' })), false);
+});
+
 test('rejects an asset with neither contract nor code and issuer', () => {
   const { contract, code, ...rest } = asset();
   assert.equal(validate(rest), false);

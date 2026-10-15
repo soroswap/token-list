@@ -2,7 +2,7 @@
 
 > **Living document.** Read this before modifying the module. Update it in the same change whenever the module's behavior, files, or schema change.
 
-**Source:** `assets/`, `tokenList.json` · **Last verified:** 2026-09-06
+**Source:** `assets/`, `tokenList.json` · **Last verified:** 2026-10-15
 
 ## Purpose
 
@@ -37,7 +37,7 @@ The authoritative schema is the `assetSchema` object in `scripts/lib/assetSchema
 
 | Property | Constraint |
 |---|---|
-| `name` | string, minLength 4, maxLength 30 |
+| `name` | string, minLength 1, maxLength 30 |
 | `contract` | string, `^C[A-Z0-9]{55}$` |
 | `code` | string, `^[A-Za-z0-9]{1,12}$` |
 | `issuer` | string, `^G[A-Z0-9]{55}$` |

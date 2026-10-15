@@ -7,7 +7,7 @@ const addFormats = require('ajv-formats');
 const assetSchema = {
   type: 'object',
   properties: {
-    name: { type: 'string', maxLength: 30, minLength: 4 },
+    name: { type: 'string', maxLength: 30, minLength: 1 },
     contract: { type: 'string', pattern: '^C[A-Z0-9]{55}$' },
     code: { type: 'string', pattern: '^[A-Za-z0-9]{1,12}$' },
     issuer: { type: 'string', pattern: '^G[A-Z0-9]{55}$' },
