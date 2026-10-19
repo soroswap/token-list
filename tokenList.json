@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -193,6 +193,14 @@
       "decimals": 7
     },
     {
+      "code": "HYB",
+      "name": "NYLIM US High Yield Bond Fund",
+      "contract": "CBNT35PZXQBXKCNKPA6AL6TXHANGLAZMPE35TJUPI2BCO7OGHVKW3WYA",
+      "org": "Centrifuge",
+      "icon": "https://ipfs.centrifuge.io/ipfs/bafkreian2nvj6b4cuintgx5j7lexnttgxfebgovn6vda5dahdcoskwshgi",
+      "decimals": 18
+    },
+    {
       "code": "XRP",
       "issuer": "GBVOL67TMUQBGL4TZYNMY3ZQ5WGQYFPFD5VJRWXR72VA33VFNL225PL5",
       "contract": "CBPMFYWP4FFV7PQUYHXJZBXS75EHR6FXYSYEZWH2UM7AUYSKI2Z3PTCG",
@@ -377,6 +385,14 @@
       "org": "Ethena",
       "icon": "https://gateway.pinata.cloud/ipfs/QmR1aVRkbXUBQoXDeQvQcM52EG4DuC63crziQpaBVmjGfR",
       "decimals": 7
+    },
+    {
+      "code": "deHYB",
+      "name": "HYB deRWA",
+      "contract": "CCRTH4IJKVIBU6VQLRHFKDQYWXBEBJJXKDFNWVETLKUJJ7U62HBAZOIH",
+      "org": "Centrifuge",
+      "icon": "https://ipfs.centrifuge.io/ipfs/QmZDeyrfAq2qPtr4jXEqzHt4HQkbb1Pd1GVdjvJbYYkhjW",
+      "decimals": 18
     },
     {
       "code": "USDC",
