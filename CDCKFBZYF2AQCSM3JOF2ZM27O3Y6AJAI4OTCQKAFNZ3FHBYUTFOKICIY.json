@@ -1,0 +1,10 @@
+{
+  "name": "Dogstar",
+  "code": "XTAR",
+  "issuer": "GAORYJ3KBDGIM7FFSKVUJHJ5NEFWIRDIAGGBJBJS7TY6ECZS53257IG4",
+  "contract": "CDCKFBZYF2AQCSM3JOF2ZM27O3Y6AJAI4OTCQKAFNZ3FHBYUTFOKICIY",
+  "org": "Dogstar",
+  "domain": "dogstarcoin.com",
+  "icon": "https://www.dogstarcoin.com/assets/img/dogstarcoin-logo.png",
+  "decimals": 7
+}
