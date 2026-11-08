@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -101,6 +101,16 @@
       "org": "The KALEpail Project",
       "domain": "kalepail.com",
       "icon": "https://imagedelivery.net/yd3qPvu7Jy_6BfgoQb2pZQ/30466c1d-ef73-4d2b-8814-949157465a00/public",
+      "decimals": 7
+    },
+    {
+      "code": "SAVE",
+      "issuer": "GBWKWJTPYLDEIUZ3EZ34HGXWRQ4R6DUCNLG5SIT72RL243IJZLLG5UOJ",
+      "contract": "CB2UMFX5TNEUNT6F6U3UHZJFLJTWHDHQK3RZN4ZJFFGN2DAK7VQDAQZQ",
+      "name": "SAVE on Stellar",
+      "org": "SAVE Tokens",
+      "domain": "savetoken.net",
+      "icon": "https:savetoken.net/images/project-save-logo.png",
       "decimals": 7
     },
     {
