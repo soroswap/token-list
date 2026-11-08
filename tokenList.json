@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -306,6 +306,15 @@
       "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreihntcz2lpaxawmbhwidtuifladkgew6olwuly2dz5pewqillhhpay",
       "decimals": 7
+    },
+    {
+      "code": "XAUM",
+      "contract": "CC2RBGYNCFBCVENIDL5BFBWPH4OUZM2UA3OD2K2N54GLMWCC4KWPVAGO",
+      "name": "Matrixdock Gold",
+      "org": "Matrixdock",
+      "domain": "matrixdock.com",
+      "icon": "https://app.matrixdock.com/images/xaum/xaum-100x100-icon.png",
+      "decimals": 9
     },
     {
       "code": "KPOP",
