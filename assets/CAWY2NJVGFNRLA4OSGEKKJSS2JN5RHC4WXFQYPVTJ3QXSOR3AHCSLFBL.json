@@ -1,0 +1,10 @@
+{
+  "name": "DicInu",
+  "code": "DicInu",
+  "issuer": "GDMNBJWZBNQFCDUDPTG4DFLLUT6WPTMALBNX63OIM2YP5RLULTCFCNEA",
+  "contract": "CAWY2NJVGFNRLA4OSGEKKJSS2JN5RHC4WXFQYPVTJ3QXSOR3AHCSLFBL",
+  "org": "Dic Inu",
+  "domain": "dicinu.xmint.io",
+  "icon": "https://stellarmint.io/index.php?gf-download=2024%2F06%2FDicInu-Token-Stellar-Asset-Logo.512x512.png&form-id=13&field-id=2&hash=8ff0d42fd24cf84c1028f5c1808182fb370f115d6738be54be3f07a96a6db90e",
+  "decimals": 7
+}
