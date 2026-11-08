@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Keep the list as it was before the merge
+        run: cp tokenList.json "$RUNNER_TEMP/tokenList.before.json"
+
       - name: Run merge script
         run: yarn merge
 
@@ -39,26 +42,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Public announcement of tokens added by this push. Edits are not announced, and a
+      # Discord failure must not block the trustlines step below.
+      - name: Announce new tokens on Discord
+        continue-on-error: true
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_TOKEN_LIST_WEBHOOK }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_URL=$(gh api "repos/${{ github.repository }}/commits/${{ github.sha }}/pulls" --jq '.[0].html_url // empty' || true)
+          export PR_URL
+          node scripts/announceNewTokens.js "$RUNNER_TEMP/tokenList.before.json" tokenList.json
+
       - name: Set new trustlines
         run: yarn set-trustlines ${{ secrets.TRUSTLINES_PRIVATE_KEY }}
-
-      - name: Sync to Indexer
-        env:
-          INDEXER_URL: ${{ secrets.INDEXER_URL }}
-        run: |
-          response=$(curl -s -w "\n%{http_code}" -X POST \
-            -H "Content-Type: application/json" \
-            -H "x-github-key: ${{ secrets.INDEXER_GITHUB_API_KEY }}" \
-            -d @tokenList.json \
-            "${INDEXER_URL}/api/token-lists/soroswap/sync")
-
-          http_code=$(echo "$response" | tail -n1)
-          body=$(echo "$response" | sed '$d')
-
-          echo "Response: $body"
-          echo "HTTP Status: $http_code"
-
-          if [ "$http_code" != "200" ]; then
-            echo "Failed to sync to indexer"
-            exit 1
-          fi

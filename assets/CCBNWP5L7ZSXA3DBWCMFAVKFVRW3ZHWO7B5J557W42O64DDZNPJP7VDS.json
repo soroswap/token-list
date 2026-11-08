@@ -1,0 +1,10 @@
+{
+  "name": "BLNT Protocol",
+  "code": "BLNT",
+  "issuer": "GAP2ACGH3O6TRFAERGM4USJ6XWU3U2BFIK224JPV6NI3CUNEEEGTBTFB",
+  "contract": "CCBNWP5L7ZSXA3DBWCMFAVKFVRW3ZHWO7B5J557W42O64DDZNPJP7VDS",
+  "org": "BLNT Protocol",
+  "domain": "blnt.trade",
+  "icon": "https://blnt.trade/icons/tokens/blnt.png",
+  "decimals": 7
+}
