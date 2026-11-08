@@ -27,11 +27,11 @@ All workflows use `actions/checkout@v7` and `actions/setup-node@v7` with Node `2
 **Unit tests** (`test.yml`): path-filtered so token-only PRs do not run it.
 
 **Publish** (`update-token-list.yml`), in order:
-1. The current `tokenList.json` is copied to `$RUNNER_TEMP/tokenList.before.json` (`:31`).
-2. `yarn merge` regenerates `tokenList.json` (`:34`).
-3. `stefanzweifel/git-auto-commit-action@v7` commits with message `"Update tokenList.json"` (`:39`).
-4. `scripts/announceNewTokens.js` diffs the two lists and posts one Discord embed per token whose `contract` was not listed before, to the webhook in `secrets.DISCORD_TOKEN_LIST_WEBHOOK`, linking the merged PR when `gh api .../commits/<sha>/pulls` finds one (`:47-55`). Edits to listed tokens are not announced. The step is `continue-on-error`, so a failed post leaves the job green with a `::warning` annotation and is not retried later, and it skips when the secret is unset.
-5. `yarn set-trustlines ${{ secrets.TRUSTLINES_PRIVATE_KEY }}` (`:58`).
+1. `tokenList.json` as it was at `github.event.before` (main before this push) is saved to `$RUNNER_TEMP/tokenList.before.json`, falling back to the checked-out file with a warning if that commit cannot be read (`:30-44`). Not the checked-out file: a contributor fork with Actions enabled runs this same workflow and commits its own `tokenList.json` into the PR, so the merged file already lists the token. That is how XLD (#103) was merged without an announcement.
+2. `yarn merge` regenerates `tokenList.json` (`:47`).
+3. `stefanzweifel/git-auto-commit-action@v7` commits with message `"Update tokenList.json"` (`:52`).
+4. `scripts/announceNewTokens.js` diffs the two lists and posts one Discord embed per token whose `contract` was not listed before, to the webhook in `secrets.DISCORD_TOKEN_LIST_WEBHOOK`, linking the merged PR when `gh api .../commits/<sha>/pulls` finds one (`:60-68`). Edits to listed tokens are not announced. The step is `continue-on-error`, so a failed post leaves the job green with a `::warning` annotation and is not retried later, and it skips when the secret is unset.
+5. `yarn set-trustlines ${{ secrets.TRUSTLINES_PRIVATE_KEY }}` (`:71`).
 
 The indexer sync step was removed in #115.
 
@@ -52,7 +52,7 @@ PRs touching anything else are closed (`README.md:54`), and `tokenList.json` mus
 
 ## Dependencies
 
-- Secrets consumed: `DISCORD_TOKEN_LIST_WEBHOOK`, `TRUSTLINES_PRIVATE_KEY` (`workflows/update-token-list.yml:50,58`), `PRIVATE_KEY`, `RPC_URL`, `SOROSWAP_API_KEY`, optional `HORIZON_URL` (`workflows/restore-footprint-of-contracts.yml:28-31`), plus the default `GITHUB_TOKEN`.
+- Secrets consumed: `DISCORD_TOKEN_LIST_WEBHOOK`, `TRUSTLINES_PRIVATE_KEY` (`workflows/update-token-list.yml:63,71`), `PRIVATE_KEY`, `RPC_URL`, `SOROSWAP_API_KEY`, optional `HORIZON_URL` (`workflows/restore-footprint-of-contracts.yml:28-31`), plus the default `GITHUB_TOKEN`.
 - Downstream: a Discord channel through the webhook. The indexer sync described in `GITHUB_ACTIONS_INTEGRATION.md` no longer runs (removed in #115).
 
 ## Gotchas & invariants
@@ -61,7 +61,7 @@ PRs touching anything else are closed (`README.md:54`), and `tokenList.json` mus
 - **`GITHUB_ACTIONS_INTEGRATION.md` is a proposal, not the live config.** Its example workflow (`:64-117`) uses `actions/checkout@v4`, Node 20 and a manual git commit; the real `update-token-list.yml` uses v7, Node 22 and `git-auto-commit-action`. Read the workflow file, not the doc, for current behavior.
 - **The publish workflow only fires on `assets/**` pushes** (`workflows/update-token-list.yml:7-8`). Editing `tokenList.json` directly on `main` never triggers a sync.
 - **The Discord announcement is public and built from contributor data.** Text fields are escaped, including `:` and `<` so bare URLs and mentions do not render, newlines are collapsed, and `allowed_mentions` is empty so nothing pings. `Domain` is shown only for tokens with an issuer, the one case the gate checks it against `home_domain`; tokens without an issuer are labelled `Soroban token (not verified on-chain)`. `name`, `org`, `code` and the icon are still whatever the contributor wrote, and a token with no issuer passes the gate with no on-chain checks at all, so a green check does not mean it is genuine. Anything merged is announced, so review before merging, not after.
-- **`yarn set-trustlines` is the last step** (`workflows/update-token-list.yml:58`). It only fails on a missing secret or an empty list. Actual trustline submission failures are swallowed and the step still exits 0, so a missing trustline never blocks, or signals, the publish.
+- **`yarn set-trustlines` is the last step** (`workflows/update-token-list.yml:71`). It only fails on a missing secret or an empty list. Actual trustline submission failures are swallowed and the step still exits 0, so a missing trustline never blocks, or signals, the publish.
 - **`ipfs.io` rate limiting can fail a legitimate token PR.** GitHub runners share egress IPs, and the icon host answers a burst with 429 and `Retry-After: 900`. The gate reports it as "rate limited by the icon host" rather than a broken icon; re-run the job after 15 minutes before asking the contributor for anything.
 - **The unit-test workflow does not run on token PRs.** It is path-filtered to script and test changes, so a contributor cannot see it and a token PR is judged by `verify-new-tokens.yml` alone.
 - The funded footprint account is documented as `GB5KBIU6KUCKEVVDZOMIIJAKGAEOKQOBZX5TMOBXGCU3D5RAO22WETXE` (`README.md:75`) and the trustlines wallet as `GBHYCV7DRS3GTFZYTW4MTHMBKRJJSZKV7LSCAERQQKUHZRYBW34FGUE4` (`README.md:100`).
