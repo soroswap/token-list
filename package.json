@@ -6,16 +6,20 @@
   "repository": "https://github.com/soroswap/token-list.git",
   "author": "coderipper <hello@joaquinsoza.dev>",
   "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "merge": "node scripts/createTokenList",
     "verify": "node scripts/verifyTokens",
+    "test": "node --test tests/*.test.js",
     "set-trustlines": "node scripts/setTrustlines",
     "restore-footprints": "node scripts/restoreFootprintOfTokenContracts.js",
     "restore-footprints:env": "./scripts/restore-footprints.sh"
   },
   "dependencies": {
-    "ajv": "^8.12.0",
-    "ajv-formats": "^2.1.1",
-    "stellar-sdk": "^12.2.0"
+    "@stellar/stellar-sdk": "^17.0.1",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1"
   }
 }
