@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -316,6 +316,16 @@
       "icon": "https://centrifuge.mypinata.cloud/ipfs/bafkreifp5ww5lpbgrny36oxgzg2kjw2226lmj2vmekp4nqemm5ewhhtmwi",
       "decimals": 18,
       "code": "deJAAA"
+    },
+    {
+      "name": "BLNT Protocol",
+      "code": "BLNT",
+      "issuer": "GAP2ACGH3O6TRFAERGM4USJ6XWU3U2BFIK224JPV6NI3CUNEEEGTBTFB",
+      "contract": "CCBNWP5L7ZSXA3DBWCMFAVKFVRW3ZHWO7B5J557W42O64DDZNPJP7VDS",
+      "org": "BLNT Protocol",
+      "domain": "blnt.trade",
+      "icon": "https://blnt.trade/icons/tokens/blnt.png",
+      "decimals": 7
     },
     {
       "name": "PYUSD",
