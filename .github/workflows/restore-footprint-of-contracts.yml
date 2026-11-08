@@ -3,7 +3,7 @@ name: Restore Footprint of Token Contracts
 on:
   workflow_dispatch:
   schedule:
-    # Runs daily at 00:00 UTC
+    # Runs daily at 01:07 UTC
     - cron: "7 1 * * *"
 
 jobs:
@@ -12,12 +12,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
-          node-version: "18"
+          node-version: "22"
 
       - name: Install dependencies
         run: yarn install
@@ -27,3 +27,5 @@ jobs:
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           RPC_URL: ${{ secrets.RPC_URL }}
+          HORIZON_URL: ${{ secrets.HORIZON_URL || 'https://horizon.stellar.org' }}
+          SOROSWAP_API_KEY: ${{ secrets.SOROSWAP_API_KEY }}
