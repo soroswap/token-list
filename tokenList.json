@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.4.4",
+  "version": "1.5.6",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -14,6 +14,15 @@
       "org": "Muyu Network",
       "domain": "fchain.io",
       "icon": "https://ipfs.io/ipfs/bafkreih6jv72q2zuthweyyzq5vqu4dcnxbkefd7o7shgs2llnqrdeufyiy",
+      "decimals": 7
+    },
+    {
+      "code": "SUSDE",
+      "issuer": "GDJ5BNU5NN6NQ54D7OX6NQTUYNBZ42CAT33QGM5BIQ2QIYADAC5ICH47",
+      "contract": "CACSKWC753QVGC4J6YPDBIR2BEHFVWIAE7CBSS3HOVYMN623OAIQYE2M",
+      "name": "Staked USDe",
+      "org": "Ethena",
+      "icon": "https://gateway.pinata.cloud/ipfs/QmTQsoQenmJoc7ArBzkeAtoFCEV4W3ghPjTBcEqc7Ftn3m",
       "decimals": 7
     },
     {
@@ -35,6 +44,14 @@
       "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreidhjwrkvsvuixny3j6w2xk4vhr5x7urz525usl7xvjur35fsc6bmu",
       "decimals": 7
+    },
+    {
+      "code": "JQQQ",
+      "name": "JHI NASDAQ-100 Index Fund",
+      "contract": "CAQYPRTX2E6H6BM57QRBYZWP667FPDYDUHMOQXGXM2HA64KO6AISRFEK",
+      "org": "Centrifuge",
+      "icon": "https://centrifuge-files.mypinata.cloud/ipfs/QmQcNLvyiGF1rN6VHFwJJDhfnmPjtCDFiTeHAWdyghv7yv",
+      "decimals": 18
     },
     {
       "code": "ZOMB",
@@ -150,7 +167,8 @@
       "contract": "CBI7UCH5KGSVQRO5H4SUCZUTZABCITZLRHQQZTWL2TK4RZ72TAR6IHRV",
       "org": "Centrifuge",
       "icon": "https://centrifuge.mypinata.cloud/ipfs/bafkreieracb5e57bhg7bphd7sp4hxf3yhbm3cxinst3o5mennfosagkxuu",
-      "decimals": 18
+      "decimals": 18,
+      "code": "deJTRSY"
     },
     {
       "code": "XRF",
@@ -181,6 +199,14 @@
       "domain": "fxdao.io",
       "icon": "https://stellar.myfilebase.com/ipfs/QmTGegMR2v86ZjzHvhT3DMD6t1ri1VUz82tqRt4SxbFjC1",
       "decimals": 7
+    },
+    {
+      "code": "HYB",
+      "name": "NYLIM US High Yield Bond Fund",
+      "contract": "CBNT35PZXQBXKCNKPA6AL6TXHANGLAZMPE35TJUPI2BCO7OGHVKW3WYA",
+      "org": "Centrifuge",
+      "icon": "https://ipfs.centrifuge.io/ipfs/bafkreian2nvj6b4cuintgx5j7lexnttgxfebgovn6vda5dahdcoskwshgi",
+      "decimals": 18
     },
     {
       "code": "XRP",
@@ -223,6 +249,15 @@
       "decimals": 7
     },
     {
+      "code": "USDT0",
+      "issuer": "GATISXX6BZ6NC7IKQBY37CJD4SOZL3CYZJWXEDG6JVIY4WBS6KXJHN6Q",
+      "contract": "CBSJZEIO5C7KC2SF3MKSNXXJSW5G3VTNBX4ATMKUI3B2MR4JKM4R26YF",
+      "name": "USDT0",
+      "org": "USDT0",
+      "icon": "https://docs.usdt0.to/downloads/usdt0/Symbol_USDT0_Secondary.png",
+      "decimals": 7
+    },
+    {
       "name": "Poye",
       "code": "POYE",
       "issuer": "GCANJQJUFIWG7TXKCAJPG726KWW5CXISB2KM2MZRYLVV6AMZENZQN2ZE",
@@ -240,16 +275,6 @@
       "org": "Lumenswap LLC dba Lumenswap",
       "domain": "lumenswap.io",
       "icon": "https://ipfs.io/ipfs/bafkreiazthj4bttq75cxhgaekfxnv7ub6b2hq6qr5qkea4bhy4gie4qegy",
-      "decimals": 7
-    },
-    {
-      "name": "lumenaire",
-      "code": "LMNR",
-      "issuer": "GALUVE2YREE6NU4T2746XL7XORCEY5NVDJ7WADGWANUZWQJZ3PTP5PHB",
-      "contract": "CBY4MSZXK5L4HDMJHDXQLNLOA5MM5BIGCHQYMRG7ZAFY34UNU4UXPEJJ",
-      "org": "lumenaire",
-      "domain": "lu.meme",
-      "icon": "https://cdn.lu.meme/prod/meme/meme-aJFJRH1LcIxvTXATPI81Yair5DTVTW56.jpeg",
       "decimals": 7
     },
     {
@@ -283,11 +308,32 @@
       "decimals": 7
     },
     {
+      "code": "KPOP",
+      "issuer": "GDRXHIO2G7AQMXLME46XSHH4UVYD6BTNXB6V2NNMP6X4CAKH2SK4OHIT",
+      "contract": "CC54Q7EYBMPOEK7ZX4AKG76SXD3P3LQH325OHWKPMDUYA7M3XHZLWQ2N",
+      "name": "KPOP Token",
+      "org": "KPOP ROCKS",
+      "domain": "kpop.rocks",
+      "icon": "https://kpop.rocks/images/kpop-rocks-2.jpg",
+      "decimals": 7
+    },
+    {
       "name": "deJAAA",
       "contract": "CC64WBDGS6QQP22QTTIACYIXT3WF7BBQEYOQPLTP7GTKYY7PZ74QYGSL",
       "org": "Centrifuge",
       "icon": "https://centrifuge.mypinata.cloud/ipfs/bafkreifp5ww5lpbgrny36oxgzg2kjw2226lmj2vmekp4nqemm5ewhhtmwi",
-      "decimals": 18
+      "decimals": 18,
+      "code": "deJAAA"
+    },
+    {
+      "name": "BLNT Protocol",
+      "code": "BLNT",
+      "issuer": "GAP2ACGH3O6TRFAERGM4USJ6XWU3U2BFIK224JPV6NI3CUNEEEGTBTFB",
+      "contract": "CCBNWP5L7ZSXA3DBWCMFAVKFVRW3ZHWO7B5J557W42O64DDZNPJP7VDS",
+      "org": "BLNT Protocol",
+      "domain": "blnt.trade",
+      "icon": "https://blnt.trade/icons/tokens/blnt.png",
+      "decimals": 7
     },
     {
       "name": "PYUSD",
@@ -307,6 +353,16 @@
       "org": "Anclap",
       "domain": "api.anclap.com",
       "icon": "https://static.anclap.com/coin/ars.png",
+      "decimals": 7
+    },
+    {
+      "name": "Lumenaire",
+      "code": "xLMNR",
+      "issuer": "GDKA6WVMFSA73BMEVKPO6WXSSWP4MPRBDJVSXLLSEVIEVH226L5RJ7NL",
+      "contract": "CCEIVLOFQHALNB2ZVQJW55OYKEL7GG52JIGLUGHLRTEAFMISNSMOM5XW",
+      "org": "Lumenaire",
+      "domain": "www.thelumenaire.com",
+      "icon": "https://www.thelumenaire.com/images/xLMNR.png",
       "decimals": 7
     },
     {
@@ -340,6 +396,23 @@
       "decimals": 7
     },
     {
+      "code": "USDE",
+      "issuer": "GDJ5BNU5NN6NQ54D7OX6NQTUYNBZ42CAT33QGM5BIQ2QIYADAC5ICH47",
+      "contract": "CCNOV6XVI2O5BSTA3232GIRUQULDEBV7IWGKM6QKI6II5OIIQTU24JJN",
+      "name": "USDe",
+      "org": "Ethena",
+      "icon": "https://gateway.pinata.cloud/ipfs/QmR1aVRkbXUBQoXDeQvQcM52EG4DuC63crziQpaBVmjGfR",
+      "decimals": 7
+    },
+    {
+      "code": "deHYB",
+      "name": "HYB deRWA",
+      "contract": "CCRTH4IJKVIBU6VQLRHFKDQYWXBEBJJXKDFNWVETLKUJJ7U62HBAZOIH",
+      "org": "Centrifuge",
+      "icon": "https://ipfs.centrifuge.io/ipfs/QmZDeyrfAq2qPtr4jXEqzHt4HQkbb1Pd1GVdjvJbYYkhjW",
+      "decimals": 18
+    },
+    {
       "code": "USDC",
       "issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
       "contract": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
@@ -367,6 +440,25 @@
       "org": "LibreTradingEcosystem",
       "domain": "librequidity.org",
       "icon": "https://librequidity.org/DAWG.png",
+      "decimals": 7
+    },
+    {
+      "code": "ENA",
+      "issuer": "GDJ5BNU5NN6NQ54D7OX6NQTUYNBZ42CAT33QGM5BIQ2QIYADAC5ICH47",
+      "contract": "CDAJNVEB7AC5DOSXEGRYY65D2HKVUKZYGY4ZXB2T4RTVL4BWBOAOLYIA",
+      "name": "ENA",
+      "org": "Ethena",
+      "icon": "https://gateway.pinata.cloud/ipfs/QmeAUc2SpxYXkMZPTrNtLabktChsMRqoj9PGQdeiCyXyrC",
+      "decimals": 7
+    },
+    {
+      "name": "Dogstar",
+      "code": "XTAR",
+      "issuer": "GAORYJ3KBDGIM7FFSKVUJHJ5NEFWIRDIAGGBJBJS7TY6ECZS53257IG4",
+      "contract": "CDCKFBZYF2AQCSM3JOF2ZM27O3Y6AJAI4OTCQKAFNZ3FHBYUTFOKICIY",
+      "org": "Dogstar",
+      "domain": "dogstarcoin.com",
+      "icon": "https://www.dogstarcoin.com/assets/img/dogstarcoin-logo.png",
       "decimals": 7
     },
     {
@@ -407,6 +499,16 @@
       "org": "MoneyGram",
       "domain": "mgusd.moneygram.com",
       "icon": "https://mgusd.moneygram.com/mgusd-logo.jpeg",
+      "decimals": 7
+    },
+    {
+      "code": "XLD",
+      "issuer": "GBE6IZPK5MPLVPMD3NZ2YW5BY4GBB5IDYDXTIERGA3A5S2XANCUCTXLD",
+      "contract": "CDNDPEI4X6NYKEVAIOH2T3AIVYOWY6LDT7RITBTT3XXTIETTUSATZQ7A",
+      "name": "XLM Domains",
+      "org": "XLM Domains",
+      "domain": "xlm.domains",
+      "icon": "https://xlm.domains/assets/xld-token.png",
       "decimals": 7
     },
     {
