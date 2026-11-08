@@ -26,26 +26,40 @@ function explorerUrl(asset) {
 }
 
 // Every text field comes from a contributor's PR. Escaping markdown keeps a name like
-// "[claim](https://evil)" from rendering as a link in the announcement.
+// "[claim](https://evil)" from rendering as a link. `:` stops a bare URL auto-linking and
+// `<` stops a mention like <@&id> rendering.
 function escapeMarkdown(text) {
-  return String(text).replace(/([\\`*_~|>\[\]()#-])/g, '\\$1');
+  return String(text).replace(/([\\`*_~|<>\[\]()#:-])/g, '\\$1');
+}
+
+// The schema allows newlines in names, which would let a token fake extra embed lines.
+function inlineText(text) {
+  return escapeMarkdown(String(text).replace(/\s+/g, ' ').trim());
 }
 
 function buildEmbed(asset, { prUrl } = {}) {
-  const symbol = asset.code || asset.name;
+  const symbol = inlineText(asset.code || asset.name);
   const links = [`[Stellar Expert](${explorerUrl(asset)})`];
   if (prUrl) links.push(`[Pull request](${prUrl})`);
 
   const fields = [{ name: 'Contract', value: `\`${asset.contract}\`` }];
   if (asset.issuer) fields.push({ name: 'Issuer', value: `\`${asset.issuer}\`` });
-  if (asset.domain) fields.push({ name: 'Domain', value: escapeMarkdown(asset.domain), inline: true });
-  fields.push({ name: 'Decimals', value: String(asset.decimals), inline: true });
-  fields.push({ name: 'Type', value: asset.issuer ? 'Stellar classic asset' : 'Soroban token', inline: true });
+  // The gate checks `domain` against home_domain only when there is an issuer. Without one
+  // it is an unchecked claim, and an official post must not present it as fact.
+  if (asset.issuer && asset.domain) {
+    fields.push({ name: 'Domain', value: inlineText(asset.domain), inline: true });
+  }
+  if (asset.decimals != null) fields.push({ name: 'Decimals', value: String(asset.decimals), inline: true });
+  fields.push({
+    name: 'Type',
+    value: asset.issuer ? 'Stellar classic asset' : 'Soroban token (not verified on-chain)',
+    inline: true,
+  });
 
   const embed = {
     title: `New token listed: ${symbol}`,
     url: explorerUrl(asset),
-    description: `**${escapeMarkdown(asset.name)}** by ${escapeMarkdown(asset.org)}\n${links.join(' · ')}`,
+    description: `**${inlineText(asset.name)}** by ${inlineText(asset.org)}\n${links.join(' · ')}`,
     color: EMBED_COLOR,
     fields,
     footer: { text: 'Soroswap Token List' },
@@ -69,6 +83,15 @@ function buildDiscordPayloads(assets, { prUrl } = {}) {
   return payloads;
 }
 
+// A missing header must stay undefined: Number(null) is 0, which withRetry would take as
+// "retry now" and skip its backoff.
+function parseRetryAfterMs(headers) {
+  const value = headers && headers.get ? headers.get('Retry-After') : null;
+  if (!value) return undefined;
+  const seconds = Number(value);
+  return Number.isFinite(seconds) ? seconds * 1000 : undefined;
+}
+
 async function postOnce(webhookUrl, payload, fetchImpl) {
   let response;
   try {
@@ -82,9 +105,8 @@ async function postOnce(webhookUrl, payload, fetchImpl) {
   }
   if (response.ok) return;
   if (response.status === 429 || response.status >= 500) {
-    const retryAfter = Number(response.headers && response.headers.get ? response.headers.get('Retry-After') : NaN);
     throw new TransientError(`Discord webhook answered ${response.status}`, {
-      retryAfterMs: Number.isFinite(retryAfter) ? retryAfter * 1000 : undefined,
+      retryAfterMs: parseRetryAfterMs(response.headers),
     });
   }
   throw new Error(`Discord webhook answered ${response.status}`);

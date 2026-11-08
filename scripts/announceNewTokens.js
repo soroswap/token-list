@@ -38,7 +38,9 @@ async function main() {
   console.log(`Announced ${newAssets.length} new token(s): ${newAssets.map((a) => a.code || a.contract).join(', ')}`);
 }
 
+// The workflow step is continue-on-error, so the job stays green; the annotation is what
+// makes a lost announcement visible.
 main().catch((error) => {
-  console.error(error.message);
+  console.log(`::warning title=Discord announcement failed::${error.message}`);
   process.exitCode = 1;
 });

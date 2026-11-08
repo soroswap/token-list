@@ -43,8 +43,42 @@ test('explorerUrl links classic assets by code-issuer and Soroban tokens by cont
 });
 
 test('escapeMarkdown neutralises links and formatting from contributor metadata', () => {
-  assert.equal(escapeMarkdown('[claim](https://evil)'), '\\[claim\\]\\(https://evil\\)');
+  assert.equal(escapeMarkdown('[claim](https://evil)'), '\\[claim\\]\\(https\\://evil\\)');
   assert.equal(escapeMarkdown('**bold**'), '\\*\\*bold\\*\\*');
+});
+
+test('escapeMarkdown stops bare URLs auto-linking and mentions rendering', () => {
+  assert.equal(escapeMarkdown('https://evil.co/claim'), 'https\\://evil.co/claim');
+  assert.equal(escapeMarkdown('<@&123456>'), '\\<@&123456\\>');
+});
+
+test('buildEmbed escapes a contributor name used as the title', () => {
+  const embed = buildEmbed({ ...WASM_TOKEN, name: '**x** https://evil.co' });
+  assert.equal(embed.title, 'New token listed: \\*\\*x\\*\\* https\\://evil.co');
+});
+
+test('buildEmbed collapses newlines so a name cannot fake extra lines', () => {
+  const embed = buildEmbed({ ...WASM_TOKEN, name: 'USDC\nVerified by Soroswap' });
+  assert.ok(embed.description.startsWith('**USDC Verified by Soroswap** by '));
+  assert.equal(embed.title, 'New token listed: USDC Verified by Soroswap');
+});
+
+// The gate only checks home_domain for tokens with an issuer, so anything else is a claim.
+test('buildEmbed hides an unverifiable domain and flags a token with no issuer', () => {
+  const embed = buildEmbed({ ...WASM_TOKEN, code: 'USDC', domain: 'circle.com' });
+  assert.ok(!embed.fields.some((field) => field.name === 'Domain'));
+  assert.equal(embed.fields.at(-1).value, 'Soroban token (not verified on-chain)');
+});
+
+test('buildEmbed omits decimals when the asset does not declare them', () => {
+  const { decimals, ...withoutDecimals } = WASM_TOKEN;
+  const embed = buildEmbed(withoutDecimals);
+  assert.ok(!embed.fields.some((field) => field.name === 'Decimals'));
+});
+
+test('buildEmbed keeps decimals of zero', () => {
+  const embed = buildEmbed({ ...WASM_TOKEN, decimals: 0 });
+  assert.equal(embed.fields.find((field) => field.name === 'Decimals').value, '0');
 });
 
 test('buildEmbed carries contract, issuer, links and icon for a classic asset', () => {
@@ -62,7 +96,7 @@ test('buildEmbed falls back to the name and skips the issuer for a Soroban token
   assert.equal(embed.title, 'New token listed: Wasm Token');
   assert.ok(!embed.fields.some((field) => field.name === 'Issuer'));
   assert.ok(!embed.description.includes('Pull request'));
-  assert.equal(embed.fields.at(-1).value, 'Soroban token');
+  assert.equal(embed.fields.at(-1).value, 'Soroban token (not verified on-chain)');
 });
 
 test('buildDiscordPayloads splits into messages of at most 10 embeds and disables mentions', () => {
@@ -98,6 +132,14 @@ test('postToDiscord retries on 429 and honours Retry-After', async () => {
   const fetchImpl = async () => fakeResponse(statuses.shift(), '2');
   await postToDiscord('https://discord.test/hook', {}, { fetchImpl, sleep: async (ms) => waits.push(ms) });
   assert.deepEqual(waits, [2000]);
+});
+
+test('postToDiscord backs off when a failure has no Retry-After', async () => {
+  const statuses = [502, 502, 204];
+  const waits = [];
+  const fetchImpl = async () => fakeResponse(statuses.shift(), null);
+  await postToDiscord('https://discord.test/hook', {}, { fetchImpl, sleep: async (ms) => waits.push(ms) });
+  assert.deepEqual(waits, [1000, 2000]);
 });
 
 test('postToDiscord fails at once on a client error', async () => {
