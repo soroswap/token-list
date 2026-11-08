@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -499,6 +499,16 @@
       "org": "MoneyGram",
       "domain": "mgusd.moneygram.com",
       "icon": "https://mgusd.moneygram.com/mgusd-logo.jpeg",
+      "decimals": 7
+    },
+    {
+      "code": "XLD",
+      "issuer": "GBE6IZPK5MPLVPMD3NZ2YW5BY4GBB5IDYDXTIERGA3A5S2XANCUCTXLD",
+      "contract": "CDNDPEI4X6NYKEVAIOH2T3AIVYOWY6LDT7RITBTT3XXTIETTUSATZQ7A",
+      "name": "XLM Domains",
+      "org": "XLM Domains",
+      "domain": "xlm.domains",
+      "icon": "https://xlm.domains/assets/xld-token.png",
       "decimals": 7
     },
     {
