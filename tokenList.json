@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -23,6 +23,15 @@
       "name": "Staked USDe",
       "org": "Ethena",
       "icon": "https://gateway.pinata.cloud/ipfs/QmTQsoQenmJoc7ArBzkeAtoFCEV4W3ghPjTBcEqc7Ftn3m",
+      "decimals": 7
+    },
+    {
+      "code": "VELO",
+      "issuer": "GDM4RQUQQUVSKQA7S6EM7XBZP3FCGH4Q7CL6TABQ7B2BEJ5ERARM2M5M",
+      "contract": "CAESLMGW5LYTIEJI7FJHK6SFSWRELLNVX5Q4WR4UZEALMTRWQDBKDPAG",
+      "name": "VELO",
+      "org": "Velo Labs",
+      "icon": "https://coin-images.coingecko.com/coins/images/12538/large/Logo_200x_200.png",
       "decimals": 7
     },
     {
