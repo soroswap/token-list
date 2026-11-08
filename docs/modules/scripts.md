@@ -2,7 +2,7 @@
 
 > **Living document.** Read this before modifying the module. Update it in the same change whenever the module's behavior, commands, or dependencies change.
 
-**Source:** `scripts/`, `scripts/lib/`, `tests/`, `docker/` · **Last verified:** 2026-09-06
+**Source:** `scripts/`, `scripts/lib/`, `tests/`, `docker/` · **Last verified:** 2026-11-08
 
 ## Purpose
 
@@ -18,6 +18,7 @@ Entry points are composition roots: they read env and files, wire real Horizon /
 | `scripts/createTokenList.js` | Wires `mergeAssets`; writes `tokenList.json` only when something changed. |
 | `scripts/setTrustlines.js` | Wires `partitionAssetsByTrustline` and `submitTrustline` for the wallet whose secret is `argv[2]`. |
 | `scripts/restoreFootprintOfTokenContracts.js` | Wires `FootprintRestorer` to `rpc.Server` and `Horizon.Server` from env. |
+| `scripts/announceNewTokens.js` | Run by the publish workflow with the list before and after `yarn merge`; posts new tokens to `DISCORD_WEBHOOK_URL`, skips when it is unset. Not an npm script. |
 | `scripts/fromTokenListToAssetsDir.js` | Reverse tool: explodes `tokenList.json` back into `assets/` files. Not wired to any npm script. |
 | `scripts/lib/assetSchema.js` | The one AJV schema and `createAssetValidator`. |
 | `scripts/lib/jsonFiles.js` | `readJsonFile`, `writeJsonFile`, `readAssetEntries`. |
@@ -26,6 +27,7 @@ Entry points are composition roots: they read env and files, wire real Horizon /
 | `scripts/lib/horizon.js` | `createHorizonClient`: the two Horizon lookups the gate needs, retried on 429/5xx, then errors mapped to `null`. |
 | `scripts/lib/retry.js` | `withRetry` and `TransientError`: bounded backoff for rate limits, gateway errors and dropped connections. |
 | `scripts/lib/verify.js` | `verifyAssets`, `checkIconUrl`, `shouldFailPullRequest`: the gate's decisions. |
+| `scripts/lib/announce.js` | `findNewAssets`, `buildDiscordPayloads`, `postToDiscord`: which tokens are new and the Discord webhook messages for them. |
 | `scripts/lib/trustlines.js` | `partitionAssetsByTrustline`, `buildChangeTrustTransaction`, `submitTrustline`. |
 | `scripts/lib/footprint.js` | `FootprintRestorer` plus pure helpers (`normalizePools`, `needsBump`, `isAccountNotFound`, ...). |
 | `scripts/restore-footprints.sh` | Sources `.env` then runs `yarn restore-footprints`. |
