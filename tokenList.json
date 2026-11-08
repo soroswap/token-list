@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -44,6 +44,14 @@
       "domain": "ultracapital.xyz",
       "icon": "https://ipfs.io/ipfs/bafkreidhjwrkvsvuixny3j6w2xk4vhr5x7urz525usl7xvjur35fsc6bmu",
       "decimals": 7
+    },
+    {
+      "code": "JQQQ",
+      "name": "JHI NASDAQ-100 Index Fund",
+      "contract": "CAQYPRTX2E6H6BM57QRBYZWP667FPDYDUHMOQXGXM2HA64KO6AISRFEK",
+      "org": "Centrifuge",
+      "icon": "https://centrifuge-files.mypinata.cloud/ipfs/QmQcNLvyiGF1rN6VHFwJJDhfnmPjtCDFiTeHAWdyghv7yv",
+      "decimals": 18
     },
     {
       "code": "ZOMB",
