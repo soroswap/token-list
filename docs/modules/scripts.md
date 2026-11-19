@@ -2,7 +2,7 @@
 
 > **Living document.** Read this before modifying the module. Update it in the same change whenever the module's behavior, commands, or dependencies change.
 
-**Source:** `scripts/`, `scripts/lib/`, `tests/`, `docker/` · **Last verified:** 2026-11-08
+**Source:** `scripts/`, `scripts/lib/`, `tests/`, `docker/` · **Last verified:** 2026-11-19
 
 ## Purpose
 
@@ -78,7 +78,7 @@ All from `package.json:12-19`:
 - **Restore sleeps 10 seconds after every submission** (`RATE_LIMIT_PAUSE_MS`, `scripts/lib/footprint.js:15`) to dodge public RPC rate limits. A run over 47 assets and their pools is slow by design.
 - **`savePairs`, `getFundedAddress`, `getAssetHolders` and `swapTransaction`** are defined on the restorer but not called by the nightly path (`restoreFootprints`, `:350`). They are exploration helpers kept from the original script.
 - **`setTrustlines` never fails the build for a rejected trustline.** `submitTrustline` swallows the last error, and `main()`'s `.catch` only logs (`scripts/setTrustlines.js:51-57`), so a missing trustline never blocks the publish workflow. The only fatal cases are a missing secret (`:13`) and an empty list (`:19`).
-- **`ipfs.io` hosts 17 of the 47 icons and rate-limits bursts with `Retry-After: 900`.** A single-token PR makes one request and is fine. A full re-verification of the list trips the limit after roughly a dozen requests, and every remaining ipfs icon then fails with the rate-limit message. Wait 15 minutes and re-run; the retry cap is deliberately far below 900s so CI fails fast instead of hanging.
+- **Icon hosts that rate-limit get a capped retry.** `ipfs.io`, which used to host 17 icons, answered bursts with 429 and `Retry-After: 900`; no listed icon uses it since 2026-11-19 because its gateway is retired. Any host that answers 429 or 5xx is retried a few times, and the cap is deliberately far below 900s so CI fails fast instead of hanging. Wait and re-run.
 - **Never log secrets.** The old `printKeypair()` that printed the secret key was removed in the SDK 17 migration. Do not add it back.
 
 ## Testing

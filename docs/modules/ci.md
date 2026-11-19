@@ -2,7 +2,7 @@
 
 > **Living document.** Read this before modifying the module. Update it in the same change whenever a workflow, secret, or the contribution flow changes.
 
-**Source:** `.github/` · **Last verified:** 2026-11-08
+**Source:** `.github/` · **Last verified:** 2026-11-19
 
 ## Purpose
 
@@ -62,7 +62,7 @@ PRs touching anything else are closed (`README.md:54`), and `tokenList.json` mus
 - **The publish workflow only fires on `assets/**` pushes** (`workflows/update-token-list.yml:7-8`). Editing `tokenList.json` directly on `main` never triggers a sync.
 - **The Discord announcement is public and built from contributor data.** Text fields are escaped, including `:` and `<` so bare URLs and mentions do not render, newlines are collapsed, and `allowed_mentions` is empty so nothing pings. `Domain` is shown only for tokens with an issuer, the one case the gate checks it against `home_domain`; tokens without an issuer are labelled `Soroban token (not verified on-chain)`. `name`, `org`, `code` and the icon are still whatever the contributor wrote, and a token with no issuer passes the gate with no on-chain checks at all, so a green check does not mean it is genuine. Anything merged is announced, so review before merging, not after.
 - **`yarn set-trustlines` is the last step** (`workflows/update-token-list.yml:71`). It only fails on a missing secret or an empty list. Actual trustline submission failures are swallowed and the step still exits 0, so a missing trustline never blocks, or signals, the publish.
-- **`ipfs.io` rate limiting can fail a legitimate token PR.** GitHub runners share egress IPs, and the icon host answers a burst with 429 and `Retry-After: 900`. The gate reports it as "rate limited by the icon host" rather than a broken icon; re-run the job after 15 minutes before asking the contributor for anything.
+- **Icon-host rate limiting can fail a legitimate token PR.** GitHub runners share egress IPs, and a host such as the now-retired `ipfs.io` gateway answers a burst with 429 and `Retry-After: 900`. The gate reports it as "rate limited by the icon host" rather than a broken icon; re-run the job after 15 minutes before asking the contributor for anything.
 - **The unit-test workflow does not run on token PRs.** It is path-filtered to script and test changes, so a contributor cannot see it and a token PR is judged by `verify-new-tokens.yml` alone.
 - The funded footprint account is documented as `GB5KBIU6KUCKEVVDZOMIIJAKGAEOKQOBZX5TMOBXGCU3D5RAO22WETXE` (`README.md:75`) and the trustlines wallet as `GBHYCV7DRS3GTFZYTW4MTHMBKRJJSZKV7LSCAERQQKUHZRYBW34FGUE4` (`README.md:100`).
 

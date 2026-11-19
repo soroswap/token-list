@@ -5,6 +5,6 @@
   "name": "Orbit USD",
   "org": "Orbit CDP",
   "domain": "orbitcdp.finance",
-  "icon": "https://testnet.orbitcdp.finance/icons/tokens/ousd.svg",
+  "icon": "https://assets.orbitcdp.finance/images/ousd.png",
   "decimals": 7
 }
