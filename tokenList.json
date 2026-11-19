@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -13,7 +13,7 @@
       "contract": "CAAV3AE3VKD2P4TY7LWTQMMJHIJ4WOCZ5ANCIJPC3NRSERKVXNHBU2W7",
       "org": "Muyu Network",
       "domain": "fchain.io",
-      "icon": "https://ipfs.io/ipfs/bafkreih6jv72q2zuthweyyzq5vqu4dcnxbkefd7o7shgs2llnqrdeufyiy",
+      "icon": "https://files.fchain.io/token-icons/xrp-logo.png",
       "decimals": 7
     },
     {
@@ -51,7 +51,7 @@
       "contract": "CAO7DDJNGMOYQPRYDY5JVZ5YEK4UQBSMGLAEWRCUOTRMDSBMGWSAATDZ",
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
-      "icon": "https://ipfs.io/ipfs/bafkreidhjwrkvsvuixny3j6w2xk4vhr5x7urz525usl7xvjur35fsc6bmu",
+      "icon": "https://ultracapital.xyz/static/images/icons/BTC.png",
       "decimals": 7
     },
     {
@@ -69,7 +69,7 @@
       "name": "Zombie Coin",
       "org": "Silver Hen Tech",
       "domain": "xlmeme.com",
-      "icon": "https://xlmeme.com/cdn-cgi/imagedelivery/BMsStEZme-xi9eCyEb_01g/a2b0f7e2-09ac-4a89-086e-5e928f57ab00/public",
+      "icon": "https://imagedelivery.net/BMsStEZme-xi9eCyEb_01g/a2b0f7e2-09ac-4a89-086e-5e928f57ab00/public",
       "decimals": 7
     },
     {
@@ -89,7 +89,7 @@
       "name": "AQUA Token",
       "org": "Aquarius dba AQUA token",
       "domain": "aqua.network",
-      "icon": "https://ipfs.io/ipfs/bafkreigzckkixvbkru2gzve67zu3bfauccugkr6zovkdv6h2yxxrppyyqa",
+      "icon": "https://aqua.network/assets/img/aqua-logo.png",
       "decimals": 7
     },
     {
@@ -119,7 +119,7 @@
       "contract": "CB2XMFB6BDIHFOSFB5IXHDOYV3SI3IXMNIZLPDZHC7ENDCXSBEBZAO2Y",
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
-      "icon": "https://ipfs.io/ipfs/bafkreifuhpzfs5f6umrzrkqcspgvchruzwyuyvtgpzhs4nyvuraertoaby",
+      "icon": "https://ultracapital.xyz/static/images/icons/yBTC.png",
       "decimals": 7
     },
     {
@@ -149,7 +149,7 @@
       "name": "Decentralized GBP Coin",
       "org": "FxDAO LLC",
       "domain": "fxdao.io",
-      "icon": "https://stellar.myfilebase.com/ipfs/QmeGXphMJgKHdhoVxb6P3jEJEkj79WPheLiga7ouNd5EZm",
+      "icon": "https://assets.fxdao.io/stablecoins/GBPx-logo.png",
       "decimals": 7
     },
     {
@@ -168,7 +168,7 @@
       "contract": "CBH4M45TQBLDPXOK6L7VYKMEJWFITBOL64BN3WDAIIDT4LNUTWTTOCKF",
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
-      "icon": "https://ipfs.io/ipfs/bafkreiad2di72p5p7bs3tolvimrq4bspcle3eqc74j7557wrqsnxlxlqya",
+      "icon": "https://ultracapital.xyz/static/images/icons/ETH.png",
       "decimals": 7
     },
     {
@@ -178,7 +178,7 @@
       "name": "SSLX Cassator",
       "org": "Cassator Corp.",
       "domain": "sslx.sl8.online",
-      "icon": "https://ipfs.io/ipfs/bafkreiecqakv3lqychk6wwzccywywvtwjag3vtehzj4m3qilcj7735cfva",
+      "icon": "https://sl8.online/assets/sslx-icon-e36e8c6134f6d93e6af1cd4d084a053c.png",
       "decimals": 7
     },
     {
@@ -216,7 +216,7 @@
       "name": "Decentralized EUR Coin",
       "org": "FxDAO LLC",
       "domain": "fxdao.io",
-      "icon": "https://stellar.myfilebase.com/ipfs/QmTGegMR2v86ZjzHvhT3DMD6t1ri1VUz82tqRt4SxbFjC1",
+      "icon": "https://assets.fxdao.io/stablecoins/EURx-logo.png",
       "decimals": 7
     },
     {
@@ -234,17 +234,7 @@
       "name": "Ripple",
       "org": "unknown",
       "domain": "stellarport.io",
-      "icon": "https://ipfs.io/ipfs/bafkreiheegvgfzbks6tacnlw24ub2frnr7j32rkzamieifhi2avljcly6m",
-      "decimals": 7
-    },
-    {
-      "name": "Ben Lambo",
-      "code": "BEN",
-      "issuer": "GB3RF5WN3FDIMORX4A7PRXVNGQXSQAJRBCILM4EGQDRHDXK4XYUDR22J",
-      "contract": "CBPZITKDNHAMPX25OVSF7BCBT3BCFXSPR3WXER5E3T77F46NRXHKYFZC",
-      "org": "Lumeme LLC",
-      "domain": "lu.meme",
-      "icon": "https://lu.meme/_next/image?url=https%3A%2F%2Fcdn.lu.meme%2Fprod%2Fmeme%2Fmeme-ViLdd0fiBBIhMfNNcWD9u3wBnUUDmrWg.jpg&w=3840&q=75",
+      "icon": "https://stellarport.io/assets/issues/xrp.png",
       "decimals": 7
     },
     {
@@ -273,7 +263,7 @@
       "contract": "CBT2U7I6J7LSEEJQQXBEOSRXNRNLH5UQPWG74Q36J3RHNQOQ5KEFCJ4Y",
       "org": "Poye Network",
       "domain": "poye.xyz",
-      "icon": "https://stellar.myfilebase.com/ipfs/QmYUeh7TRHB6bbBrZ2JLSsVEgww4fAHfPzaa7gFDDXrPB4",
+      "icon": "https://poye.xyz/logo.png",
       "decimals": 7
     },
     {
@@ -283,7 +273,7 @@
       "name": "Lumenswap asset",
       "org": "Lumenswap LLC dba Lumenswap",
       "domain": "lumenswap.io",
-      "icon": "https://ipfs.io/ipfs/bafkreiazthj4bttq75cxhgaekfxnv7ub6b2hq6qr5qkea4bhy4gie4qegy",
+      "icon": "https://coin-images.coingecko.com/coins/images/18173/large/Lumenswap-200px.png",
       "decimals": 7
     },
     {
@@ -303,7 +293,7 @@
       "name": "Orbit USD",
       "org": "Orbit CDP",
       "domain": "orbitcdp.finance",
-      "icon": "https://testnet.orbitcdp.finance/icons/tokens/ousd.svg",
+      "icon": "https://assets.orbitcdp.finance/images/ousd.png",
       "decimals": 7
     },
     {
@@ -313,7 +303,7 @@
       "contract": "CBZVSNVB55ANF24QVJL2K5QCLOAB6XITGTGXYEAF6NPTXYKEJUYQOHFC",
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
-      "icon": "https://ipfs.io/ipfs/bafkreihntcz2lpaxawmbhwidtuifladkgew6olwuly2dz5pewqillhhpay",
+      "icon": "https://ultracapital.xyz/static/images/icons/yXLM.png",
       "decimals": 7
     },
     {
@@ -322,7 +312,7 @@
       "name": "Matrixdock Gold",
       "org": "Matrixdock",
       "domain": "matrixdock.com",
-      "icon": "https://app.matrixdock.com/images/xaum/xaum-100x100-icon.png",
+      "icon": "https://coin-images.coingecko.com/coins/images/51962/large/xaum_200px_logo_1x.png",
       "decimals": 9
     },
     {
@@ -390,7 +380,7 @@
       "name": "AFREUM",
       "org": "Afreum Inc dba Afreum",
       "domain": "afreum.com",
-      "icon": "https://ipfs.io/ipfs/bafkreibwqfiennh5grnq2jx4632227sacotxyxww7jkfo2jblelnnqite4",
+      "icon": "https://afreum.com/stellar/ST_Afreum.png",
       "decimals": 7
     },
     {
@@ -400,7 +390,7 @@
       "name": "Scopuly",
       "org": "Scopuly",
       "domain": "scopuly.com",
-      "icon": "https://ipfs.io/ipfs/bafkreigzc5scjuh2pry7j6eqnbao7irznrf7un5jj3fwhae3qseupvpska",
+      "icon": "https://scopuly.com/img/logo/icon.png",
       "decimals": 7
     },
     {
@@ -410,7 +400,7 @@
       "name": "Stronghold SHx",
       "org": "Stronghold",
       "domain": "stronghold.co",
-      "icon": "https://ipfs.io/ipfs/bafkreiafy5nqmyfy5t3ay5tgmy5wnzkqlyqkir2owjq4jqwcxklne4xqcm",
+      "icon": "https://stronghold.co/.well-known/logo.png",
       "decimals": 7
     },
     {
@@ -447,7 +437,7 @@
       "name": "Blend",
       "org": "Blend Protocol",
       "domain": "blend.capital",
-      "icon": "https://stellar.myfilebase.com/ipfs/QmaDc2ArxQom1bFkE7JsqqZ2VdThvLV2GTRimaeJcpxU8L",
+      "icon": "https://mainnet.blend.capital/icons/tokens/blnd.svg",
       "decimals": 7
     },
     {
@@ -486,7 +476,7 @@
       "name": "STROOPY",
       "org": "Silver Hen Tech",
       "domain": "xlmeme.com",
-      "icon": "https://xlmeme.com/cdn-cgi/imagedelivery/BMsStEZme-xi9eCyEb_01g/bfb4bba0-00d6-434b-ea8a-89d733dcd000/public",
+      "icon": "https://imagedelivery.net/BMsStEZme-xi9eCyEb_01g/bfb4bba0-00d6-434b-ea8a-89d733dcd000/public",
       "decimals": 7
     },
     {
@@ -496,7 +486,7 @@
       "contract": "CDDS7IQJGQ2ZMO66E3MUYXZ56H2OO7RBTTAGZLZKOEA4EXCGZX65JGA7",
       "org": "Stellarcarbon",
       "domain": "stellarcarbon.io",
-      "icon": "https://ipfs.io/ipfs/QmezCX5JCXBWZNej8ui6TE9H764Vi13UWy1a8bE6TDP7uz",
+      "icon": "https://www.stellarcarbon.io/stellarcarbon-icon.png",
       "decimals": 3
     },
     {
@@ -506,7 +496,7 @@
       "name": "Decentralized USD Coin",
       "org": "FxDAO LLC",
       "domain": "fxdao.io",
-      "icon": "https://stellar.myfilebase.com/ipfs/QmQqpy1GLcGqqsg6DaHqLQntPPuFcdHZYG2pLBpHohvCUd",
+      "icon": "https://assets.fxdao.io/stablecoins/USDx-logo.png",
       "decimals": 7
     },
     {
@@ -536,7 +526,7 @@
       "contract": "CDOFW7HNKLUZRLFZST4EW7V3AV4JI5IHMT6BPXXSY2IEFZ4NE5TWU2P4",
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
-      "icon": "https://ipfs.io/ipfs/bafkreicvkevokwxgvqn6vjmf4hf2krk6txy3igi7ei6dwvleb5hqe4odcy",
+      "icon": "https://ultracapital.xyz/static/images/icons/yUSDC.png",
       "decimals": 7
     },
     {
@@ -556,7 +546,7 @@
       "contract": "CDYEOOVL6WV4JRY45CXQKOBJFFAPOM5KNQCCDNM333L6RM2L4RO3LKYG",
       "org": "Ultra Capital LLC",
       "domain": "ultracapital.xyz",
-      "icon": "https://ipfs.io/ipfs/bafkreihqsw7iai5gcfwvgnexdcwvftiv7fjjbg2skc2wcdygfngllv5ute",
+      "icon": "https://ultracapital.xyz/static/images/icons/yETH.png",
       "decimals": 7
     }
   ]
