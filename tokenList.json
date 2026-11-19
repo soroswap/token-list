@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -131,6 +131,16 @@
       "domain": "ondo.finance",
       "icon": "https://cdn.ondo.finance/brand/logos/ondo-icon-black_160x160.png",
       "decimals": 7
+    },
+    {
+      "name": "Gravity HITZ",
+      "org": "Skyhitz",
+      "contract": "CBAPZAZNNB4X3VPXV2LYA5RMV7XHXIVREES2GG7R5GUXDZ4R4CKOY4EU",
+      "code": "HITZ",
+      "domain": "skyhitz.io",
+      "icon": "https://skyhitz.io/icon.png",
+      "decimals": 7,
+      "comment": "HITZ Protocol token (SEP-41). An account holding more than its Event Horizon, L = √S, can send HITZ only to a registered pool. See skyhitz.io"
     },
     {
       "code": "GBPx",
@@ -437,7 +447,7 @@
       "name": "USD Coin",
       "org": "Centre Consortium LLC",
       "domain": "centre.io",
-      "icon": "https://ipfs.io/ipfs/bafkreibpzncuhbk5ozhdw7xkcdoyf3xhwhcwcf6sj7axjzimxw6vm6pvyy",
+      "icon": "https://www.circle.com/usdc-icon",
       "decimals": 7
     },
     {
@@ -546,7 +556,7 @@
       "name": "EUR Coin",
       "org": "Circle Internet Financial, LLC",
       "domain": "circle.com",
-      "icon": "https://ipfs.io/ipfs/bafkreidizqlammdzrrurfq3o5owta77fiyonn6ri72h6rltqimn2xs2by4",
+      "icon": "https://www.circle.com/eurc-icon",
       "decimals": 7
     },
     {
