@@ -43,7 +43,9 @@ function isSvgUrl(url) {
 function thumbnailUrl(icon) {
   const url = iconUrl(icon);
   if (!url || !isSvgUrl(url)) return url;
-  return `${SVG_PROXY}?url=${encodeURIComponent(url)}&output=png&w=256&h=256`;
+  // White circle behind the icon, as the Soroswap app draws it: an SVG logo is often dark on a
+  // transparent background and all but disappears on Discord's dark theme.
+  return `${SVG_PROXY}?url=${encodeURIComponent(url)}&output=png&w=256&h=256&bg=white&mask=circle`;
 }
 
 function explorerUrl(asset) {

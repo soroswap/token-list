@@ -39,7 +39,7 @@ test('findListedAssets returns nothing for a contract that is not listed', () =>
 test('thumbnailUrl routes an SVG icon through the PNG proxy', () => {
   assert.equal(
     thumbnailUrl('https://example.com/icons/token.svg'),
-    'https://wsrv.nl/?url=https%3A%2F%2Fexample.com%2Ficons%2Ftoken.svg&output=png&w=256&h=256',
+    'https://wsrv.nl/?url=https%3A%2F%2Fexample.com%2Ficons%2Ftoken.svg&output=png&w=256&h=256&bg=white&mask=circle',
   );
   assert.match(thumbnailUrl('https://example.com/TOKEN.SVG?v=2'), /^https:\/\/wsrv\.nl\/\?url=/);
 });
