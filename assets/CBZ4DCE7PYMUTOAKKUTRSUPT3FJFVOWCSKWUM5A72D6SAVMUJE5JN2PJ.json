@@ -1,0 +1,9 @@
+{
+  "code": "USST",
+  "name": "USST",
+  "contract": "CBZ4DCE7PYMUTOAKKUTRSUPT3FJFVOWCSKWUM5A72D6SAVMUJE5JN2PJ",
+  "org": "STBL Protocol",
+  "domain": "stbl.com",
+  "icon": "https://stellar.stbl.com/usst.svg",
+  "decimals": 18
+}
