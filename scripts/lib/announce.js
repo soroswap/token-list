@@ -52,7 +52,7 @@ function buildEmbed(asset, { prUrl } = {}) {
   if (asset.decimals != null) fields.push({ name: 'Decimals', value: String(asset.decimals), inline: true });
   fields.push({
     name: 'Type',
-    value: asset.issuer ? 'Stellar classic asset' : 'Soroban token (not verified on-chain)',
+    value: asset.issuer ? 'Stellar classic asset' : 'Custom Soroban token',
     inline: true,
   });
 

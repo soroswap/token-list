@@ -67,7 +67,7 @@ test('buildEmbed collapses newlines so a name cannot fake extra lines', () => {
 test('buildEmbed hides an unverifiable domain and flags a token with no issuer', () => {
   const embed = buildEmbed({ ...WASM_TOKEN, code: 'USDC', domain: 'circle.com' });
   assert.ok(!embed.fields.some((field) => field.name === 'Domain'));
-  assert.equal(embed.fields.at(-1).value, 'Soroban token (not verified on-chain)');
+  assert.equal(embed.fields.at(-1).value, 'Custom Soroban token');
 });
 
 test('buildEmbed omits decimals when the asset does not declare them', () => {
@@ -96,7 +96,7 @@ test('buildEmbed falls back to the name and skips the issuer for a Soroban token
   assert.equal(embed.title, 'New token listed: Wasm Token');
   assert.ok(!embed.fields.some((field) => field.name === 'Issuer'));
   assert.ok(!embed.description.includes('Pull request'));
-  assert.equal(embed.fields.at(-1).value, 'Soroban token (not verified on-chain)');
+  assert.equal(embed.fields.at(-1).value, 'Custom Soroban token');
 });
 
 test('buildDiscordPayloads splits into messages of at most 10 embeds and disables mentions', () => {
