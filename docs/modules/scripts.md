@@ -2,7 +2,7 @@
 
 > **Living document.** Read this before modifying the module. Update it in the same change whenever the module's behavior, commands, or dependencies change.
 
-**Source:** `scripts/`, `scripts/lib/`, `tests/`, `docker/` · **Last verified:** 2026-11-19
+**Source:** `scripts/`, `scripts/lib/`, `tests/`, `docker/` · **Last verified:** 2026-11-24
 
 ## Purpose
 
@@ -60,7 +60,7 @@ All from `package.json:12-19`:
 
 ## Dependencies
 
-- npm (`package.json:20-24`): `@stellar/stellar-sdk` ^17.0.1 (Protocol 28 XDR), `ajv` ^8.20.0, `ajv-formats` ^3.0.1. Node >= 22.12.0 (`package.json:9-11`). Tests use only `node:test` and `node:assert`.
+- npm (`package.json:20-24`): `@stellar/stellar-sdk` ^17.4.0, `ajv` ^8.20.0, `ajv-formats` ^3.0.1. Node >= 22.12.0 (`package.json:9-11`). Tests use only `node:test` and `node:assert`.
 - Horizon mainnet `https://horizon.stellar.org`, hardcoded in `scripts/verifyTokens.js:9` and `scripts/setTrustlines.js:6`; the footprint script takes it from `HORIZON_URL`. Network passphrase is `Networks.PUBLIC` everywhere.
 - Soroswap API for pool data and the Soroswap router `SOROSWAP_ROUTER` (`scripts/lib/footprint.js:12-13`).
 - Env vars: `PRIVATE_KEY`, `RPC_URL`, `HORIZON_URL` (checked at `scripts/restoreFootprintOfTokenContracts.js:14`, `:19`, `:24`), `SOROSWAP_API_KEY` (checked inside `populatePairs`), and `TRUSTLINES_PRIVATE_KEY` passed as `argv[2]` to `setTrustlines`. `.env.local.example` lists all five names and no values.
@@ -71,6 +71,8 @@ All from `package.json:12-19`:
 - **`yarn verify` exits 1 in PR context when nothing changed.** `GITHUB_EVENT_NAME=pull_request` plus `GITHUB_ACTIONS` set turns `shouldFailPullRequest` on. Locally this is inert unless you use `scripts/test-pr-verify.sh`.
 - **`yarn merge` skips invalid assets instead of failing.** `mergeAssets` reports them in `invalid` and the entry script only logs, so a bad file after merge means a silently missing token, not a red build. The PR gate is what should have caught it.
 - **A write failure now fails the merge.** `writeJsonFile` no longer swallows errors; an unwritable `tokenList.json` exits non-zero instead of printing and continuing.
+- **The SDK must be 17.3.0 or newer to read mainnet ledger headers.** Since mainnet ledger 65633433 (2026-11-23 17:00:11Z) headers carry `StellarValueType` 3 (`stellarValueSignedMs`), which 17.3.0 added to the XDR. On 17.0.1, `rpc.Server.getLatestLedger` throws `LedgerHeader.scpValue.ext.v: unknown enum value 3`, so `FootprintRestorer.setup` (`scripts/lib/footprint.js:75-78`) fails before it reads anything. That is why the nightly footprint job failed on 2026-11-24. Do not pin below 17.3.0.
+- **SAC derivation keeps the code's case.** Since SDK 17.3.0, `new Asset(code, issuer)` no longer turns any spelling of `xlm` into `XLM`, so `assertContractMatchesAsset` (`scripts/lib/verify.js:64-71`) derives a different contract for an issued asset coded `xlm`, `Xlm` and so on. No listed asset has such a code.
 - **`SorobanRpc` is gone.** SDK 17 exposes the RPC client as `rpc.Server` (`scripts/restoreFootprintOfTokenContracts.js:29`). The scripts never touch the `xdr` namespace directly, which is where most of the v17 API rewrite landed.
 - **`rpc.Server.getAccount` rejects with a plain `Error` in SDK 17**, no `code: 404`. `isAccountNotFound` (`scripts/lib/footprint.js:21`) matches on the message so the "fund this account" hint still prints and the entry script does not double-log it.
 - **`sendTransaction` reads the failure code as `errorResult.result.type`** (`scripts/lib/footprint.js:214`). Under SDK 12 this was `errorResult._attributes.result._switch.name`; the v17 XDR objects expose the discriminant as a `.type` string.
@@ -83,4 +85,4 @@ All from `package.json:12-19`:
 
 ## Testing
 
-`yarn test` runs 78 tests across nine files with Node's built-in runner, no network. Fakes live in `tests/helpers.js`: the real USDC code/issuer/contract so SAC derivation runs for real, a fake Horizon (`getIssuerDomain`, `getAssetRecords`), a fake `fetch`, and a log collector. `tests/footprint.test.js` drives `FootprintRestorer` against a fake RPC server that counts `prepareTransaction` and `sendTransaction` calls. `tests/retry.test.js` and `tests/horizon.test.js` pin the backoff schedule, the `Retry-After` cap and which Horizon statuses are retried, all with an injected `sleep` so no test waits. New behavior in `scripts/lib/` gets its failing test first; the entry scripts are covered by running them (`yarn verify` on a clean tree, `yarn merge` as a no-op, the missing-env exit codes).
+`yarn test` runs 99 tests across ten files with Node's built-in runner, no network. Fakes live in `tests/helpers.js`: the real USDC code/issuer/contract so SAC derivation runs for real, a fake Horizon (`getIssuerDomain`, `getAssetRecords`), a fake `fetch`, and a log collector. `tests/footprint.test.js` drives `FootprintRestorer` against a fake RPC server that counts `prepareTransaction` and `sendTransaction` calls. `tests/retry.test.js` and `tests/horizon.test.js` pin the backoff schedule, the `Retry-After` cap and which Horizon statuses are retried, all with an injected `sleep` so no test waits. New behavior in `scripts/lib/` gets its failing test first; the entry scripts are covered by running them (`yarn verify` on a clean tree, `yarn merge` as a no-op, the missing-env exit codes).

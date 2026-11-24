@@ -18,7 +18,7 @@
     "restore-footprints:env": "./scripts/restore-footprints.sh"
   },
   "dependencies": {
-    "@stellar/stellar-sdk": "^17.0.1",
+    "@stellar/stellar-sdk": "^17.4.0",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1"
   }
