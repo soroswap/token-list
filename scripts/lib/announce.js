@@ -3,6 +3,9 @@ const { TransientError, withRetry } = require('./retry');
 
 const EXPLORER = 'https://stellar.expert/explorer/public';
 const IPFS_GATEWAY = 'https://ipfs.io/ipfs/';
+// Discord drops an SVG thumbnail without an error, so SVG icons go through an image proxy
+// that returns a PNG. If the proxy is down the embed has no thumbnail, as it had before.
+const SVG_PROXY = 'https://wsrv.nl/';
 // Discord accepts at most 10 embeds per message.
 const MAX_EMBEDS_PER_MESSAGE = 10;
 const EMBED_COLOR = 0x8866dd;
@@ -14,10 +17,33 @@ function findNewAssets(before, after) {
   return (after && after.assets ? after.assets : []).filter((asset) => !known.has(asset.contract));
 }
 
+// The listed tokens with that contract, for announcing one again by hand. Zero or one:
+// the list has one entry per contract.
+function findListedAssets(list, contract) {
+  return (list && list.assets ? list.assets : []).filter((asset) => asset.contract === contract);
+}
+
 // The schema allows a bare IPFS CID as `icon`; Discord needs a URL.
 function iconUrl(icon) {
   if (!icon) return undefined;
   return /^https?:\/\//.test(icon) ? icon : `${IPFS_GATEWAY}${icon}`;
+}
+
+// Detected by file extension only: an SVG served from a URL without one (an IPFS CID, for
+// instance) is not caught and still shows no thumbnail.
+function isSvgUrl(url) {
+  try {
+    return new URL(url).pathname.toLowerCase().endsWith('.svg');
+  } catch {
+    return false;
+  }
+}
+
+// Only for the Discord embed. tokenList.json keeps the icon the contributor declared.
+function thumbnailUrl(icon) {
+  const url = iconUrl(icon);
+  if (!url || !isSvgUrl(url)) return url;
+  return `${SVG_PROXY}?url=${encodeURIComponent(url)}&output=png&w=256&h=256`;
 }
 
 function explorerUrl(asset) {
@@ -64,7 +90,7 @@ function buildEmbed(asset, { prUrl } = {}) {
     fields,
     footer: { text: 'Soroswap Token List' },
   };
-  const thumbnail = iconUrl(asset.icon);
+  const thumbnail = thumbnailUrl(asset.icon);
   if (thumbnail) embed.thumbnail = { url: thumbnail };
   return embed;
 }
@@ -118,7 +144,9 @@ async function postToDiscord(webhookUrl, payload, { fetchImpl = fetch, sleep } =
 
 module.exports = {
   findNewAssets,
+  findListedAssets,
   iconUrl,
+  thumbnailUrl,
   explorerUrl,
   escapeMarkdown,
   buildEmbed,

@@ -2,11 +2,11 @@
 
 > **Living document.** Read this before modifying the module. Update it in the same change whenever a workflow, secret, or the contribution flow changes.
 
-**Source:** `.github/` · **Last verified:** 2026-11-19
+**Source:** `.github/` · **Last verified:** 2026-11-24
 
 ## Purpose
 
-Four GitHub Actions workflows own the whole lifecycle: gate incoming token PRs, unit-test script changes, regenerate and publish `tokenList.json` after merge (announcing newly listed tokens on Discord), and keep listed Soroban contracts alive. The PR template is the contributor-facing half of the gate.
+Five GitHub Actions workflows own the whole lifecycle: gate incoming token PRs, unit-test script changes, regenerate and publish `tokenList.json` after merge (announcing newly listed tokens on Discord), and keep listed Soroban contracts alive. The PR template is the contributor-facing half of the gate.
 
 ## Structure
 
@@ -15,6 +15,7 @@ Four GitHub Actions workflows own the whole lifecycle: gate incoming token PRs, 
 | `workflows/verify-new-tokens.yml` | `pull_request`, `workflow_dispatch` (`:3-7`) | Runs `yarn verify` on every PR (`:23`). |
 | `workflows/test.yml` | `pull_request` and `push` to `main`, only for `scripts/**`, `tests/**`, `package.json`, `yarn.lock` and itself (`:5-10`, `:14-19`) | `yarn install --frozen-lockfile` then `yarn test` (`:33`, `:36`). |
 | `workflows/update-token-list.yml` | `push` to `main` touching `assets/**` (`:3-8`) | Regenerates the list, commits it, announces new tokens on Discord, sets trustlines. |
+| `workflows/announce-token.yml` | `workflow_dispatch` with a `contract` input (`:5-11`) | Posts one already listed token to Discord again, with `ANNOUNCE_CONTRACT`. For an announcement that went out wrong. |
 | `workflows/restore-footprint-of-contracts.yml` | `workflow_dispatch` and cron `"7 1 * * *"`, 01:07 UTC (`:3-7`) | Runs `yarn restore-footprints` (`:26`). |
 | `PULL_REQUEST_TEMPLATE.md` | every new PR | Token-submission checklist (one file under `assets/`, no `tokenList.json` edits, domain equals `home_domain`, `yarn verify` passes, SAC vs custom token) plus a short maintainer-change section. |
 
@@ -60,7 +61,7 @@ PRs touching anything else are closed (`README.md:54`), and `tokenList.json` mus
 - **`SOROSWAP_API_KEY` must exist as a repository secret** or the nightly footprint job fails inside `populatePairs` after a successful startup. Before 2026-09-06 the workflow set neither `HORIZON_URL` nor `SOROSWAP_API_KEY`, so the job exited at startup and had not been restoring anything; the workflow now sets both, but the secret itself is created in the GitHub UI, not in this repo.
 - **`GITHUB_ACTIONS_INTEGRATION.md` is a proposal, not the live config.** Its example workflow (`:64-117`) uses `actions/checkout@v4`, Node 20 and a manual git commit; the real `update-token-list.yml` uses v7, Node 22 and `git-auto-commit-action`. Read the workflow file, not the doc, for current behavior.
 - **The publish workflow only fires on `assets/**` pushes** (`workflows/update-token-list.yml:7-8`). Editing `tokenList.json` directly on `main` never triggers a sync.
-- **The Discord announcement is public and built from contributor data.** Text fields are escaped, including `:` and `<` so bare URLs and mentions do not render, newlines are collapsed, and `allowed_mentions` is empty so nothing pings. `Domain` is shown only for tokens with an issuer, the one case the gate checks it against `home_domain`; tokens without an issuer are labelled `Custom Soroban token`, a neutral type: the announcement is public, and the lack of on-chain checks is a property of the gate, not of the token. `name`, `org`, `code` and the icon are still whatever the contributor wrote, and a token with no issuer passes the gate with no on-chain checks at all, so a green check does not mean it is genuine. Anything merged is announced, so review before merging, not after.
+- **The Discord announcement is public and built from contributor data.** Text fields are escaped, including `:` and `<` so bare URLs and mentions do not render, newlines are collapsed, and `allowed_mentions` is empty so nothing pings. An icon whose URL ends in `.svg` is sent as a PNG through the `wsrv.nl` image proxy (`scripts/lib/announce.js`, `thumbnailUrl`), because Discord drops SVG thumbnails silently; an SVG behind a URL without that extension still shows no thumbnail, and so does any SVG when the proxy is down. `Domain` is shown only for tokens with an issuer, the one case the gate checks it against `home_domain`; tokens without an issuer are labelled `Custom Soroban token`, a neutral type: the announcement is public, and the lack of on-chain checks is a property of the gate, not of the token. `name`, `org`, `code` and the icon are still whatever the contributor wrote, and a token with no issuer passes the gate with no on-chain checks at all, so a green check does not mean it is genuine. Anything merged is announced, so review before merging, not after.
 - **`yarn set-trustlines` is the last step** (`workflows/update-token-list.yml:71`). It only fails on a missing secret or an empty list. Actual trustline submission failures are swallowed and the step still exits 0, so a missing trustline never blocks, or signals, the publish.
 - **Icon-host rate limiting can fail a legitimate token PR.** GitHub runners share egress IPs, and a host such as the now-retired `ipfs.io` gateway answers a burst with 429 and `Retry-After: 900`. The gate reports it as "rate limited by the icon host" rather than a broken icon; re-run the job after 15 minutes before asking the contributor for anything.
 - **The unit-test workflow does not run on token PRs.** It is path-filtered to script and test changes, so a contributor cannot see it and a token PR is judged by `verify-new-tokens.yml` alone.
