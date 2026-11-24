@@ -27,8 +27,21 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Keep the list as it was before the merge
-        run: cp tokenList.json "$RUNNER_TEMP/tokenList.before.json"
+      # The baseline is main before this push, not the checked-out file: a contributor fork
+      # with Actions enabled commits its own tokenList.json into the PR, so the merged file
+      # can already contain the new token and nothing would be announced.
+      - name: Keep the list as it was before the push
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          if [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ] \
+            && git fetch --quiet --depth=1 origin "$BEFORE_SHA" \
+            && git show "$BEFORE_SHA:tokenList.json" > "$RUNNER_TEMP/tokenList.before.json"; then
+            echo "Baseline: tokenList.json at $BEFORE_SHA"
+          else
+            echo "::warning::Could not read tokenList.json at '$BEFORE_SHA'; using the checked-out file as baseline"
+            cp tokenList.json "$RUNNER_TEMP/tokenList.before.json"
+          fi
 
       - name: Run merge script
         run: yarn merge

@@ -5,6 +5,6 @@
   "name": "Stronghold SHx",
   "org": "Stronghold",
   "domain": "stronghold.co",
-  "icon": "https://ipfs.io/ipfs/bafkreiafy5nqmyfy5t3ay5tgmy5wnzkqlyqkir2owjq4jqwcxklne4xqcm",
+  "icon": "https://stronghold.co/.well-known/logo.png",
   "decimals": 7
 }

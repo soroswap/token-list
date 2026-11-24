@@ -2,7 +2,7 @@
 
 > **Living document.** Read this before modifying the module. Update it in the same change whenever the module's behavior, files, or schema change.
 
-**Source:** `assets/`, `tokenList.json` · **Last verified:** 2026-10-15
+**Source:** `assets/`, `tokenList.json` · **Last verified:** 2026-11-19
 
 ## Purpose
 
@@ -12,7 +12,7 @@ Holds the curated set of Stellar / Soroban assets Soroswap trusts. `assets/` is 
 
 | File | Purpose |
 |---|---|
-| `assets/<CONTRACT>.json` | One token, one file. Named after the token's contract address (`README.md:40`). 47 files at time of writing. |
+| `assets/<CONTRACT>.json` | One token, one file. Named after the token's contract address (`README.md:40`). 56 files at time of writing. |
 | `tokenList.json` | Generated aggregate. Never hand-edited in a PR (`README.md:55`). |
 
 ## Public surface
@@ -71,12 +71,12 @@ Assets without an `issuer` get schema validation only. Transient icon failures (
 - **`decimals: 7` is a convention, not a rule.** The schema allows 0 to 38 and the list already deviates: 44 of 47 assets use 7, the two Centrifuge tokens use 18, and `assets/CDDS7IQJGQ2ZMO66E3MUYXZ56H2OO7RBTTAGZLZKOEA4EXCGZX65JGA7.json` (Stellarcarbon CARBON) uses 3.
 - **`comment` is schema-legal but unused.** No asset file in `assets/` currently sets it.
 - **Seven listed domains no longer match the issuer's on-chain `home_domain`** as of 2026-09-06: USDC (`centre.io` vs `circle.com`), BLND (`blend.capital` vs no home_domain set), oUSD, xLMNR, and the three FxDAO tokens GBPx, EURx, USDx (`fxdao.io` vs `assets.fxdao.io`). Editing the `domain` of any of these triggers the domain check and fails until the file matches the chain; editing other fields does not. A data PR that fixes all seven is the clean way out.
-- **Three listed icons are dead as of 2026-09-06.** ZOMB (`assets/CATNYPHNO3U72V7ZVUE6QESDWTSBORW2BE7WFM3BQABQNNZQ32F2HYNC.json`) and STROOPY (`assets/CDDL6HGNYGVRCQB37DDFTIFYMGTX36AQMCXI6U3NOAO2BBZDNGKMGQSY.json`) point at `xlmeme.com`, which now serves an HTML redirect to a parking page for every user agent; BEN (`assets/GB3RF5WN3FDIMORX4A7PRXVNGQXSQAJRBCILM4EGQDRHDXK4XYUDR22J.json`) points at a `lu.meme` URL that returns 404. Consumers rendering these get no image, and any edit to these entries fails the icon check until the URL is replaced.
-- **17 of the 47 icons live on `ipfs.io`**, which rate-limits with `Retry-After: 900` after a burst. Fine for one PR, a problem for a full re-check; see the ipfs gotcha in [scripts.md](scripts.md).
-- **To re-verify the whole list**, run `yarn verify` with an empty `assets` array in `tokenList.json` (every file is then treated as new, so every on-chain check runs), then restore the file with `git checkout tokenList.json`. Expect the ipfs rate limit to hit partway through; run it twice, 15 minutes apart, to cover everything.
-- **`icon` is optional in the schema but effectively required for any asset with an `issuer`.** `verifyClassicAsset` (`scripts/lib/verify.js:83`) always calls `checkIconUrl(asset.icon)`, and `fetch(undefined)` throws. All 47 assets currently set `icon`.
+- **Icons break after merge and nothing re-checks them.** The PR gate only fetches the icon of an entry the PR adds or edits, so a host that dies later goes unnoticed. On 2026-11-19 every listed icon returned an image except BEN, which was delisted because its issuer site `lu.meme` is gone (issue #125). That sweep moved 17 icons off `ipfs.io`, whose public gateway is retired (403 in browsers, 429 otherwise), and 5 off `stellar.myfilebase.com` (404). It also moved ZOMB and STROOPY from `xlmeme.com`, now a parking page, to the same images on `imagedelivery.net`. Prefer the `image` the issuer publishes in its `stellar.toml`.
+- **No listed icon uses `ipfs.io` any more**, and a new one should not: the gateway is retired. A bare CID is still schema-legal (`scripts/lib/assetSchema.js:21`), but `checkIconUrl` fetches `icon` as given, so a bare CID fails the gate. A full URL on a working gateway (for example `ipfs.filebase.io`) or on the issuer's own host is what passes.
+- **To re-verify the whole list**, run `yarn verify` with an empty `assets` array in `tokenList.json` (every file is then treated as new, so every on-chain check runs), then restore the file with `git checkout tokenList.json`.
+- **`icon` is optional in the schema but effectively required for any asset with an `issuer`.** `verifyClassicAsset` (`scripts/lib/verify.js:83`) always calls `checkIconUrl(asset.icon)`, and `fetch(undefined)` throws. All 56 assets currently set `icon`.
 - **`domain` is genuinely optional and 4 assets omit it.** Two have no issuer (the Centrifuge pair, so no check runs at all); two do have an issuer: `assets/CBEM2CAIYLM3HBOPU5HLQL7V5BUAKM3N77DYQKX4FNHTQLQUUD2ZFBOX.json` (LIBRE) and `assets/CBSJZEIO5C7KC2SF3MKSNXXJSW5G3VTNBX4ATMKUI3B2MR4JKM4R26YF.json` (USDT0). The domain check compares with strict inequality, so an omitted `domain` passes only when the issuer's on-chain `home_domain` is also unset.
-- **Filename must be the contract address, but no script enforces it.** `README.md:40` states the rule; `assets/GB3RF5WN3FDIMORX4A7PRXVNGQXSQAJRBCILM4EGQDRHDXK4XYUDR22J.json` is named after the issuer while its `contract` is `CBPZITKDNHAMPX25OVSF7BCBT3BCFXSPR3WXER5E3T77F46NRXHKYFZC`. Both `mergeAssets` and `verifyAssets` key on the `contract` field, not the filename, so the mismatch passes CI.
+- **Filename must be the contract address, but no script enforces it.** `README.md:40` states the rule. Both `mergeAssets` and `verifyAssets` key on the `contract` field, not the filename, so the mismatch passes CI.
 - **Assets with no `issuer` skip every on-chain check.** Non-SAC Soroban tokens (for example `assets/CBI7UCH5KGSVQRO5H4SUCZUTZABCITZLRHQQZTWL2TK4RZ72TAR6IHRV.json` and `assets/CC64WBDGS6QQP22QTTIACYIXT3WF7BBQEYOQPLTP7GTKYY7PZ74QYGSL.json`) get schema validation only, and the trustline script skips them too (`partitionAssetsByTrustline`, `scripts/lib/trustlines.js:19`). The repo's review skill treats these as needing a code audit (`.claude/skills/token-pr-security-check/SKILL.md:15-25`).
 - **Deleting an `assets/` file removes the token from `tokenList.json`.** `mergeAssets` (`scripts/lib/tokenList.js:15`) diffs directory contents against the list and drops what is missing.
 - **Removing a field from an asset file does not remove it from the list.** `mergeAssets` applies edits with `Object.assign` onto the existing entry, and `detectChangedKeys` (`scripts/lib/tokenList.js:6`) only looks at keys present in the file. To drop a field, delete and re-add the asset, or edit `tokenList.json` by hand in a maintainer PR.

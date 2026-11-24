@@ -1,0 +1,10 @@
+{
+  "name": "Gravity HITZ",
+  "org": "Skyhitz",
+  "contract": "CBAPZAZNNB4X3VPXV2LYA5RMV7XHXIVREES2GG7R5GUXDZ4R4CKOY4EU",
+  "code": "HITZ",
+  "domain": "skyhitz.io",
+  "icon": "https://skyhitz.io/icon.png",
+  "decimals": 7,
+  "comment": "HITZ Protocol token (SEP-41). An account holding more than its Event Horizon, L = √S, can send HITZ only to a registered pool. See skyhitz.io"
+}
