@@ -1,0 +1,36 @@
+name: Announce Token Again
+
+# Posts one already listed token to Discord again, for when the first announcement went
+# out wrong. The automatic announcement of new tokens lives in update-token-list.yml.
+on:
+  workflow_dispatch:
+    inputs:
+      contract:
+        description: 'Contract address of a token already in tokenList.json'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  announce-token:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Announce the token on Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_TOKEN_LIST_WEBHOOK }}
+          ANNOUNCE_CONTRACT: ${{ inputs.contract }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK_URL" ]; then
+            echo "::error::DISCORD_TOKEN_LIST_WEBHOOK is not set"
+            exit 1
+          fi
+          node scripts/announceNewTokens.js

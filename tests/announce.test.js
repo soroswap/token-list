@@ -3,7 +3,9 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const {
   findNewAssets,
+  findListedAssets,
   iconUrl,
+  thumbnailUrl,
   explorerUrl,
   escapeMarkdown,
   buildEmbed,
@@ -22,6 +24,36 @@ test('findNewAssets ignores edits to an already listed token', () => {
   const before = tokenList([asset()]);
   const after = tokenList([asset({ icon: 'https://example.com/new.png' })]);
   assert.deepEqual(findNewAssets(before, after), []);
+});
+
+test('findListedAssets returns the listed token with that contract', () => {
+  const list = tokenList([asset(), { ...WASM_TOKEN }]);
+  assert.deepEqual(findListedAssets(list, WASM_TOKEN.contract), [WASM_TOKEN]);
+});
+
+test('findListedAssets returns nothing for a contract that is not listed', () => {
+  assert.deepEqual(findListedAssets(tokenList([asset()]), WASM_TOKEN.contract), []);
+  assert.deepEqual(findListedAssets(null, WASM_TOKEN.contract), []);
+});
+
+test('thumbnailUrl routes an SVG icon through the PNG proxy', () => {
+  assert.equal(
+    thumbnailUrl('https://example.com/icons/token.svg'),
+    'https://wsrv.nl/?url=https%3A%2F%2Fexample.com%2Ficons%2Ftoken.svg&output=png&w=256&h=256',
+  );
+  assert.match(thumbnailUrl('https://example.com/TOKEN.SVG?v=2'), /^https:\/\/wsrv\.nl\/\?url=/);
+});
+
+test('thumbnailUrl leaves raster icons, CIDs and a missing icon as iconUrl gives them', () => {
+  assert.equal(thumbnailUrl('https://example.com/a.png'), 'https://example.com/a.png');
+  assert.equal(thumbnailUrl('https://example.com/svg/a.png'), 'https://example.com/svg/a.png');
+  assert.equal(thumbnailUrl('bafkreiabc'), 'https://ipfs.io/ipfs/bafkreiabc');
+  assert.equal(thumbnailUrl(undefined), undefined);
+});
+
+test('buildEmbed uses the proxied PNG as thumbnail for an SVG icon', () => {
+  const embed = buildEmbed({ ...WASM_TOKEN, icon: 'https://example.com/token.svg' });
+  assert.match(embed.thumbnail.url, /^https:\/\/wsrv\.nl\/\?url=.*output=png/);
 });
 
 test('findNewAssets treats a missing previous list as empty', () => {
