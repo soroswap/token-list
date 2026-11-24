@@ -2,7 +2,7 @@
   "name": "Assets curated by Soroswap Protocol",
   "provider": "Soroswap Protocol",
   "description": "The list of assets curated by Soroswap Protocol",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "feedback": "https://github.com/soroswap/token-list",
   "network": "mainnet",
   "assets": [
@@ -285,6 +285,15 @@
       "domain": "ngnc.online",
       "icon": "https://uploads-ssl.webflow.com/60a70a1080cf2974d4b1595e/61961ce43c530394bcb05349_NGRC.png",
       "decimals": 7
+    },
+    {
+      "code": "USST",
+      "name": "USST",
+      "contract": "CBZ4DCE7PYMUTOAKKUTRSUPT3FJFVOWCSKWUM5A72D6SAVMUJE5JN2PJ",
+      "org": "STBL Protocol",
+      "domain": "stbl.com",
+      "icon": "https://stellar.stbl.com/usst.svg",
+      "decimals": 18
     },
     {
       "code": "oUSD",
