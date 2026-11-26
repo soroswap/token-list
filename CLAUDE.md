@@ -14,17 +14,17 @@ Distribution is the repo file plus a POST to the Soroswap indexer after every me
 |---|---|
 | `assets/` | One JSON file per token, named after the contract address. |
 | `tokenList.json` | Generated aggregate list. |
-| `scripts/` | CLI entry points: verify, merge, trustlines, footprint restore. Thin; behavior lives in `scripts/lib/`. |
-| `scripts/lib/` | Testable modules: schema, merge, verification, trustlines, footprint restorer, Horizon adapter, retry helper, file helpers. |
+| `scripts/` | CLI entry points: verify, merge, trustlines, Discord announcement. Thin; behavior lives in `scripts/lib/`. |
+| `scripts/lib/` | Testable modules: schema, merge, verification, trustlines, Discord announcement, Horizon adapter, retry helper, file helpers. |
 | `tests/` | Unit tests on Node's built-in `node:test`. Offline, no network. |
-| `.github/workflows/` | PR gate, unit tests, publish and indexer sync, daily footprint job. |
+| `.github/workflows/` | PR gate, unit tests, publish and indexer sync, Discord re-announcement. |
 | `.github/PULL_REQUEST_TEMPLATE.md` | Checklist contributors fill in when submitting a token. |
-| `docker/` | `run.sh`, a local `node:22` container harness for running the scripts (`README.md:78-85`). |
+| `docker/` | `run.sh`, a local `node:22` container harness for running the scripts (`README.md:71-78`). |
 | `.claude/skills/token-pr-security-check/` | Repo-local skill for auditing open token PRs. Advisory only, never merges (`SKILL.md:9`). |
 
 ## Commands
 
-From `package.json:12-19`. Run them from the repo root; the scripts resolve `./tokenList.json` against the CWD.
+From `package.json:12-17`. Run them from the repo root; the scripts resolve `./tokenList.json` against the CWD.
 
 | Command | Does |
 |---|---|
@@ -32,8 +32,6 @@ From `package.json:12-19`. Run them from the repo root; the scripts resolve `./t
 | `yarn verify` | Schema plus on-chain validation of `assets/`. The PR gate. |
 | `yarn merge` | Regenerates `tokenList.json` and bumps `version`. |
 | `yarn set-trustlines $SECRET` | Adds trustlines for every classic asset in the list. |
-| `yarn restore-footprints` | Restores Soroban footprints for listed contracts. Needs `PRIVATE_KEY`, `RPC_URL`, `HORIZON_URL`, `SOROSWAP_API_KEY`. |
-| `yarn restore-footprints:env` | Same, sourcing `.env` first (`scripts/restore-footprints.sh`). |
 
 Requires Node 22.12 or newer (`package.json:9-11`): `@stellar/stellar-sdk` 17 needs `require(esm)`.
 
@@ -42,13 +40,12 @@ Adding a token: fork, add `assets/<CONTRACT_ADDRESS>.json`, run `yarn && yarn ve
 ## Cross-repo dependencies
 
 - **Soroswap indexer** consumes this list. After every merge touching `assets/**`, CI POSTs the full `tokenList.json` to `${INDEXER_URL}/api/token-lists/soroswap/sync` with an `x-github-key` header (`.github/workflows/update-token-list.yml:45-53`). Endpoint contract, payload schema and full-replace semantics: `GITHUB_ACTIONS_INTEGRATION.md:9-46`, `:139-169`.
-- **Soroswap API** feeds the footprint job: pools come from `SOROSWAP_POOLS_ENDPOINT` with a bearer `SOROSWAP_API_KEY` (`scripts/lib/footprint.js:12`, `:105`).
-- **Soroswap router contract** `CAG5LRYQ5JVEUI5TEID72EYOVX44TTUJT5BQR2J6J77FH65PCCFAJDDH` is `SOROSWAP_ROUTER` in the footprint module (`scripts/lib/footprint.js:13`).
+- **Soroban footprints are not kept alive here.** Each issuer extends its own token's TTL, and Soroswap's own contracts extend theirs. The nightly footprint-restore job and `scripts/lib/footprint.js` were removed.
 - No PaltaLabs or DeFindex repo, service or package is referenced anywhere in this repo.
 
 ## Conventions
 
-- Never commit secrets. `.env.local.example` lists variable names only; workflows read `PRIVATE_KEY`, `RPC_URL`, `SOROSWAP_API_KEY`, `TRUSTLINES_PRIVATE_KEY`, `INDEXER_URL`, `INDEXER_GITHUB_API_KEY` from GitHub secrets. Never log a secret key.
+- Never commit secrets. `.env.local.example` lists variable names only; workflows read `TRUSTLINES_PRIVATE_KEY` and `DISCORD_TOKEN_LIST_WEBHOOK` from GitHub secrets. Never log a secret key.
 - The asset schema exists once, in `scripts/lib/assetSchema.js`. The PR gate and the merge both import it. Do not copy it.
 - `scripts/*.js` are composition roots: env, file I/O, `process.exit`. Behavior goes in `scripts/lib/` with a test in `tests/`, written before the code.
 - Verify before trusting: if a claim in these docs contradicts the code, the code wins. Fix the doc in the same commit.

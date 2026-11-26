@@ -68,26 +68,14 @@ yarn merge     # regenerate tokenList.json locally; CI does this on merge
 
 Script logic lives in `scripts/lib/` and is covered by `tests/`. Module docs are in `docs/modules/`.
 
-## Restoring footprints of the token list
-It runs daily. But you can trigger it manually:
-
-Go to github actions and launch the workflow `Restore footprints of the token list`.
-Make sure `GB5KBIU6KUCKEVVDZOMIIJAKGAEOKQOBZX5TMOBXGCU3D5RAO22WETXE` address is funded to run it on github.
-
-If you want to run it locally, you need to set the environment variables `PRIVATE_KEY`, `RPC_URL`, `HORIZON_URL` and `SOROSWAP_API_KEY`. Then, you can run the restore footprints script with the following command:
-Otherwise you can use docker, just run the following command:
-```bash 
+To run the scripts in a `node:22` container instead, use docker:
+```bash
 cp .env.local.example .env
 # Fill the .env file with the required environment variables
 bash docker/run.sh
 
 yarn install
 ```
-
-```bash
-yarn restore-footprints
-```
-If you need to change the endpoint for getting all pairs, edit `SOROSWAP_POOLS_ENDPOINT` in `scripts/lib/footprint.js`
 
 ## Setting trustlines for a wallet
 This feature allow a wallet to set trustlines for all tokens in the token list. You can run the script as follows:
